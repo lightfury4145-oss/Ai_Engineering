@@ -1,0 +1,2152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AI Engineering Course 🐍</title>
+<style>
+  :root {
+    --bg-start: #041422;
+    --bg-mid: #0a2342;
+    --bg-end: #031017;
+    --blue-light: #67e8f9;
+    --blue-deep: #0f4da8;
+    --accent: #22d3ee;
+    --accent-2: #f59e0b;
+    --white: #FFFFFF;
+    --glass-bg: rgba(10, 28, 48, 0.58);
+    --glass-border: rgba(133, 206, 255, 0.22);
+    --stellantis-blue: #22d3ee;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: radial-gradient(circle at top left, rgba(34, 211, 238, 0.22), transparent 28%),
+      radial-gradient(circle at top right, rgba(245, 158, 11, 0.16), transparent 25%),
+      radial-gradient(circle at bottom, rgba(14, 165, 233, 0.18), transparent 35%),
+      linear-gradient(180deg, var(--bg-start), var(--bg-mid) 55%, var(--bg-end));
+    background-size: 100% 100%, 100% 100%, 120% 120%, 100% 100%;
+    animation: bgPulse 16s ease-in-out infinite alternate;
+    color: var(--white);
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+  }
+  @keyframes bgPulse {
+    from { background-position: 0% 0%, 100% 0%, 50% 100%, 0% 0%; }
+    to { background-position: 10% 5%, 90% 10%, 46% 88%, 0% 0%; }
+  }
+
+  /* WELCOME SCREEN */
+  .welcome-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(130deg, rgba(4, 20, 34, 0.92), rgba(9, 51, 87, 0.9), rgba(69, 39, 7, 0.86));
+    backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: opacity 1s ease-out;
+  }
+  .welcome-screen img {
+    width: 300px;
+    height: auto;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 20px rgba(103,232,249,0.45));
+  }
+  .welcome-screen h1 {
+    font-size: 2.5rem;
+    color: var(--white);
+    margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(255,255,255,0.5);
+  }
+  .welcome-screen p {
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.8);
+  }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(145deg, rgba(6, 28, 52, 0.88), rgba(3, 14, 29, 0.72));
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 28px;
+    padding: 28px 34px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin: 20px 36px 10px;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(103, 232, 249, 0.08);
+    position: relative;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 28px;
+    background: linear-gradient(120deg, rgba(34, 211, 238, 0.2), transparent 45%);
+    pointer-events: none;
+  }
+  .header > * { position: relative; }
+  .header .logo {
+    font-size: 5.6rem;
+    width: 140px;
+    height: 140px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, rgba(16, 58, 92, 0.9), rgba(31, 112, 157, 0.72));
+    border: 1px solid rgba(103,232,249,0.4);
+    border-radius: 28px;
+    box-shadow: inset 0 0 0 1px rgba(103,232,249,0.25), 0 16px 28px rgba(0,0,0,0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .header .logo:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: inset 0 0 0 1px rgba(103,232,249,0.28), 0 20px 30px rgba(0,0,0,0.4);
+  }
+  .header h1 {
+    font-size: 2rem;
+    color: #e0f2fe;
+    margin-bottom: 6px;
+  }
+  .header p {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.75);
+  }
+  .header-tag {
+    margin-left: auto;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    font-weight: 700;
+    color: var(--white);
+    background: rgba(34, 211, 238, 0.16);
+    border: 1px solid rgba(34, 211, 238, 0.38);
+  }
+
+  /* PROGRESS BAR */
+  .progress-bar-wrap {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 12px 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-radius: 18px;
+    margin: 0 36px 10px;
+  }
+  .progress-label { font-size: 0.8rem; color: rgba(255,255,255,0.75); white-space: nowrap; }
+  .progress-track {
+    flex: 1;
+    height: 10px;
+    background: rgba(255,255,255,0.12);
+    border-radius: 99px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), #0ea5e9, var(--accent-2));
+    border-radius: 99px;
+    transition: width 0.5s ease;
+    box-shadow: 0 0 14px rgba(34, 211, 238, 0.5);
+  }
+  .progress-pct { font-size: 0.8rem; color: var(--white); font-weight: 700; }
+
+  /* WEEKLY DATA */
+  .weekly-wrap {
+    margin: 0 36px 14px;
+    background: linear-gradient(145deg, rgba(6, 27, 47, 0.82), rgba(4, 17, 33, 0.76));
+    border: 1px solid rgba(34, 211, 238, 0.22);
+    border-radius: 18px;
+    padding: 16px 18px;
+    backdrop-filter: blur(14px);
+  }
+  .weekly-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .weekly-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #e0f2fe;
+    letter-spacing: 0.02em;
+  }
+  .weekly-sub {
+    font-size: 0.78rem;
+    color: rgba(224, 242, 254, 0.72);
+  }
+  .weekly-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .week-card {
+    background: rgba(3, 20, 37, 0.75);
+    border: 1px solid rgba(125, 211, 252, 0.24);
+    border-radius: 12px;
+    padding: 10px 10px 11px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .week-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(125, 211, 252, 0.45);
+  }
+  .week-label {
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: rgba(224, 242, 254, 0.88);
+    margin-bottom: 6px;
+  }
+  .week-metric {
+    font-size: 0.74rem;
+    color: rgba(224, 242, 254, 0.78);
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+  .week-bar {
+    width: 100%;
+    height: 7px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.15);
+    overflow: hidden;
+  }
+  .week-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #22d3ee, #0ea5e9, #f59e0b);
+    box-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
+  }
+
+  /* WEEK HOME */
+  .week-home {
+    margin: 0 36px 14px;
+    background: linear-gradient(145deg, rgba(6, 27, 47, 0.76), rgba(4, 17, 33, 0.72));
+    border: 1px solid rgba(34, 211, 238, 0.22);
+    border-radius: 18px;
+    padding: 18px;
+    backdrop-filter: blur(12px);
+  }
+  .week-home-head {
+    margin-bottom: 14px;
+  }
+  .week-home-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #e0f2fe;
+    margin-bottom: 4px;
+  }
+  .week-home-sub {
+    font-size: 0.84rem;
+    color: rgba(224, 242, 254, 0.75);
+  }
+  .week-home-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .week-home-card {
+    background: rgba(3, 20, 37, 0.78);
+    border: 1px solid rgba(125, 211, 252, 0.24);
+    border-radius: 14px;
+    padding: 12px;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .week-home-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(125, 211, 252, 0.45);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.22);
+  }
+  .week-home-week {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #e0f2fe;
+    margin-bottom: 4px;
+  }
+  .week-home-topic {
+    font-size: 0.77rem;
+    color: rgba(224, 242, 254, 0.78);
+    min-height: 36px;
+  }
+  .week-home-btn {
+    margin-top: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    background: linear-gradient(135deg, #cffafe, #fbbf24);
+    color: #082f49;
+  }
+  .week-home-btn:hover {
+    background: linear-gradient(135deg, #e0f2fe, #f59e0b);
+  }
+
+  .course-nav-row {
+    margin: 0 36px 12px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .home-btn {
+    border: 1px solid rgba(125, 211, 252, 0.35);
+    background: rgba(6, 27, 47, 0.78);
+    color: #e0f2fe;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .home-btn:hover {
+    background: rgba(8, 38, 66, 0.9);
+    border-color: rgba(125, 211, 252, 0.5);
+  }
+
+  /* LAYOUT */
+  .layout {
+    display: flex;
+    height: calc(100vh - 120px);
+  }
+
+  /* SIDEBAR */
+  .sidebar {
+    width: 240px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    border-right: 1px solid var(--glass-border);
+    overflow-y: auto;
+    padding: 16px 0;
+    flex-shrink: 0;
+  }
+  .sidebar-title {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.6);
+    padding: 0 16px 10px;
+  }
+  .lesson-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 16px;
+    background: transparent;
+    border: none;
+    color: rgba(255,255,255,0.8);
+    cursor: pointer;
+    font-size: 0.85rem;
+    text-align: left;
+    transition: all 0.2s;
+    border-left: 2px solid transparent;
+  }
+  .lesson-btn:hover {
+    background: rgba(34,211,238,0.14);
+    border-left-color: rgba(34,211,238,0.8);
+    transform: translateX(4px);
+  }
+  .lesson-btn.active {
+    background: linear-gradient(90deg, rgba(34,211,238,0.32), rgba(14,165,233,0.16));
+    border-left-color: var(--accent-2);
+    color: var(--white);
+  }
+  .lesson-btn.done .dot { background: #22c55e !important; }
+  .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+    flex-shrink: 0;
+  }
+  .dot.active-dot { background: var(--white); }
+
+  /* MAIN */
+  .main {
+    flex: 1;
+    overflow-y: auto;
+    padding: 28px 36px;
+  }
+
+  .lesson-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+  .lesson-icon { font-size: 2rem; }
+  .lesson-title { font-size: 1.6rem; font-weight: 700; color: var(--white); }
+  .lesson-subtitle { font-size: 0.9rem; color: rgba(255,255,255,0.6); margin-bottom: 20px; }
+
+  /* CARD */
+  .card {
+    background: linear-gradient(160deg, rgba(9, 32, 54, 0.72), rgba(5, 22, 40, 0.62));
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(34,211,238,0.48);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.26);
+  }
+  .card h3 {
+    font-size: 1rem;
+    color: #7dd3fc;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.92rem;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.7;
+  }
+  .card ul { padding-left: 18px; }
+
+  /* ANALOGY BOX */
+  .analogy {
+    background: rgba(26, 58, 42, 0.8);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(22, 101, 52, 0.5);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin: 12px 0;
+    font-size: 0.9rem;
+    color: #86efac;
+  }
+  .analogy strong { color: #4ade80; }
+
+  /* CODE BLOCK */
+  .code-block {
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    padding: 16px 18px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.88rem;
+    line-height: 1.8;
+    color: var(--white);
+    margin: 12px 0;
+    overflow-x: auto;
+    position: relative;
+  }
+  .kw { color: #c084fc; font-weight: bold; }
+  .str { color: #86efac; }
+  .num { color: #fb923c; }
+  .cmt { color: rgba(255,255,255,0.5); font-style: italic; }
+  .fn { color: #38bdf8; }
+  .var { color: #fde68a; }
+
+  /* OUTPUT BOX */
+  .output-box {
+    background: rgba(2, 6, 23, 0.8);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(30, 64, 175, 0.5);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    color: #6ee7b7;
+    margin-top: 8px;
+  }
+  .output-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(30, 64, 175, 0.7);
+    margin-bottom: 6px;
+  }
+
+  /* QUIZ */
+  .quiz-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 2px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 22px 26px;
+    margin-top: 24px;
+  }
+  .quiz-card h3 { color: var(--white); font-size: 1rem; margin-bottom: 14px; }
+  .quiz-q { font-size: 0.95rem; color: var(--white); margin-bottom: 14px; line-height: 1.6; }
+  .options { display: flex; flex-direction: column; gap: 8px; }
+  .opt-btn {
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    padding: 10px 16px;
+    color: rgba(255,255,255,0.9);
+    cursor: pointer;
+    font-size: 0.88rem;
+    text-align: left;
+    transition: all 0.2s;
+  }
+  .opt-btn:hover { background: rgba(255,255,255,0.1); border-color: var(--stellantis-blue); }
+  .opt-btn.correct { background: rgba(20, 83, 45, 0.8); border-color: #22c55e; color: #86efac; }
+  .opt-btn.wrong { background: rgba(76, 5, 25, 0.8); border-color: #ef4444; color: #fca5a5; }
+  .quiz-feedback {
+    margin-top: 12px;
+    font-size: 0.9rem;
+    padding: 10px 14px;
+    border-radius: 8px;
+    display: none;
+  }
+  .quiz-feedback.correct { background: rgba(20, 83, 45, 0.8); color: #86efac; display: block; }
+  .quiz-feedback.wrong { background: rgba(76, 5, 25, 0.8); color: #fca5a5; display: block; }
+
+  /* NAV BUTTONS */
+  .nav-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 28px;
+  }
+  .nav-btn {
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+  }
+  .nav-btn.prev { background: rgba(51, 65, 85, 0.8); color: var(--white); }
+  .nav-btn.prev:hover { background: rgba(71, 85, 105, 0.9); }
+  .nav-btn.next { background: linear-gradient(135deg, #cffafe, #fbbf24); color: #082f49; box-shadow: 0 10px 22px rgba(245, 158, 11, 0.28); }
+  .nav-btn.next:hover { background: linear-gradient(135deg, #e0f2fe, #f59e0b); transform: translateY(-2px); }
+  .nav-btn:disabled { opacity: 0.35; cursor: not-allowed; transform: none !important; }
+
+  /* BADGE */
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 99px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .badge-blue { background: var(--stellantis-blue); color: #bfdbfe; }
+  .badge-green { background: rgba(22, 101, 52, 0.8); color: #bbf7d0; }
+  .badge-yellow { background: rgba(133, 77, 14, 0.8); color: #fef08a; }
+
+  /* CONGRATS */
+  .congrats {
+    text-align: center;
+    padding: 40px 20px;
+  }
+  .congrats .trophy { font-size: 5rem; margin-bottom: 16px; }
+  .congrats h2 { font-size: 2rem; color: var(--white); margin-bottom: 10px; }
+  .congrats p { color: rgba(255,255,255,0.7); margin-bottom: 24px; font-size: 1rem; }
+  .restart-btn {
+    background: linear-gradient(135deg, #bae6fd, #f59e0b);
+    color: #082f49;
+    font-weight: 700;
+    padding: 12px 28px;
+    border-radius: 10px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: rgba(255,255,255,0.1); }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.4); border-radius: 3px; }
+
+  @media (max-width: 980px) {
+    .header {
+      padding: 20px 22px;
+      gap: 12px;
+      margin: 14px 16px 10px;
+    }
+    .header .logo {
+      width: 92px;
+      height: 92px;
+      font-size: 3.6rem;
+      border-radius: 22px;
+    }
+    .header h1 { font-size: 1.45rem; }
+    .header-tag { display: none; }
+    .progress-bar-wrap { margin: 0 16px 10px; padding: 10px 14px; }
+    .weekly-wrap { margin: 0 16px 10px; }
+    .week-home { margin: 0 16px 10px; }
+    .week-home-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .course-nav-row { margin: 0 16px 10px; }
+    .weekly-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .layout { flex-direction: column; height: auto; }
+    .sidebar { width: 100%; max-height: 180px; }
+    .main { padding: 18px 16px; }
+    .welcome-screen img { width: 220px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="welcome" class="welcome-screen">
+  <img src="Design_trims.png" alt="Design & Trims Logo">
+  <h1>Welcome to AI Engineering Course</h1>
+  <p>Loading your training session...</p>
+</div>
+
+<div class="header">
+  <div class="logo">🐍</div>
+  <div>
+    <h1>AI Engineering Course</h1>
+    <p id="headerSubtitle">Choose your training week</p>
+  </div>
+  <div class="header-tag">Team Training</div>
+</div>
+
+<div class="week-home" id="weekHome"></div>
+
+<div id="courseApp" style="display:none;">
+<div class="course-nav-row">
+  <button class="home-btn" onclick="goHome()">Back To Week Home</button>
+</div>
+
+<div class="progress-bar-wrap">
+  <span class="progress-label">Your Progress</span>
+  <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+  <span class="progress-pct" id="progressPct">0%</span>
+</div>
+
+<div class="weekly-wrap">
+  <div class="weekly-head">
+    <div class="weekly-title">Weekly Learning Data</div>
+    <div class="weekly-sub">Track lesson completion, quiz score, and study time</div>
+  </div>
+  <div class="weekly-grid" id="weeklyGrid"></div>
+</div>
+
+<div class="layout">
+  <div class="sidebar" id="sidebar"></div>
+  <div class="main" id="main"></div>
+</div>
+</div>
+
+<script>
+const week4Lessons = [
+  {
+    id: 0,
+    icon: "👋",
+    title: "What is Programming?",
+    subtitle: "Let's start from absolute scratch",
+    content: `
+      <div class="card">
+        <h3>🤔 What is a computer program?</h3>
+        <p>Think of a computer program as a <strong>recipe</strong>. Just like a recipe tells a cook exactly what to do step by step, a program tells the computer exactly what to do, step by step.</p>
+        <div class="analogy">
+          <strong>Real life analogy:</strong><br>
+          Recipe: "Boil water → Add noodles → Wait 5 mins → Drain → Serve"<br>
+          Program: "Get number → Add 10 → Show the result"<br><br>
+          Both are just <em>instructions in order</em>.
+        </div>
+      </div>
+      <div class="card">
+        <h3>🐍 Why Python?</h3>
+        <p>Python is one of the <strong>easiest</strong> programming languages to read. It looks almost like plain English! That's why it's perfect for beginners.</p>
+        <div class="code-block">
+          <span class="cmt"># This is Python code. It reads like a sentence!</span><br>
+          <span class="fn">print</span>(<span class="str">"Hello, World!"</span>)
+        </div>
+        <div class="output-box">
+          <div class="output-label">▶ Output</div>
+          Hello, World!
+        </div>
+        <p style="margin-top:10px"><code style="background:#0f172a;padding:2px 6px;border-radius:4px;color:#facc15">print()</code> is Python's way of <strong>displaying something on screen</strong>. Like saying "show this to me".</p>
+      </div>
+      <div class="card">
+        <h3>📦 What is a Variable?</h3>
+        <p>A variable is like a <strong>labelled box</strong> where you store information.</p>
+        <div class="analogy">
+          <strong>Real life analogy:</strong><br>
+          Imagine a box with a label <em>"my_age"</em> and the number <em>25</em> inside it.<br>
+          Whenever you need your age, you just refer to that box!
+        </div>
+        <div class="code-block">
+          <span class="var">my_age</span> = <span class="num">25</span><br>
+          <span class="var">my_name</span> = <span class="str">"Priya"</span><br>
+          <span class="fn">print</span>(<span class="var">my_name</span>)  <span class="cmt"># Shows: Priya</span><br>
+          <span class="fn">print</span>(<span class="var">my_age</span>)   <span class="cmt"># Shows: 25</span>
+        </div>
+        <div class="output-box">
+          <div class="output-label">▶ Output</div>
+          Priya<br>25
+        </div>
+      </div>
+    `,
+    quiz: {
+      q: "What does the print() function do in Python?",
+      options: ["Prints a document on paper", "Displays something on the screen", "Deletes information", "Creates a variable"],
+      answer: 1,
+      explanation: "✅ Correct! print() displays (shows) something on the screen. It's your way of seeing what's happening inside your program."
+    }
+  },
+  {
+    id: 1,
+    icon: "🔀",
+    title: "Conditions (if / else)",
+    subtitle: "Making decisions in your code",
+    content: `
+      <div class="card">
+        <h3>🤔 What is a Condition?</h3>
+        <p>A condition is a <strong>yes/no question</strong> your program asks. Based on the answer, it does different things.</p>
+        <div class="analogy">
+          <strong>Real life analogy:</strong><br>
+          "If it is raining → carry an umbrella<br>
+          Otherwise (else) → wear sunglasses"<br><br>
+          Your program does the same — checks something, then decides what to do.
+        </div>
+      </div>
+      <div class="card">
+        <h3>✍️ How to write an if statement</h3>
+        <div class="code-block">
+          <span class="var">temperature</span> = <span class="num">38</span><br><br>
+          <span class="kw">if</span> <span class="var">temperature</span> > <span class="num">36</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"You have a fever!"</span>)<br>
+          <span class="kw">else</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"You are fine."</span>)
+        </div>
+        <div class="output-box">
+          <div class="output-label">▶ Output</div>
+          You have a fever!
+        </div>
+        <p style="margin-top:12px">⚠️ <strong>Important:</strong> Notice the <strong>4 spaces (indent)</strong> before print. Python uses spaces to know which code belongs inside the if block.</p>
+      </div>
+      <div class="card">
+        <h3>➕ Adding more choices: elif</h3>
+        <p><code style="background:#0f172a;padding:2px 6px;border-radius:4px;color:#facc15">elif</code> means <strong>"else if"</strong> — it checks another condition if the first one was false.</p>
+        <div class="code-block">
+          <span class="var">score</span> = <span class="num">72</span><br><br>
+          <span class="kw">if</span> <span class="var">score</span> >= <span class="num">90</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"Grade: A"</span>)<br>
+          <span class="kw">elif</span> <span class="var">score</span> >= <span class="num">70</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"Grade: B"</span>)<br>
+          <span class="kw">elif</span> <span class="var">score</span> >= <span class="num">50</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"Grade: C"</span>)<br>
+          <span class="kw">else</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"Grade: F"</span>)
+        </div>
+        <div class="output-box">
+          <div class="output-label">▶ Output</div>
+          Grade: B
+        </div>
+      </div>
+      <div class="card">
+        <h3>🔢 Comparison Operators (the tools for asking questions)</h3>
+        <table style="width:100%;border-collapse:collapse;font-size:0.88rem;margin-top:8px">
+          <tr style="border-bottom:1px solid #334155">
+            <th style="text-align:left;padding:8px;color:#38bdf8">Symbol</th>
+            <th style="text-align:left;padding:8px;color:#38bdf8">Meaning</th>
+            <th style="text-align:left;padding:8px;color:#38bdf8">Example</th>
+          </tr>
+          <tr style="border-bottom:1px solid #1e293b"><td style="padding:8px;color:#fde68a">==</td><td style="padding:8px;color:#cbd5e1">Equal to</td><td style="padding:8px;color:#86efac">5 == 5 → True</td></tr>
+          <tr style="border-bottom:1px solid #1e293b"><td style="padding:8px;color:#fde68a">!=</td><td style="padding:8px;color:#cbd5e1">Not equal to</td><td style="padding:8px;color:#86efac">5 != 3 → True</td></tr>
+          <tr style="border-bottom:1px solid #1e293b"><td style="padding:8px;color:#fde68a">&gt;</td><td style="padding:8px;color:#cbd5e1">Greater than</td><td style="padding:8px;color:#86efac">10 &gt; 5 → True</td></tr>
+          <tr style="border-bottom:1px solid #1e293b"><td style="padding:8px;color:#fde68a">&lt;</td><td style="padding:8px;color:#cbd5e1">Less than</td><td style="padding:8px;color:#86efac">3 &lt; 7 → True</td></tr>
+          <tr style="border-bottom:1px solid #1e293b"><td style="padding:8px;color:#fde68a">&gt;=</td><td style="padding:8px;color:#cbd5e1">Greater than or equal</td><td style="padding:8px;color:#86efac">5 &gt;= 5 → True</td></tr>
+          <tr><td style="padding:8px;color:#fde68a">&lt;=</td><td style="padding:8px;color:#cbd5e1">Less than or equal</td><td style="padding:8px;color:#86efac">4 &lt;= 5 → True</td></tr>
+        </table>
+      </div>
+    `,
+    quiz: {
+      q: "What will this code print?\n\nage = 15\nif age >= 18:\n    print('Adult')\nelse:\n    print('Minor')",
+      options: ["Adult", "Minor", "Nothing", "Error"],
+      answer: 1,
+      explanation: "✅ Correct! Since age is 15, which is NOT >= 18, the if condition is False. So Python goes to else and prints 'Minor'."
+    }
+  },
+  {
+    id: 2,
+    icon: "🔁",
+    title: "For Loops",
+    subtitle: "Repeating tasks the smart way",
+    content: `
+      <div class="card">
+        <h3>🤔 What is a Loop?</h3>
+        <p>A loop is a way to <strong>repeat</strong> a task multiple times without writing the same code again and again.</p>
+        <div class="analogy">
+          <strong>Real life analogy:</strong><br>
+          Imagine you have to greet 5 people: "Hello Arun!", "Hello Priya!", "Hello Raj!"...<br>
+          Instead of writing that 5 times, you tell Python: <em>"For each person in my list, say hello!"</em>
+        </div>
+      </div>
+      <div class="card">
+        <h3>📋 Looping through a list</h3>
+        <div class="code-block">
+          <span class="var">friends</span> = [<span class="str">"Arun"</span>, <span class="str">"Priya"</span>, <span class="str">"Raj"</span>]<br><br>
+          <span class="kw">for</span> <span class="var">friend</span> <span class="kw">in</span> <span class="var">friends</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"Hello, "</span> + <span class="var">friend</span>)
+        </div>
+        <div class="output-box">
+          <div class="output-label">▶ Output</div>
+          Hello, Arun<br>
+          Hello, Priya<br>
+          Hello, Raj
+        </div>
+        <p style="margin-top:10px">Python automatically picks each item from the list one by one and runs the code inside the loop for each one.</p>
+      </div>
+      <div class="card">
+        <h3>🔢 Looping with range()</h3>
+        <p><code style="background:#0f172a;padding:2px 6px;border-radius:4px;color:#facc15">range(n)</code> generates numbers from <strong>0 to n-1</strong>. Super useful for repeating something a set number of times.</p>
+        <div class="code-block">
+          <span class="cmt"># Print numbers 1 to 5</span><br>
+          <span class="kw">for</span> <span class="var">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1</span>, <span class="num">6</span>):<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="var">i</span>)
+        </div>
+        <div class="output-box">
+          <div class="output-label">▶ Output</div>
+          1<br>2<br>3<br>4<br>5
+        </div>
+      </div>
+      <div class="card">
+        <h3>🎯 Combining Loop + Condition</h3>
+        <p>You can put an <strong>if statement inside a loop</strong>! This is very powerful.</p>
+        <div class="code-block">
+          <span class="cmt"># Print only even numbers from 1 to 10</span><br>
+          <span class="kw">for</span> <span class="var">num</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1</span>, <span class="num">11</span>):<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">if</span> <span class="var">num</span> % <span class="num">2</span> == <span class="num">0</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="var">num</span>, <span class="str">"is even"</span>)
+        </div>
+        <div class="output-box">
+          <div class="output-label">▶ Output</div>
+          2 is even<br>4 is even<br>6 is even<br>8 is even<br>10 is even
+        </div>
+        <p style="margin-top:10px">The <code style="background:#0f172a;padding:2px 6px;border-radius:4px;color:#facc15">%</code> symbol is the <strong>remainder operator</strong>. <em>num % 2 == 0</em> means "the number divides evenly by 2" → it's even!</p>
+      </div>
+    `,
+    quiz: {
+      q: "How many times will the word 'Hello' be printed?\n\nfor i in range(4):\n    print('Hello')",
+      options: ["3 times", "4 times", "5 times", "0 times"],
+      answer: 1,
+      explanation: "✅ Correct! range(4) gives us 0, 1, 2, 3 — that's 4 numbers. So the loop runs 4 times and prints 'Hello' 4 times."
+    }
+  },
+  {
+    id: 3,
+    icon: "🔄",
+    title: "While Loops",
+    subtitle: "Keep going until a condition is met",
+    content: `
+      <div class="card">
+        <h3>🤔 What is a While Loop?</h3>
+        <p>A <strong>while loop</strong> keeps repeating as long as a condition is <strong>True</strong>. It's like saying: <em>"Keep doing this UNTIL something changes."</em></p>
+        <div class="analogy">
+          <strong>Real life analogy:</strong><br>
+          "While the traffic light is red → stay stopped"<br>
+          "While the glass is not full → keep pouring water"<br><br>
+          As soon as the condition becomes false, Python stops the loop.
+        </div>
+      </div>
+      <div class="card">
+        <h3>✍️ Basic While Loop</h3>
+        <div class="code-block">
+          <span class="var">count</span> = <span class="num">1</span><br><br>
+          <span class="kw">while</span> <span class="var">count</span> <= <span class="num">5</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"Count is:"</span>, <span class="var">count</span>)<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="var">count</span> = <span class="var">count</span> + <span class="num">1</span>  <span class="cmt"># Very important! Increase count each time</span>
+        </div>
+        <div class="output-box">
+          <div class="output-label">▶ Output</div>
+          Count is: 1<br>Count is: 2<br>Count is: 3<br>Count is: 4<br>Count is: 5
+        </div>
+        <p style="margin-top:10px">⚠️ <strong>Warning:</strong> Always make sure the condition eventually becomes False. If you forget to increase <em>count</em>, the loop will run forever (called an "infinite loop")!</p>
+      </div>
+      <div class="card">
+        <h3>🆚 For Loop vs While Loop</h3>
+        <table style="width:100%;border-collapse:collapse;font-size:0.88rem;margin-top:8px">
+          <tr style="border-bottom:1px solid #334155">
+            <th style="text-align:left;padding:8px;color:#38bdf8">For Loop</th>
+            <th style="text-align:left;padding:8px;color:#38bdf8">While Loop</th>
+          </tr>
+          <tr style="border-bottom:1px solid #1e293b">
+            <td style="padding:8px;color:#cbd5e1">Use when you know HOW MANY times</td>
+            <td style="padding:8px;color:#cbd5e1">Use when you DON'T know how many times</td>
+          </tr>
+          <tr style="border-bottom:1px solid #1e293b">
+            <td style="padding:8px;color:#86efac">Loop through a list or range</td>
+            <td style="padding:8px;color:#86efac">Loop until a condition changes</td>
+          </tr>
+          <tr>
+            <td style="padding:8px;color:#fde68a">for i in range(5):</td>
+            <td style="padding:8px;color:#fde68a">while count <= 5:</td>
+          </tr>
+        </table>
+      </div>
+      <div class="card">
+        <h3>⛔ Breaking out of a loop</h3>
+        <p>Use <code style="background:#0f172a;padding:2px 6px;border-radius:4px;color:#c084fc">break</code> to <strong>immediately stop</strong> a loop, even if the condition is still True.</p>
+        <div class="code-block">
+          <span class="kw">for</span> <span class="var">num</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1</span>, <span class="num">10</span>):<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">if</span> <span class="var">num</span> == <span class="num">4</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">break</span>  <span class="cmt"># Stop the loop here!</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="var">num</span>)
+        </div>
+        <div class="output-box">
+          <div class="output-label">▶ Output</div>
+          1<br>2<br>3
+        </div>
+      </div>
+    `,
+    quiz: {
+      q: "What is the risk of a while loop if you're not careful?",
+      options: ["It can only run once", "It might create an infinite loop and never stop", "It can only work with numbers", "It will always cause an error"],
+      answer: 1,
+      explanation: "✅ Correct! If the condition in a while loop never becomes False (because you forgot to update a variable), it will run forever. Always make sure something inside the loop changes to eventually stop it."
+    }
+  },
+  {
+    id: 4,
+    icon: "🏆",
+    title: "Quick Summary",
+    subtitle: "Everything you've learned — in one place!",
+    content: `
+      <div class="card">
+        <h3>📌 Key Concepts Recap</h3>
+        <p style="margin-bottom:12px">Here's everything you've learned in this session:</p>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="background:#0f172a;border-left:3px solid #facc15;padding:12px 16px;border-radius:6px">
+            <strong style="color:#facc15">Variables</strong><br>
+            <span style="color:#94a3b8;font-size:0.88rem">Labelled boxes that store data. Example: name = "Priya"</span>
+          </div>
+          <div style="background:#0f172a;border-left:3px solid #38bdf8;padding:12px 16px;border-radius:6px">
+            <strong style="color:#38bdf8">if / elif / else</strong><br>
+            <span style="color:#94a3b8;font-size:0.88rem">Make decisions. Ask yes/no questions and run different code for each answer.</span>
+          </div>
+          <div style="background:#0f172a;border-left:3px solid #c084fc;padding:12px 16px;border-radius:6px">
+            <strong style="color:#c084fc">for loop</strong><br>
+            <span style="color:#94a3b8;font-size:0.88rem">Repeat code for each item in a list or a set number of times using range().</span>
+          </div>
+          <div style="background:#0f172a;border-left:3px solid #f97316;padding:12px 16px;border-radius:6px">
+            <strong style="color:#f97316">while loop</strong><br>
+            <span style="color:#94a3b8;font-size:0.88rem">Keep repeating as long as a condition is True. Use when you don't know how many times upfront.</span>
+          </div>
+          <div style="background:#0f172a;border-left:3px solid #22c55e;padding:12px 16px;border-radius:6px">
+            <strong style="color:#22c55e">break</strong><br>
+            <span style="color:#94a3b8;font-size:0.88rem">Immediately exit a loop when a certain condition is met.</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>💡 Real World Code — All Together!</h3>
+        <p style="margin-bottom:10px">A small program using everything you learned:</p>
+        <div class="code-block">
+          <span class="var">students</span> = [(<span class="str">"Arun"</span>, <span class="num">85</span>), (<span class="str">"Priya"</span>, <span class="num">92</span>), (<span class="str">"Raj"</span>, <span class="num">60</span>)]<br><br>
+          <span class="kw">for</span> <span class="var">name</span>, <span class="var">score</span> <span class="kw">in</span> <span class="var">students</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">if</span> <span class="var">score</span> >= <span class="num">90</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="var">name</span>, <span class="str">"- Distinction!"</span>)<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">elif</span> <span class="var">score</span> >= <span class="num">70</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="var">name</span>, <span class="str">"- Pass"</span>)<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">else</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="var">name</span>, <span class="str">"- Needs improvement"</span>)
+        </div>
+        <div class="output-box">
+          <div class="output-label">▶ Output</div>
+          Arun - Pass<br>
+          Priya - Distinction!<br>
+          Raj - Needs improvement
+        </div>
+      </div>
+      <div class="card">
+        <h3>🎓 You're ready to teach your team!</h3>
+        <p>You now understand the core building blocks of Python programming. Your team will be able to write real programs using these concepts. Great job completing this training! 🎉</p>
+      </div>
+    `,
+    quiz: {
+      q: "Which loop would you use if you want to go through a list of 10 employee names and greet each one?",
+      options: ["while loop", "for loop", "if statement", "break"],
+      answer: 1,
+      explanation: "✅ Correct! A for loop is perfect here because you know exactly what you're looping through — a list of 10 names. For each name in the list, you'd print a greeting."
+    }
+  }
+];
+
+const weeklyData = [
+  { week: "Week 1", lessonsDone: 0, lessonsTarget: 5, quizScore: 0, studyMins: 0 },
+  { week: "Week 2", lessonsDone: 0, lessonsTarget: 5, quizScore: 0, studyMins: 0 },
+  { week: "Week 3", lessonsDone: 0, lessonsTarget: 5, quizScore: 0, studyMins: 0 },
+  { week: "Week 4", lessonsDone: 0, lessonsTarget: 5, quizScore: 0, studyMins: 0 }
+];
+
+const weekCatalog = [
+  { id: 1, title: "Week 1", topic: "What is AI?", subtitle: "Foundations of Artificial Intelligence" },
+  { id: 2, title: "Week 2", topic: "Coding & Python", subtitle: "How to talk to computers" },
+  { id: 3, title: "Week 3", topic: "Python Basics", subtitle: "Variables, Data Types & Conditions" },
+  { id: 4, title: "Week 4", topic: "Loops and Conditions", subtitle: "Zero to Hero" }
+];
+
+let activeWeek = 0;
+let activeLessons = [];
+let current = 0;
+let answered = new Set();
+
+function buildPlaceholderLessons(weekNumber) {
+  return [
+    {
+      id: 0,
+      icon: "??",
+      title: `Week ${weekNumber} Training`,
+      subtitle: "This week is scaffolded and ready for your PPT content",
+      content: `
+        <div class="card">
+          <h3>Week ${weekNumber} Page Is Ready</h3>
+          <p>This week page structure is now created using Week 4 as the base style.</p>
+          <p>Share your Week ${weekNumber} PPT and I will convert it into lesson cards, code examples, analogies, quizzes, and practice exercises in this same format.</p>
+        </div>
+        <div class="card">
+          <h3>What I will add after PPT upload</h3>
+          <ul>
+            <li>Step-by-step beginner-friendly lesson flow</li>
+            <li>Real examples and expected outputs</li>
+            <li>Quick quiz checks after each section</li>
+            <li>Practice models at the end for team exercises</li>
+          </ul>
+        </div>
+      `,
+      quiz: {
+        q: `Ready to build Week ${weekNumber} from your PPT?`,
+        options: ["Yes, upload PPT", "Not yet", "Need a sample first", "Skip for now"],
+        answer: 0,
+        explanation: "Perfect. Once you share the PPT, this week will be fully populated."
+      }
+    }
+  ];
+}
+
+const week1Lessons = [
+  {
+    id: 0,
+    icon: "🤖",
+    title: "Welcome & What is AI?",
+    subtitle: "Understanding Artificial Intelligence from scratch",
+    content: `
+      <div class="card">
+        <h3>🙋 Let's Start With Simple Questions</h3>
+        <p>Before we dive in — have you ever used <strong>ChatGPT</strong> or any AI tool? Do you actually know how it works under the hood?</p>
+        <div class="analogy">
+          <strong>Think about this:</strong><br>
+          Every time ChatGPT answers your question, it isn't "thinking" like a human.<br>
+          It is processing millions of patterns it learned from data — and predicting what the best answer looks like.
+        </div>
+      </div>
+      <div class="card">
+        <h3>🧠 What is Artificial Intelligence?</h3>
+        <p>Artificial Intelligence is the ability of a system to <strong>learn patterns from data</strong> and make decisions.</p>
+        <ul>
+          <li>Instead of manually writing every rule, AI systems find relationships automatically</li>
+          <li>AI improves its performance as it sees more data</li>
+          <li>At its core, AI is <strong>not magic</strong> — it is data, math, and logic</li>
+        </ul>
+        <div style="background:#0f172a;border-left:3px solid #22d3ee;padding:12px 16px;border-radius:6px;margin-top:12px">
+          <strong style="color:#22d3ee">AI = Data + Pattern Recognition + Decision Making</strong>
+        </div>
+      </div>
+      <div class="card">
+        <h3>⚡ Why Are We Learning AI?</h3>
+        <ul>
+          <li>AI is already transforming engineering and automotive industries</li>
+          <li>Engineers with AI skills will have a strong career advantage</li>
+          <li>Understanding AI helps you use it — and build it</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🎯 What You Will Gain From This Course</h3>
+        <ul>
+          <li>Learn how machines learn from data</li>
+          <li>Explore real-world AI applications in automotive</li>
+          <li>Build your own AI assistant</li>
+          <li>Understand how AI works step by step</li>
+        </ul>
+      </div>
+    `,
+    quiz: {
+      q: "What is Artificial Intelligence based on?",
+      options: ["Magic and guessing", "Data, patterns and decision making", "Human emotions", "Random answers"],
+      answer: 1,
+      explanation: "✅ Correct! AI = Data + Pattern Recognition + Decision Making. It is not magic — it learns from data and finds patterns to make decisions."
+    }
+  },
+  {
+    id: 1,
+    icon: "🆚",
+    title: "Traditional vs AI Programming",
+    subtitle: "How AI thinks differently from regular code",
+    content: `
+      <div class="card">
+        <h3>🔧 Traditional Programming</h3>
+        <ul>
+          <li>A human writes <strong>explicit rules</strong> for every single scenario</li>
+          <li>Works well for simple, predictable problems</li>
+          <li>Becomes very hard to manage when conditions grow complex</li>
+        </ul>
+        <div class="analogy">
+          <strong>Formula:</strong> Rules + Data → Output<br><br>
+          Example: If temperature > 100, show warning.<br>
+          You have to manually write every single "if" rule yourself.
+        </div>
+      </div>
+      <div class="card">
+        <h3>🤖 AI / Machine Learning</h3>
+        <ul>
+          <li>The <strong>system learns rules from data</strong> instead of being programmed with them</li>
+          <li>Can handle complex and uncertain scenarios</li>
+          <li>Improves over time as more data is provided</li>
+        </ul>
+        <div class="analogy">
+          <strong>Formula:</strong> Data → Learning → Output<br><br>
+          Example: Show the AI thousands of engine failure records.<br>
+          It learns on its own what patterns predict failure.
+        </div>
+      </div>
+      <div class="card">
+        <h3>🏭 Real Example: Predicting Engine Failure</h3>
+        <p><strong>Inputs:</strong> Temperature, RPM, Vibration sensor data</p>
+        <p><strong>Process:</strong> Collect historical data of normal and failed conditions → Train a model to learn the patterns</p>
+        <p><strong>Output:</strong> Probability of failure (e.g., 85%)</p>
+        <div style="background:#0f172a;border-left:3px solid #f59e0b;padding:12px 16px;border-radius:6px;margin-top:12px">
+          <strong style="color:#f59e0b">AI does not give a fixed answer — it gives a probability-based decision</strong>
+        </div>
+      </div>
+    `,
+    quiz: {
+      q: "What is the key difference between Traditional Programming and AI?",
+      options: [
+        "Traditional programming is faster",
+        "AI learns rules from data; Traditional requires humans to write every rule",
+        "AI only works for simple problems",
+        "They are exactly the same"
+      ],
+      answer: 1,
+      explanation: "✅ Correct! Traditional programming requires humans to manually write every rule. AI learns its own rules by finding patterns in data."
+    }
+  },
+  {
+    id: 2,
+    icon: "📈",
+    title: "Evolution of AI",
+    subtitle: "From simple rules to generative intelligence",
+    content: `
+      <div class="card">
+        <h3>🗺️ The AI Journey</h3>
+        <p>AI didn't appear overnight. It evolved in stages — each stage more powerful than the last.</p>
+      </div>
+      <div class="card">
+        <h3>1️⃣ Rule-Based AI</h3>
+        <ul>
+          <li>Uses <strong>predefined logic</strong> written by humans</li>
+          <li>Easy to implement but limited in flexibility</li>
+          <li>Cannot handle complex or unknown situations</li>
+        </ul>
+        <div class="analogy"><strong>Example:</strong> If seatbelt is not fastened → show warning light. Simple. But you had to program every possible warning manually.</div>
+      </div>
+      <div class="card">
+        <h3>2️⃣ Machine Learning</h3>
+        <ul>
+          <li>Learns patterns from <strong>historical data</strong> instead of rules</li>
+          <li>Improves performance as more data is provided</li>
+          <li>Used in prediction systems: failure detection, recommendations</li>
+        </ul>
+        <div class="analogy"><strong>Example:</strong> Predicting engine failure based on thousands of past sensor readings.</div>
+      </div>
+      <div class="card">
+        <h3>3️⃣ Deep Learning</h3>
+        <ul>
+          <li>Uses <strong>neural networks</strong> inspired by the human brain</li>
+          <li>Can handle complex data: images, speech, video</li>
+          <li>Automatically extracts features from raw data</li>
+        </ul>
+        <div class="analogy"><strong>Example:</strong> Detecting pedestrians using camera systems in autonomous vehicles.</div>
+      </div>
+      <div class="card">
+        <h3>4️⃣ Generative AI</h3>
+        <ul>
+          <li>Capable of <strong>generating new content</strong>: text, images, code</li>
+          <li>Trained on massive datasets to understand language patterns</li>
+          <li>Tools: ChatGPT, DALL·E, Gemini</li>
+        </ul>
+        <div class="analogy"><strong>Example:</strong> Generating engineering reports, writing code, answering questions automatically.</div>
+      </div>
+      <div class="card">
+        <h3>5️⃣ Agentic AI</h3>
+        <ul>
+          <li>Goes beyond generating responses — it can <strong>perform tasks</strong></li>
+          <li>Can plan steps, make decisions, and execute actions</li>
+          <li>Integrates with external tools and systems</li>
+        </ul>
+        <div class="analogy"><strong>Example:</strong> An AI assistant that automatically creates DFMEA reports by reading engineering data.</div>
+      </div>
+    `,
+    quiz: {
+      q: "Which type of AI can generate new content like text and code?",
+      options: ["Rule-Based AI", "Machine Learning", "Generative AI", "Deep Learning"],
+      answer: 2,
+      explanation: "✅ Correct! Generative AI is trained on large datasets and can generate new content — text, images, code. ChatGPT is the most famous example."
+    }
+  },
+  {
+    id: 3,
+    icon: "🚗",
+    title: "AI in Automotive",
+    subtitle: "Real use cases in the engineering world",
+    content: `
+      <div class="card">
+        <h3>🏎️ AI is Already in Your Cars</h3>
+        <p>AI is not just in tech companies — it's embedded in <strong>modern engineering systems</strong> right now.</p>
+        <ul>
+          <li><strong>Driver monitoring systems</strong> — detect fatigue or distraction</li>
+          <li><strong>Predictive maintenance</strong> — identify potential failures before they happen</li>
+          <li><strong>Autonomous driving</strong> — object detection and navigation</li>
+          <li><strong>Voice assistants</strong> — natural language interaction with the car</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🧩 AI System Architecture</h3>
+        <table style="width:100%;border-collapse:collapse;font-size:0.88rem;margin-top:8px">
+          <tr style="border-bottom:1px solid #334155">
+            <th style="text-align:left;padding:8px;color:#38bdf8">Stage</th>
+            <th style="text-align:left;padding:8px;color:#38bdf8">What happens</th>
+          </tr>
+          <tr style="border-bottom:1px solid #1e293b"><td style="padding:8px;color:#fde68a">INPUT</td><td style="padding:8px;color:#cbd5e1">Data: text, images, sensor values</td></tr>
+          <tr style="border-bottom:1px solid #1e293b"><td style="padding:8px;color:#fde68a">PROCESSING</td><td style="padding:8px;color:#cbd5e1">Model analyzes data and finds patterns</td></tr>
+          <tr style="border-bottom:1px solid #1e293b"><td style="padding:8px;color:#fde68a">DECISION</td><td style="padding:8px;color:#cbd5e1">System generates output based on learned patterns</td></tr>
+          <tr><td style="padding:8px;color:#fde68a">OUTPUT</td><td style="padding:8px;color:#cbd5e1">Prediction, classification, or generated content</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <h3>💡 Key Insight</h3>
+        <ul>
+          <li>AI is not intelligence in the human sense</li>
+          <li>It is a system that <strong>processes data and identifies patterns</strong></li>
+          <li>All AI systems are based on mathematical models and data</li>
+        </ul>
+        <div style="background:#0f172a;border-left:3px solid #22d3ee;padding:12px 16px;border-radius:6px;margin-top:12px">
+          <strong style="color:#22d3ee">AI = Data + Logic + Patterns + Decision</strong>
+        </div>
+      </div>
+    `,
+    quiz: {
+      q: "Which of the following is a real-world AI application in automotive engineering?",
+      options: ["Writing emails faster", "Predictive maintenance to identify failures early", "Making tea automatically", "Printing documents"],
+      answer: 1,
+      explanation: "✅ Correct! Predictive maintenance uses AI to analyze sensor data and detect potential failures before they happen — saving cost and downtime."
+    }
+  },
+  {
+    id: 4,
+    icon: "🏁",
+    title: "Week 1 Summary",
+    subtitle: "Everything you learned — locked in!",
+    content: `
+      <div class="card">
+        <h3>📌 Key Concepts Recap</h3>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="background:#0f172a;border-left:3px solid #facc15;padding:12px 16px;border-radius:6px">
+            <strong style="color:#facc15">What is AI?</strong><br>
+            <span style="color:#94a3b8;font-size:0.88rem">A system that learns patterns from data and makes decisions. Not magic — it's data + math + logic.</span>
+          </div>
+          <div style="background:#0f172a;border-left:3px solid #38bdf8;padding:12px 16px;border-radius:6px">
+            <strong style="color:#38bdf8">Traditional vs AI</strong><br>
+            <span style="color:#94a3b8;font-size:0.88rem">Traditional: humans write every rule. AI: the system learns the rules from data.</span>
+          </div>
+          <div style="background:#0f172a;border-left:3px solid #c084fc;padding:12px 16px;border-radius:6px">
+            <strong style="color:#c084fc">Evolution: Rule-Based → ML → Deep Learning → GenAI → Agentic AI</strong><br>
+            <span style="color:#94a3b8;font-size:0.88rem">Each stage reduces human effort and increases system capability.</span>
+          </div>
+          <div style="background:#0f172a;border-left:3px solid #f97316;padding:12px 16px;border-radius:6px">
+            <strong style="color:#f97316">AI in Automotive</strong><br>
+            <span style="color:#94a3b8;font-size:0.88rem">Driver monitoring, predictive maintenance, autonomous driving, voice assistants.</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>🚀 What's Next — Week 2</h3>
+        <ul>
+          <li>Introduction to Python programming</li>
+          <li>Understanding how to write logic using code</li>
+          <li>Building the foundation required for AI development</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🎓 Great job completing Week 1!</h3>
+        <p>You now understand what AI is, how it evolved, and where it's used in the real world. This foundation will make everything in the coming weeks click into place. 🎉</p>
+      </div>
+    `,
+    quiz: {
+      q: "What comes after understanding AI concepts? (Week 2 topic)",
+      options: ["Building neural networks", "Introduction to Python programming", "Deploying AI models", "Writing DFMEA reports"],
+      answer: 1,
+      explanation: "✅ Correct! Week 2 introduces Python — the programming language we'll use to build AI systems. It's the foundation for everything that follows."
+    }
+  }
+];
+
+const week2Lessons = [
+  {
+    id: 0,
+    icon: "💻",
+    title: "What is Coding?",
+    subtitle: "How humans talk to machines",
+    content: `
+      <div class="card">
+        <h3>🤔 What is Coding?</h3>
+        <p>Every system works based on <strong>instructions</strong>. Without instructions → the system does nothing.</p>
+        <div class="analogy">
+          <strong>Real life analogy:</strong><br>
+          Think of coding like giving directions to someone who doesn't think on their own.<br>
+          "Turn left → go 200m → turn right → stop." That's instructions. That's coding.<br><br>
+          <strong>Coding = giving instructions to a computer.</strong><br>
+          It is how we communicate with machines.
+        </div>
+      </div>
+      <div class="card">
+        <h3>🧠 What is Programming?</h3>
+        <p><strong>Programming = solving problems step by step.</strong> It is planning before you even start coding.</p>
+        <ul>
+          <li>Includes thinking, logic, and structure</li>
+          <li>If you know the steps, coding becomes easy</li>
+        </ul>
+        <table style="width:100%;border-collapse:collapse;font-size:0.88rem;margin-top:12px">
+          <tr style="border-bottom:1px solid #334155">
+            <th style="text-align:left;padding:8px;color:#38bdf8">Coding</th>
+            <th style="text-align:left;padding:8px;color:#38bdf8">Programming</th>
+          </tr>
+          <tr><td style="padding:8px;color:#86efac">Writing the instructions</td><td style="padding:8px;color:#fde68a">Planning + solving the problem</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <h3>⚙️ How Do Computers Work?</h3>
+        <ul>
+          <li>Computers do <strong>NOT</strong> understand English, Tamil, or Hindi</li>
+          <li>They understand only <strong>binary</strong> — 0s and 1s (electrical signals)</li>
+          <li>Everything you type gets converted to 0s and 1s internally</li>
+        </ul>
+        <div class="analogy">
+          <strong>Binary example:</strong><br>
+          010101010101   =   print("Hello")<br><br>
+          Coding languages are like <em>translators between humans and computers.</em>
+        </div>
+      </div>
+    `,
+    quiz: {
+      q: "What language do computers actually understand at the lowest level?",
+      options: ["English", "Python", "Binary (0s and 1s)", "Tamil"],
+      answer: 2,
+      explanation: "✅ Correct! Computers only understand binary — 0s and 1s. Everything we type in Python or any other language gets converted to binary signals internally."
+    }
+  },
+  {
+    id: 1,
+    icon: "🐍",
+    title: "Why Python?",
+    subtitle: "The best language to start with",
+    content: `
+      <div class="card">
+        <h3>🌍 There Are Many Languages — Why Python?</h3>
+        <ul>
+          <li><strong>Easy to learn and understand</strong> — reads almost like plain English</li>
+          <li>Requires <strong>less code</strong> compared to other languages</li>
+          <li>Widely used in <strong>AI and Machine Learning</strong></li>
+          <li>Huge community and support available worldwide</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🆚 Python vs Other Languages</h3>
+        <table style="width:100%;border-collapse:collapse;font-size:0.88rem;margin-top:8px">
+          <tr style="border-bottom:1px solid #334155">
+            <th style="text-align:left;padding:8px;color:#38bdf8">Language</th>
+            <th style="text-align:left;padding:8px;color:#38bdf8">Complexity</th>
+          </tr>
+          <tr style="border-bottom:1px solid #1e293b"><td style="padding:8px;color:#fde68a">C / C++</td><td style="padding:8px;color:#fca5a5">More complex, harder syntax</td></tr>
+          <tr style="border-bottom:1px solid #1e293b"><td style="padding:8px;color:#fde68a">Java</td><td style="padding:8px;color:#fca5a5">Structured and lengthy to write</td></tr>
+          <tr><td style="padding:8px;color:#fde68a">Python</td><td style="padding:8px;color:#86efac">Simple, beginner-friendly, reads like English</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <h3>✍️ Your First Python Program</h3>
+        <p>This is the first program every programmer writes. It's called <strong>"Hello, World!"</strong></p>
+        <div class="code-block">
+          <span class="fn">print</span>(<span class="str">"Hello, World!"</span>)
+        </div>
+        <div class="output-box">
+          <div class="output-label">▶ Output</div>
+          Hello, World!
+        </div>
+        <p style="margin-top:10px"><code style="background:#0f172a;padding:2px 6px;border-radius:4px;color:#facc15">print()</code> is Python's way of <strong>displaying something on screen</strong>.</p>
+      </div>
+      <div class="card">
+        <h3>🗺️ What We'll Learn in This Course</h3>
+        <ul>
+          <li>Writing simple programs</li>
+          <li>Understanding variables (storing data)</li>
+          <li>Making decisions using logic</li>
+          <li>Working with multiple inputs</li>
+          <li>Building small real-world examples</li>
+        </ul>
+      </div>
+    `,
+    quiz: {
+      q: "Which of these is a reason Python is preferred for beginners and AI?",
+      options: [
+        "It is the oldest language",
+        "It only works on Windows",
+        "It is simple, readable, and widely used in AI and Machine Learning",
+        "It requires the most code to write"
+      ],
+      answer: 2,
+      explanation: "✅ Correct! Python is simple, reads like English, requires less code, and is the most popular language for AI and Machine Learning."
+    }
+  },
+  {
+    id: 2,
+    icon: "📦",
+    title: "Variables & Data Types",
+    subtitle: "Storing and working with data",
+    content: `
+      <div class="card">
+        <h3>📦 What is a Variable?</h3>
+        <p>A variable is a <strong>named container</strong> where you store data. Values can be reused and updated throughout your program.</p>
+        <div class="analogy">
+          <strong>Real life analogy:</strong><br>
+          Imagine a box labelled <em>"temp"</em> with the number <em>100</em> inside.<br>
+          Whenever you need the temperature, you just say: <em>temp</em>
+        </div>
+        <div class="code-block">
+          <span class="var">temp</span> = <span class="num">100</span>  <span class="cmt"># temp is the label, 100 is the value</span><br>
+          <span class="var">name</span> = <span class="str">"Barath"</span><br>
+          <span class="fn">print</span>(<span class="var">temp</span>)   <span class="cmt"># Shows: 100</span><br>
+          <span class="fn">print</span>(<span class="var">name</span>)   <span class="cmt"># Shows: Barath</span>
+        </div>
+        <div class="output-box">
+          <div class="output-label">▶ Output</div>
+          100<br>Barath
+        </div>
+      </div>
+      <div class="card">
+        <h3>🗂️ Data Types — What Kind of Data?</h3>
+        <p>Data types define the <strong>kind of value</strong> stored in a variable. Choosing the correct type is important for logic.</p>
+        <table style="width:100%;border-collapse:collapse;font-size:0.88rem;margin-top:8px">
+          <tr style="border-bottom:1px solid #334155">
+            <th style="text-align:left;padding:8px;color:#38bdf8">Type</th>
+            <th style="text-align:left;padding:8px;color:#38bdf8">What it stores</th>
+            <th style="text-align:left;padding:8px;color:#38bdf8">Example</th>
+          </tr>
+          <tr style="border-bottom:1px solid #1e293b"><td style="padding:8px;color:#fde68a">String</td><td style="padding:8px;color:#cbd5e1">Text / characters</td><td style="padding:8px;color:#86efac">b = "Car"</td></tr>
+          <tr style="border-bottom:1px solid #1e293b"><td style="padding:8px;color:#fde68a">Integer</td><td style="padding:8px;color:#cbd5e1">Whole numbers</td><td style="padding:8px;color:#86efac">a = 100</td></tr>
+          <tr style="border-bottom:1px solid #1e293b"><td style="padding:8px;color:#fde68a">Float</td><td style="padding:8px;color:#cbd5e1">Decimal numbers</td><td style="padding:8px;color:#86efac">d = 10.5</td></tr>
+          <tr><td style="padding:8px;color:#fde68a">Boolean</td><td style="padding:8px;color:#cbd5e1">True or False only</td><td style="padding:8px;color:#86efac">c = True</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <h3>🔢 Operators — Doing Math and Comparisons</h3>
+        <p>Operators let you perform calculations and compare values.</p>
+        <div class="code-block">
+          <span class="fn">print</span>(<span class="num">10</span> + <span class="num">5</span>)   <span class="cmt"># 15 — arithmetic</span><br>
+          <span class="fn">print</span>(<span class="num">10</span> > <span class="num">5</span>)   <span class="cmt"># True — comparison</span><br>
+          <span class="fn">print</span>(<span class="num">5</span> > <span class="num">10</span>)   <span class="cmt"># False — comparison</span>
+        </div>
+        <div class="output-box">
+          <div class="output-label">▶ Output</div>
+          15<br>True<br>False
+        </div>
+        <p style="margin-top:10px">Comparison operators always return <strong>True</strong> or <strong>False</strong>. These are the building blocks of all conditions!</p>
+      </div>
+    `,
+    quiz: {
+      q: "What data type would you use to store someone's name like \"Barath\"?",
+      options: ["Integer", "Boolean", "String", "Float"],
+      answer: 2,
+      explanation: "✅ Correct! A String is used to store text (words, names, sentences). It must be written inside quotes — like name = \"Barath\"."
+    }
+  },
+  {
+    id: 3,
+    icon: "🔀",
+    title: "Conditions & Loops (Preview)",
+    subtitle: "Making decisions and repeating tasks",
+    content: `
+      <div class="card">
+        <h3>🚦 Conditions — if / else</h3>
+        <p>Conditions let a program <strong>make decisions</strong>. The system checks whether something is True or False, then acts accordingly.</p>
+        <ul>
+          <li><strong>if</strong> — executes code when the condition is True</li>
+          <li><strong>else</strong> — executes code when the condition is False</li>
+        </ul>
+        <div class="code-block">
+          <span class="var">temp</span> = <span class="num">42</span><br><br>
+          <span class="kw">if</span> <span class="var">temp</span> > <span class="num">40</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"Overheating warning!"</span>)<br>
+          <span class="kw">else</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"Temperature is normal"</span>)
+        </div>
+        <div class="output-box">
+          <div class="output-label">▶ Output</div>
+          Overheating warning!
+        </div>
+      </div>
+      <div class="card">
+        <h3>🔁 Loops — Repeating Tasks</h3>
+        <p>Loops let you <strong>repeat a task</strong> multiple times without writing the same code again and again.</p>
+        <ul>
+          <li>Reduce the need to copy-paste code</li>
+          <li>Can run based on a number or a set of data</li>
+          <li>Automate repetitive tasks</li>
+        </ul>
+        <div class="code-block">
+          <span class="kw">for</span> <span class="var">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">3</span>):<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"Running check..."</span>)
+        </div>
+        <div class="output-box">
+          <div class="output-label">▶ Output</div>
+          Running check...<br>Running check...<br>Running check...
+        </div>
+      </div>
+      <div class="card">
+        <h3>📌 The Core Idea</h3>
+        <div style="background:#0f172a;border-left:3px solid #22d3ee;padding:12px 16px;border-radius:6px">
+          <strong style="color:#22d3ee">Every system works on: Input → Process → Output</strong><br>
+          <span style="color:#94a3b8;font-size:0.88rem">Logic is the foundation of all systems. Conditions and loops are how we build that logic in Python.</span>
+        </div>
+      </div>
+    `,
+    quiz: {
+      q: "What does an if / else condition do in Python?",
+      options: [
+        "It repeats code many times",
+        "It stores data in a variable",
+        "It makes a decision — runs different code based on True or False",
+        "It displays text on screen"
+      ],
+      answer: 2,
+      explanation: "✅ Correct! An if / else condition checks whether something is True or False, and runs different code for each case — like a decision tree."
+    }
+  },
+  {
+    id: 4,
+    icon: "🏁",
+    title: "Week 2 Summary",
+    subtitle: "Core ideas locked in — ready for Week 3!",
+    content: `
+      <div class="card">
+        <h3>📌 Key Concepts Recap</h3>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="background:#0f172a;border-left:3px solid #facc15;padding:12px 16px;border-radius:6px">
+            <strong style="color:#facc15">Coding vs Programming</strong><br>
+            <span style="color:#94a3b8;font-size:0.88rem">Coding = writing instructions. Programming = planning + solving the problem.</span>
+          </div>
+          <div style="background:#0f172a;border-left:3px solid #38bdf8;padding:12px 16px;border-radius:6px">
+            <strong style="color:#38bdf8">Binary & Python</strong><br>
+            <span style="color:#94a3b8;font-size:0.88rem">Computers understand 0s and 1s. Python is a translator — simple, readable, and perfect for AI.</span>
+          </div>
+          <div style="background:#0f172a;border-left:3px solid #c084fc;padding:12px 16px;border-radius:6px">
+            <strong style="color:#c084fc">Variables & Data Types</strong><br>
+            <span style="color:#94a3b8;font-size:0.88rem">Variables are named containers. Types: String (text), Integer (numbers), Boolean (True/False), Float (decimals).</span>
+          </div>
+          <div style="background:#0f172a;border-left:3px solid #22c55e;padding:12px 16px;border-radius:6px">
+            <strong style="color:#22c55e">Logic Foundation</strong><br>
+            <span style="color:#94a3b8;font-size:0.88rem">Every system: Input → Process → Output. Conditions and loops are how we program that logic.</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>💡 Real World Code — All Together!</h3>
+        <div class="code-block">
+          <span class="var">name</span> = <span class="str">"Barath"</span><br>
+          <span class="var">age</span> = <span class="num">24</span><br>
+          <span class="var">is_engineer</span> = <span class="kw">True</span><br><br>
+          <span class="fn">print</span>(<span class="str">"Name:"</span>, <span class="var">name</span>)<br>
+          <span class="fn">print</span>(<span class="str">"Age:"</span>, <span class="var">age</span>)<br>
+          <span class="kw">if</span> <span class="var">is_engineer</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"Welcome, Engineer!"</span>)
+        </div>
+        <div class="output-box">
+          <div class="output-label">▶ Output</div>
+          Name: Barath<br>Age: 24<br>Welcome, Engineer!
+        </div>
+      </div>
+      <div class="card">
+        <h3>🎓 You're ready for Week 3!</h3>
+        <p>Next week we go deeper into Python — Variables, Data Types, Operators, Conditions, and Loops in full detail. You're building real programming skills now! 🎉</p>
+      </div>
+    `,
+    quiz: {
+      q: "Which of these best describes the purpose of a variable?",
+      options: [
+        "It makes the screen display output",
+        "It is a named container that stores a value",
+        "It is only used for numbers",
+        "It connects to the internet"
+      ],
+      answer: 1,
+      explanation: "✅ Correct! A variable is a named container that stores a value. You give it a label, put data inside, and use that label whenever you need the data."
+    }
+  }
+];
+
+const week3Lessons = [
+  {
+    id: 0,
+    icon: "🔄",
+    title: "Recap & Session Goal",
+    subtitle: "Building on what you know",
+    content: `
+      <div class="card">
+        <h3>⚡ Quick Recap</h3>
+        <ul>
+          <li>Coding = giving instructions to a computer</li>
+          <li>Programming = planning and solving step by step</li>
+          <li>Every system: <strong>Input → Process → Output</strong></li>
+          <li>Example: Press switch → light ON</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🎯 This Session's Goal</h3>
+        <ul>
+          <li>Write your first real Python code</li>
+          <li>Understand how to store and work with data</li>
+          <li>Build logic using conditions</li>
+          <li>Build confidence to write programs independently</li>
+        </ul>
+        <div class="analogy">
+          <strong>By the end of today, you will build:</strong><br>
+          A temperature warning system — a small program that reads a temperature value and tells you if something is overheating.
+        </div>
+      </div>
+      <div class="card">
+        <h3>🗓️ Today's Agenda</h3>
+        <ul>
+          <li>Variables — storing data</li>
+          <li>Data Types: String, Integer, Boolean</li>
+          <li>Operators — basic comparisons</li>
+          <li>Conditions — if / else decision making</li>
+          <li>Loops — repeating tasks (intro)</li>
+        </ul>
+      </div>
+    `,
+    quiz: {
+      q: "What is the goal of today's session?",
+      options: [
+        "Learn advanced AI models",
+        "Write first Python code, understand data, and build logic with conditions",
+        "Only watch demos",
+        "Set up a server"
+      ],
+      answer: 1,
+      explanation: "✅ Correct! Today's goal is to write first code, understand data storage with variables, and build logic using conditions — all leading to creating a temperature warning system."
+    }
+  },
+  {
+    id: 1,
+    icon: "📦",
+    title: "Variables Deep Dive",
+    subtitle: "Named containers for your data",
+    content: `
+      <div class="card">
+        <h3>📦 Variables — Storing Data</h3>
+        <p>Variables are used to <strong>store data</strong> in a program. A variable acts like a named container for a value.</p>
+        <ul>
+          <li>Values can be reused and updated using variables</li>
+          <li>Variables help represent real-world data (temperature, name, etc.)</li>
+          <li>They make programs flexible and easy to understand</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>✍️ How Variables Work</h3>
+        <div class="code-block">
+          <span class="var">temp</span> = <span class="num">100</span>  <span class="cmt"># "temp" is the label, 100 is the value</span><br>
+          <span class="cmt"># The = sign means: "assign the value 100 to temp"</span><br><br>
+          <span class="fn">print</span>(<span class="var">temp</span>)  <span class="cmt"># Shows: 100</span>
+        </div>
+        <div class="output-box">
+          <div class="output-label">▶ Output</div>
+          100
+        </div>
+      </div>
+      <div class="card">
+        <h3>🔄 Variables Can Be Updated</h3>
+        <div class="code-block">
+          <span class="var">temp</span> = <span class="num">100</span><br>
+          <span class="fn">print</span>(<span class="var">temp</span>)  <span class="cmt"># 100</span><br><br>
+          <span class="var">temp</span> = <span class="num">200</span>  <span class="cmt"># update the value</span><br>
+          <span class="fn">print</span>(<span class="var">temp</span>)  <span class="cmt"># 200</span>
+        </div>
+        <div class="output-box">
+          <div class="output-label">▶ Output</div>
+          100<br>200
+        </div>
+        <p style="margin-top:10px">Variables can hold different values at different points in your program. The most recent assignment wins.</p>
+      </div>
+    `,
+    quiz: {
+      q: "What does this code print?\n\ntemp = 50\ntemp = 75\nprint(temp)",
+      options: ["50", "75", "50 and 75", "Error"],
+      answer: 1,
+      explanation: "✅ Correct! The variable temp is first assigned 50, then reassigned 75. The final value is 75, so print(temp) shows 75."
+    }
+  },
+  {
+    id: 2,
+    icon: "🗂️",
+    title: "Data Types in Detail",
+    subtitle: "String, Integer, Boolean — and when to use each",
+    content: `
+      <div class="card">
+        <h3>🔤 String — Text Data</h3>
+        <ul>
+          <li>Used to store <strong>text or characters</strong></li>
+          <li>Must be written inside quotes (" " or ' ')</li>
+          <li>Cannot be used for mathematical operations</li>
+          <li>Used for names, messages, labels</li>
+        </ul>
+        <div class="code-block">
+          <span class="var">name</span> = <span class="str">"Barath"</span><br>
+          <span class="var">city</span> = <span class="str">"Chennai"</span><br>
+          <span class="var">car</span> = <span class="str">"Jeep Compass"</span><br>
+          <span class="fn">print</span>(<span class="var">name</span>, <span class="str">"from"</span>, <span class="var">city</span>)
+        </div>
+        <div class="output-box">
+          <div class="output-label">▶ Output</div>
+          Barath from Chennai
+        </div>
+      </div>
+      <div class="card">
+        <h3>🔢 Integer — Whole Numbers</h3>
+        <ul>
+          <li>Used to store <strong>whole numbers</strong> (no decimals)</li>
+          <li>Supports arithmetic: addition, subtraction, multiplication</li>
+          <li>Examples: age, count, speed, quantity</li>
+        </ul>
+        <div class="code-block">
+          <span class="var">age</span> = <span class="num">24</span><br>
+          <span class="var">count</span> = <span class="num">5</span><br>
+          <span class="fn">print</span>(<span class="var">age</span> + <span class="num">1</span>)  <span class="cmt"># 25</span>
+        </div>
+        <div class="output-box">
+          <div class="output-label">▶ Output</div>
+          25
+        </div>
+      </div>
+      <div class="card">
+        <h3>✅ Boolean — True or False</h3>
+        <ul>
+          <li>Represents <strong>only two values: True or False</strong></li>
+          <li>Mainly used for decision making</li>
+          <li>It is the result of conditions and comparisons</li>
+          <li>Helps control the flow of a program</li>
+        </ul>
+        <div class="code-block">
+          <span class="fn">print</span>(<span class="num">10</span> > <span class="num">5</span>)   <span class="cmt"># True</span><br>
+          <span class="fn">print</span>(<span class="num">5</span> > <span class="num">10</span>)   <span class="cmt"># False</span><br>
+          <span class="var">is_running</span> = <span class="kw">True</span>
+        </div>
+        <div class="output-box">
+          <div class="output-label">▶ Output</div>
+          True<br>False
+        </div>
+      </div>
+    `,
+    quiz: {
+      q: "Which data type would you use to store a car model name like \"Jeep Compass\"?",
+      options: ["Integer", "Boolean", "Float", "String"],
+      answer: 3,
+      explanation: "✅ Correct! A String stores text. Car model names are text, so you use String — written in quotes like car = \"Jeep Compass\"."
+    }
+  },
+  {
+    id: 3,
+    icon: "⚙️",
+    title: "Operators & Conditions",
+    subtitle: "Performing calculations and making decisions",
+    content: `
+      <div class="card">
+        <h3>⚙️ Operators</h3>
+        <p>Operators are used to <strong>perform operations on data</strong>.</p>
+        <ul>
+          <li><strong>Arithmetic operators</strong> — perform calculations (+, -, *, /)</li>
+          <li><strong>Comparison operators</strong> — compare values (>, &lt;, ==)</li>
+          <li>Comparison results are always True or False</li>
+        </ul>
+        <div class="code-block">
+          <span class="fn">print</span>(<span class="num">10</span> + <span class="num">5</span>)   <span class="cmt"># 15</span><br>
+          <span class="fn">print</span>(<span class="num">10</span> - <span class="num">3</span>)   <span class="cmt"># 7</span><br>
+          <span class="fn">print</span>(<span class="num">10</span> == <span class="num">10</span>)  <span class="cmt"># True</span><br>
+          <span class="fn">print</span>(<span class="num">10</span> > <span class="num">20</span>)   <span class="cmt"># False</span>
+        </div>
+        <div class="output-box">
+          <div class="output-label">▶ Output</div>
+          15<br>7<br>True<br>False
+        </div>
+      </div>
+      <div class="card">
+        <h3>🚦 Conditions — if / else</h3>
+        <p>Conditions use operators to make <strong>decisions</strong>. The system checks if something is True or False, then acts accordingly.</p>
+        <div class="code-block">
+          <span class="var">temp</span> = <span class="num">95</span><br><br>
+          <span class="kw">if</span> <span class="var">temp</span> > <span class="num">90</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"⚠️ Overheating!"</span>)<br>
+          <span class="kw">else</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"✅ Temperature normal"</span>)
+        </div>
+        <div class="output-box">
+          <div class="output-label">▶ Output</div>
+          ⚠️ Overheating!
+        </div>
+      </div>
+      <div class="card">
+        <h3>🏗️ Mini Project: Temperature Warning System</h3>
+        <p>Let's put it all together! This is a real-world inspired program:</p>
+        <div class="code-block">
+          <span class="var">engine_temp</span> = <span class="num">105</span><br>
+          <span class="var">max_safe_temp</span> = <span class="num">100</span><br><br>
+          <span class="kw">if</span> <span class="var">engine_temp</span> > <span class="var">max_safe_temp</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"🔴 WARNING: Engine overheating!"</span>)<br>
+          <span class="kw">elif</span> <span class="var">engine_temp</span> == <span class="var">max_safe_temp</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"🟡 CAUTION: At limit"</span>)<br>
+          <span class="kw">else</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"🟢 All good!"</span>)
+        </div>
+        <div class="output-box">
+          <div class="output-label">▶ Output</div>
+          🔴 WARNING: Engine overheating!
+        </div>
+      </div>
+    `,
+    quiz: {
+      q: "What will this print?\n\nspeed = 80\nif speed > 100:\n    print('Overspeeding')\nelse:\n    print('Safe speed')",
+      options: ["Overspeeding", "Safe speed", "Nothing", "Error"],
+      answer: 1,
+      explanation: "✅ Correct! speed is 80, which is NOT greater than 100. So the if condition is False, and Python runs the else block — printing 'Safe speed'."
+    }
+  },
+  {
+    id: 4,
+    icon: "🔁",
+    title: "Loops Introduction",
+    subtitle: "Automating repetitive tasks",
+    content: `
+      <div class="card">
+        <h3>🔁 Loops — Repeating Tasks</h3>
+        <ul>
+          <li>Loops are used to <strong>repeat a task multiple times</strong></li>
+          <li>They reduce the need to write the same code repeatedly</li>
+          <li>Can run based on a number or a set of data</li>
+          <li>Useful for handling multiple inputs automatically</li>
+        </ul>
+        <div class="analogy">
+          <strong>Real life analogy:</strong><br>
+          Imagine checking the oil level of 10 different vehicles one by one.<br>
+          Instead of writing 10 separate checks, you write ONE check inside a loop — and it runs 10 times automatically.
+        </div>
+      </div>
+      <div class="card">
+        <h3>📋 For Loop — Basic Example</h3>
+        <div class="code-block">
+          <span class="var">vehicles</span> = [<span class="str">"Car"</span>, <span class="str">"Truck"</span>, <span class="str">"Bus"</span>]<br><br>
+          <span class="kw">for</span> <span class="var">v</span> <span class="kw">in</span> <span class="var">vehicles</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"Checking:"</span>, <span class="var">v</span>)
+        </div>
+        <div class="output-box">
+          <div class="output-label">▶ Output</div>
+          Checking: Car<br>Checking: Truck<br>Checking: Bus
+        </div>
+      </div>
+      <div class="card">
+        <h3>🚀 What's Next — Week 4</h3>
+        <ul>
+          <li>Deep dive into for loops and while loops</li>
+          <li>Combining loops + conditions for real data processing</li>
+          <li>break and continue — loop control tools</li>
+          <li>Hands-on team practice exercises</li>
+        </ul>
+        <p style="margin-top:10px">After every session, a <strong>small assessment</strong> will be given. Practice tasks will also be assigned to reinforce learning.</p>
+      </div>
+    `,
+    quiz: {
+      q: "What is the main purpose of a loop in Python?",
+      options: [
+        "To store data permanently",
+        "To repeat a task multiple times without writing the same code again",
+        "To display text on screen once",
+        "To compare two values"
+      ],
+      answer: 1,
+      explanation: "✅ Correct! A loop repeats a task multiple times — automatically. Instead of writing the same code 10 times, you write it once inside a loop and let Python run it as many times as needed."
+    }
+  }
+];
+
+function getLessonsForWeek(weekNumber) {
+  if (weekNumber === 1) return week1Lessons;
+  if (weekNumber === 2) return week2Lessons;
+  if (weekNumber === 3) return week3Lessons;
+  if (weekNumber === 4) return week4Lessons;
+  return buildPlaceholderLessons(weekNumber);
+}
+
+function renderWeekHome() {
+  const home = document.getElementById('weekHome');
+  home.innerHTML = `
+    <div class="week-home-head">
+      <div class="week-home-title">Select Your Training Week</div>
+      <div class="week-home-sub">All 4 weeks are live. Select a week to begin your training.</div>
+    </div>
+    <div class="week-home-grid">
+      ${weekCatalog.map(week => `
+        <div class="week-home-card">
+          <div class="week-home-week">${week.title}</div>
+          <div class="week-home-topic">${week.topic}<br>${week.subtitle}</div>
+          <button class="week-home-btn" onclick="selectWeek(${week.id})">Open ${week.title}</button>
+        </div>
+      `).join('')}
+    </div>
+  `;
+}
+
+function selectWeek(weekNumber) {
+  activeWeek = weekNumber;
+  activeLessons = getLessonsForWeek(weekNumber);
+  current = 0;
+  answered = new Set();
+
+  document.getElementById('weekHome').style.display = 'none';
+  document.getElementById('courseApp').style.display = 'block';
+
+  const weekInfo = weekCatalog.find(w => w.id === weekNumber);
+  document.getElementById('headerSubtitle').textContent = `${weekInfo.title}: ${weekInfo.topic} - ${weekInfo.subtitle}`;
+
+  renderLesson(0);
+  renderSidebar();
+  renderWeeklyData();
+  updateProgress();
+}
+
+function goHome() {
+  activeWeek = 0;
+  activeLessons = [];
+  current = 0;
+  answered = new Set();
+
+  document.getElementById('courseApp').style.display = 'none';
+  document.getElementById('weekHome').style.display = 'block';
+  document.getElementById('headerSubtitle').textContent = 'Choose your training week';
+}
+
+function renderWeeklyData() {
+  const grid = document.getElementById('weeklyGrid');
+  if (!grid) return;
+
+  grid.innerHTML = weeklyData.map(item => {
+    const lessonPct = Math.round((item.lessonsDone / item.lessonsTarget) * 100);
+    const progressPct = Math.max(0, Math.min(100, Math.round((lessonPct + item.quizScore) / 2)));
+    return `
+      <div class="week-card">
+        <div class="week-label">${item.week}</div>
+        <div class="week-metric">Lessons: ${item.lessonsDone}/${item.lessonsTarget}</div>
+        <div class="week-metric">Quiz Avg: ${item.quizScore}%</div>
+        <div class="week-metric">Study Time: ${item.studyMins} mins</div>
+        <div class="week-bar"><div class="week-fill" style="width:${progressPct}%"></div></div>
+      </div>
+    `;
+  }).join('');
+}
+
+function updateProgress() {
+  if (!activeLessons.length) {
+    document.getElementById('progressFill').style.width = '0%';
+    document.getElementById('progressPct').textContent = '0%';
+    return;
+  }
+
+  const pct = Math.round((answered.size / activeLessons.length) * 100);
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressPct').textContent = pct + '%';
+
+  const currentWeek = weeklyData[activeWeek - 1];
+  if (currentWeek) {
+    currentWeek.lessonsDone = answered.size;
+    currentWeek.lessonsTarget = activeLessons.length;
+    currentWeek.quizScore = pct;
+    renderWeeklyData();
+  }
+}
+
+function renderSidebar() {
+  const sb = document.getElementById('sidebar');
+  if (!activeLessons.length) {
+    sb.innerHTML = '';
+    return;
+  }
+
+  sb.innerHTML = `<div class="sidebar-title">Week ${activeWeek} Lessons</div>` +
+    activeLessons.map((l, i) => `
+      <button class="lesson-btn ${i === current ? 'active' : ''} ${answered.has(i) ? 'done' : ''}" onclick="goTo(${i})">
+        <span class="dot ${i === current ? 'active-dot' : ''}"></span>
+        ${l.icon} ${l.title}
+      </button>
+    `).join('');
+}
+
+function renderLesson(idx) {
+  const l = activeLessons[idx];
+  const isLast = idx === activeLessons.length - 1;
+  const quizHtml = `
+    <div class="quiz-card">
+      <h3>?? Quick Check</h3>
+      <div class="quiz-q"><pre style="font-family:inherit;white-space:pre-wrap">${l.quiz.q}</pre></div>
+      <div class="options">
+        ${l.quiz.options.map((opt, oi) =>
+          `<button class="opt-btn" onclick="checkAnswer(${oi}, ${l.quiz.answer}, '${l.quiz.explanation.replace(/'/g,"\\'")}', this)">${opt}</button>`
+        ).join('')}
+      </div>
+      <div class="quiz-feedback" id="feedback-${idx}"></div>
+    </div>
+  `;
+
+  const practiceModelsByWeek = {
+    1: {
+      title: "Week 1 Practice — Think Like an AI System",
+      items: [
+        "<strong>Exercise 1:</strong> Name 3 AI systems you've seen this week. For each one, identify: What is the INPUT? What is the OUTPUT?",
+        "<strong>Exercise 2:</strong> Think of a problem in your team's work. How would Rule-Based AI solve it? How would Machine Learning solve it differently?",
+        "<strong>Exercise 3:</strong> Look at your phone or car. Find 2 features that use AI. Describe what data they might use.",
+        "<strong>Discussion:</strong> Where in your department could AI reduce manual effort? Share one idea with the group."
+      ],
+      code: null
+    },
+    2: {
+      title: "Week 2 Practice — First Python Programs",
+      items: [
+        "<strong>Task 1:</strong> Open Python and print your name, city, and team using print().",
+        "<strong>Task 2:</strong> Create 3 variables — your name (String), age (Integer), and is_engineer (Boolean). Print all three.",
+        "<strong>Task 3:</strong> Write a program that stores two numbers and prints their sum, difference, and product.",
+        "<strong>Task 4:</strong> Use a comparison operator to check if your age is greater than 18. Print the result."
+      ],
+      code: `<span class="cmt"># Starter: Your first Python program</span><br>
+<span class="var">name</span> = <span class="str">"Your Name"</span><br>
+<span class="var">age</span> = <span class="num">25</span><br>
+<span class="var">is_engineer</span> = <span class="kw">True</span><br>
+<span class="fn">print</span>(<span class="var">name</span>, <span class="var">age</span>, <span class="var">is_engineer</span>)`
+    },
+    3: {
+      title: "Week 3 Practice — Variables, Types & Conditions",
+      items: [
+        "<strong>Task 1:</strong> Build a temperature warning system. If temp > 100 → Warning. If temp == 100 → Caution. Else → Normal.",
+        "<strong>Task 2:</strong> Store 3 employee names as variables. Use a condition to check if each name is 'Admin' and print a special message.",
+        "<strong>Task 3:</strong> Create a speed checker — if speed > 120 → Overspeeding, elif > 80 → Caution, else → Safe.",
+        "<strong>Task 4:</strong> Write a program using all 4 data types (String, Integer, Float, Boolean) and print each one with a label."
+      ],
+      code: `<span class="cmt"># Starter: Temperature warning system</span><br>
+<span class="var">engine_temp</span> = <span class="num">105</span><br>
+<span class="kw">if</span> <span class="var">engine_temp</span> > <span class="num">100</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"WARNING!"</span>)<br>
+<span class="kw">elif</span> <span class="var">engine_temp</span> == <span class="num">100</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"CAUTION"</span>)<br>
+<span class="kw">else</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"Normal"</span>)`
+    },
+    4: {
+      title: "Practice Models To Try",
+      items: [
+        "<strong>Model 1:</strong> Build a grade checker using <code>if / elif / else</code> for 5 students.",
+        "<strong>Model 2:</strong> Loop through employee names and print a personalized welcome message.",
+        "<strong>Model 3:</strong> Use a <code>while</code> loop counter from 1 to 20 and print only odd numbers.",
+        "<strong>Model 4:</strong> Combine loop + condition + <code>break</code> to stop when score reaches 90."
+      ],
+      code: `<span class="cmt"># Starter challenge template</span><br>
+<span class="var">scores</span> = [<span class="num">67</span>, <span class="num">82</span>, <span class="num">91</span>, <span class="num">76</span>]<br>
+<span class="kw">for</span> <span class="var">score</span> <span class="kw">in</span> <span class="var">scores</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">if</span> <span class="var">score</span> >= <span class="num">90</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"Top score found!"</span>, <span class="var">score</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">break</span>`
+    }
+  };
+  const pm = practiceModelsByWeek[activeWeek] || practiceModelsByWeek[4];
+  const practiceModelsHtml = isLast ? `
+    <div class="card">
+      <h3>${pm.title}</h3>
+      <p>Use these exercises for hands-on practice with your team.</p>
+      <ul>
+        ${pm.items.map(item => `<li>${item}</li>`).join('')}
+      </ul>
+      ${pm.code ? `<div class="code-block">${pm.code}</div>` : ''}
+    </div>
+  ` : '';
+
+  document.getElementById('main').innerHTML = `
+    <div class="lesson-header">
+      <div class="lesson-icon">${l.icon}</div>
+      <div>
+        <div class="lesson-title">${l.title}</div>
+      </div>
+    </div>
+    <div class="lesson-subtitle">${l.subtitle}</div>
+    ${l.content}
+    ${quizHtml}
+    ${practiceModelsHtml}
+    <div class="nav-row">
+      <button class="nav-btn prev" onclick="goTo(${idx - 1})" ${idx === 0 ? 'disabled' : ''}><- Previous</button>
+      <button class="nav-btn next" id="nextBtn" onclick="goTo(${idx + 1})" ${isLast ? 'disabled' : ''}>Next -></button>
+    </div>
+  `;
+  renderSidebar();
+}
+
+function checkAnswer(chosen, correct, explanation, btn) {
+  const allBtns = btn.parentElement.querySelectorAll('.opt-btn');
+  allBtns.forEach(b => b.disabled = true);
+
+  const feedbackEl = document.getElementById(`feedback-${current}`);
+
+  if (chosen === correct) {
+    btn.classList.add('correct');
+    feedbackEl.textContent = explanation;
+    feedbackEl.className = 'quiz-feedback correct';
+    answered.add(current);
+    updateProgress();
+    renderSidebar();
+  } else {
+    btn.classList.add('wrong');
+    allBtns[correct].classList.add('correct');
+    feedbackEl.textContent = `Not quite. ${explanation}`;
+    feedbackEl.className = 'quiz-feedback wrong';
+  }
+}
+
+function goTo(idx) {
+  if (idx < 0 || idx >= activeLessons.length) return;
+  current = idx;
+  renderLesson(idx);
+  document.getElementById('main').scrollTop = 0;
+}
+
+// Init
+renderWeekHome();
+goHome();
+// Welcome screen
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    const welcome = document.getElementById('welcome');
+    welcome.style.opacity = '0';
+    setTimeout(() => {
+      welcome.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }, 1000);
+  }, 3000);
+});
+</script>
+</body>
+</html>
