@@ -980,14 +980,16 @@ const weeklyData = [
   { week: "Week 1", lessonsDone: 0, lessonsTarget: 5, quizScore: 0, studyMins: 0 },
   { week: "Week 2", lessonsDone: 0, lessonsTarget: 5, quizScore: 0, studyMins: 0 },
   { week: "Week 3", lessonsDone: 0, lessonsTarget: 5, quizScore: 0, studyMins: 0 },
-  { week: "Week 4", lessonsDone: 0, lessonsTarget: 5, quizScore: 0, studyMins: 0 }
+  { week: "Week 4", lessonsDone: 0, lessonsTarget: 5, quizScore: 0, studyMins: 0 },
+  { week: "Week 5", lessonsDone: 0, lessonsTarget: 5, quizScore: 0, studyMins: 0 }
 ];
 
 const weekCatalog = [
   { id: 1, title: "Week 1", topic: "What is AI?", subtitle: "Foundations of Artificial Intelligence" },
   { id: 2, title: "Week 2", topic: "Coding & Python", subtitle: "How to talk to computers" },
   { id: 3, title: "Week 3", topic: "Python Basics", subtitle: "Variables, Data Types & Conditions" },
-  { id: 4, title: "Week 4", topic: "Loops and Conditions", subtitle: "Zero to Hero" }
+  { id: 4, title: "Week 4", topic: "Loops and Conditions", subtitle: "Zero to Hero" },
+  { id: 5, title: "Week 5", topic: "Functions in Python", subtitle: "Write once, reuse forever" }
 ];
 
 let activeWeek = 0;
@@ -1889,11 +1891,266 @@ const week3Lessons = [
   }
 ];
 
+const week5Lessons = [
+  {
+    id: 0,
+    icon: "fn",
+    title: "What is a Function?",
+    subtitle: "The write-once, use-many-times idea",
+    content: `
+      <div class="card">
+        <h3>What is a Function? - The Big Idea</h3>
+        <p>A function is a block of code you write once, give a name, and call whenever needed.</p>
+        <div class="analogy">
+          <strong>School analogy:</strong><br>
+          Instead of repeating the full morning instruction every Monday, you say "Do the morning routine" and everyone knows the steps.
+        </div>
+      </div>
+      <div class="card">
+        <h3>Function Structure</h3>
+        <div class="code-block">
+          <span class="kw">def</span> <span class="fn">greet</span>():<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"Good morning!"</span>)<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"Please sit down."</span>)<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"Open your books."</span>)
+        </div>
+        <ul>
+          <li><code>def</code> means define a new function</li>
+          <li><code>greet</code> is the function name</li>
+          <li><code>()</code> are brackets used during definition and call</li>
+          <li><code>:</code> starts the function body</li>
+          <li>Indented lines are the code that runs when called</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Calling a Function</h3>
+        <div class="code-block">
+          <span class="fn">greet</span>()<br>
+          <span class="fn">greet</span>()<br>
+          <span class="fn">greet</span>()
+        </div>
+        <div class="output-box">
+          <div class="output-label">- Output</div>
+          Good morning!<br>
+          Please sit down.<br>
+          Open your books.<br><br>
+          Good morning!<br>
+          Please sit down.<br>
+          Open your books.<br><br>
+          Good morning!<br>
+          Please sit down.<br>
+          Open your books.
+        </div>
+      </div>
+    `,
+    quiz: {
+      q: "What is the biggest advantage of a function?",
+      options: [
+        "It always runs faster than loops",
+        "It stores data permanently",
+        "You write logic once and reuse it many times",
+        "It replaces all if/else statements"
+      ],
+      answer: 2,
+      explanation: "Correct. Functions reduce repetition by letting you reuse the same named block of logic."
+    }
+  },
+  {
+    id: 1,
+    icon: "()",
+    title: "Parameters and Arguments",
+    subtitle: "Making functions flexible",
+    content: `
+      <div class="card">
+        <h3>Parameters - Function Blanks</h3>
+        <p>Parameters are placeholders inside a function definition. You pass real values (arguments) when calling.</p>
+        <div class="code-block">
+          <span class="kw">def</span> <span class="fn">greet</span>(<span class="var">name</span>):<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"Good morning,"</span>, <span class="var">name</span>)<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"Welcome to the session!"</span>)<br><br>
+          <span class="fn">greet</span>(<span class="str">"Alice"</span>)<br>
+          <span class="fn">greet</span>(<span class="str">"Bob"</span>)<br>
+          <span class="fn">greet</span>(<span class="str">"Barath"</span>)
+        </div>
+        <div class="output-box">
+          <div class="output-label">- Output</div>
+          Good morning, Alice<br>
+          Welcome to the session!<br>
+          Good morning, Bob<br>
+          Welcome to the session!<br>
+          Good morning, Barath<br>
+          Welcome to the session!
+        </div>
+      </div>
+      <div class="card">
+        <h3>Multiple Parameters</h3>
+        <div class="code-block">
+          <span class="kw">def</span> <span class="fn">introduce</span>(<span class="var">name</span>, <span class="var">role</span>, <span class="var">team</span>):<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="var">name</span>, <span class="str">"works as a"</span>, <span class="var">role</span>)<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"Team:"</span>, <span class="var">team</span>)<br><br>
+          <span class="fn">introduce</span>(<span class="str">"Priya"</span>, <span class="str">"Engineer"</span>, <span class="str">"Powertrain"</span>)<br>
+          <span class="fn">introduce</span>(<span class="str">"Dev"</span>, <span class="str">"Analyst"</span>, <span class="str">"Quality"</span>)
+        </div>
+      </div>
+    `,
+    quiz: {
+      q: "In def greet(name): what is 'name' called?",
+      options: ["Argument", "Parameter", "Return value", "Keyword only value"],
+      answer: 1,
+      explanation: "Correct. 'name' in the definition is a parameter. 'Alice' in greet('Alice') is an argument."
+    }
+  },
+  {
+    id: 2,
+    icon: "ret",
+    title: "Return Values",
+    subtitle: "Getting answers back from functions",
+    content: `
+      <div class="card">
+        <h3>Why return?</h3>
+        <p>Use <code>return</code> when a function should send a result back for later use.</p>
+        <div class="code-block">
+          <span class="kw">def</span> <span class="fn">add</span>(<span class="var">a</span>, <span class="var">b</span>):<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="var">result</span> = <span class="var">a</span> + <span class="var">b</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> <span class="var">result</span><br><br>
+          <span class="var">total</span> = <span class="fn">add</span>(<span class="num">10</span>, <span class="num">5</span>)<br>
+          <span class="fn">print</span>(<span class="var">total</span>)<br><br>
+          <span class="var">double</span> = <span class="fn">add</span>(<span class="var">total</span>, <span class="var">total</span>)<br>
+          <span class="fn">print</span>(<span class="var">double</span>)
+        </div>
+        <div class="output-box">
+          <div class="output-label">- Output</div>
+          15<br>30
+        </div>
+      </div>
+      <div class="card">
+        <h3>Grade Checker Function</h3>
+        <div class="code-block">
+          <span class="kw">def</span> <span class="fn">get_grade</span>(<span class="var">score</span>):<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">if</span> <span class="var">score</span> >= <span class="num">90</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> <span class="str">"A"</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">elif</span> <span class="var">score</span> >= <span class="num">75</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> <span class="str">"B"</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">elif</span> <span class="var">score</span> >= <span class="num">60</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> <span class="str">"C"</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">elif</span> <span class="var">score</span> >= <span class="num">50</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> <span class="str">"D"</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">else</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> <span class="str">"F"</span>
+        </div>
+      </div>
+    `,
+    quiz: {
+      q: "What does return do in a function?",
+      options: [
+        "Prints directly to screen only",
+        "Stops all Python programs",
+        "Sends a value back to where the function was called",
+        "Creates a new variable type"
+      ],
+      answer: 2,
+      explanation: "Correct. return hands a result back so you can store it, print it, or reuse it."
+    }
+  },
+  {
+    id: 3,
+    icon: "Tool",
+    title: "Built-in Functions + Real Project",
+    subtitle: "Using Python's toolbox in real scenarios",
+    content: `
+      <div class="card">
+        <h3>Built-in Functions You Already Use</h3>
+        <div class="code-block">
+          <span class="var">numbers</span> = [<span class="num">4</span>, <span class="num">7</span>, <span class="num">1</span>, <span class="num">9</span>, <span class="num">3</span>, <span class="num">8</span>, <span class="num">2</span>]<br><br>
+          <span class="fn">print</span>(<span class="fn">len</span>(<span class="var">numbers</span>))<br>
+          <span class="fn">print</span>(<span class="fn">sum</span>(<span class="var">numbers</span>))<br>
+          <span class="fn">print</span>(<span class="fn">max</span>(<span class="var">numbers</span>))<br>
+          <span class="fn">print</span>(<span class="fn">min</span>(<span class="var">numbers</span>))<br>
+          <span class="fn">print</span>(<span class="fn">round</span>(<span class="num">3.7</span>))<br>
+          <span class="fn">print</span>(<span class="fn">round</span>(<span class="num">3.14159</span>, <span class="num">2</span>))
+        </div>
+        <div class="output-box">
+          <div class="output-label">- Output</div>
+          7<br>34<br>9<br>1<br>4<br>3.14
+        </div>
+      </div>
+      <div class="card">
+        <h3>Hands-On: Temperature Warning Function</h3>
+        <div class="code-block">
+          <span class="kw">def</span> <span class="fn">check_temperature</span>(<span class="var">temp</span>):<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">if</span> <span class="var">temp</span> > <span class="num">100</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> <span class="str">"CRITICAL - Shut down immediately"</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">elif</span> <span class="var">temp</span> > <span class="num">85</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> <span class="str">"WARNING - Monitor closely"</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">elif</span> <span class="var">temp</span> > <span class="num">70</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> <span class="str">"CAUTION - Above normal range"</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">else</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> <span class="str">"NORMAL - All good"</span><br><br>
+          <span class="var">readings</span> = [<span class="num">65</span>, <span class="num">78</span>, <span class="num">88</span>, <span class="num">105</span>, <span class="num">72</span>]<br>
+          <span class="kw">for</span> <span class="var">temp</span> <span class="kw">in</span> <span class="var">readings</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="var">status</span> = <span class="fn">check_temperature</span>(<span class="var">temp</span>)<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">f"Temp {temp}C -> {status}"</span>)
+        </div>
+      </div>
+    `,
+    quiz: {
+      q: "Which built-in function gives the highest number in a list?",
+      options: ["sum()", "len()", "max()", "round()"],
+      answer: 2,
+      explanation: "Correct. max() returns the largest value from the list."
+    }
+  },
+  {
+    id: 4,
+    icon: "",
+    title: "Common Mistakes + Week 5 Summary",
+    subtitle: "Avoid errors and lock in concepts",
+    content: `
+      <div class="card">
+        <h3>Common Mistakes With Functions</h3>
+        <ul>
+          <li>Calling a function before defining it</li>
+          <li>Forgetting brackets: <code>greet</code> vs <code>greet()</code></li>
+          <li>Forgetting <code>return</code> when expecting a value</li>
+          <li>Passing the wrong number of arguments</li>
+        </ul>
+        <div class="code-block">
+          <span class="kw">def</span> <span class="fn">greet</span>(<span class="var">name</span>):<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"Hello"</span>, <span class="var">name</span>)<br><br>
+          <span class="cmt"># greet() -> missing argument error</span><br>
+          <span class="cmt"># greet("Ali", "X") -> too many arguments error</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>The 5 Things to Remember</h3>
+        <ul>
+          <li><code>def</code> defines a function - write once</li>
+          <li>Parameters are blanks you fill with arguments</li>
+          <li><code>return</code> sends values back</li>
+          <li>Call with brackets: <code>greet()</code> not <code>greet</code></li>
+          <li>Functions + loops = powerful real programs</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Great job completing Week 5</h3>
+        <p>You can now design reusable Python logic with functions, pass data using parameters, and build practical reusable tools for your team.</p>
+      </div>
+    `,
+    quiz: {
+      q: "Which call actually executes a function named greet?",
+      options: ["greet", "def greet", "greet()", "return greet"],
+      answer: 2,
+      explanation: "Correct. A function runs only when called with parentheses, like greet()."
+    }
+  }
+];
+
 function getLessonsForWeek(weekNumber) {
   if (weekNumber === 1) return week1Lessons;
   if (weekNumber === 2) return week2Lessons;
   if (weekNumber === 3) return week3Lessons;
   if (weekNumber === 4) return week4Lessons;
+  if (weekNumber === 5) return week5Lessons;
   return buildPlaceholderLessons(weekNumber);
 }
 
@@ -1902,7 +2159,7 @@ function renderWeekHome() {
   home.innerHTML = `
     <div class="week-home-head">
       <div class="week-home-title">Select Your Training Week</div>
-      <div class="week-home-sub">All 4 weeks are live. Select a week to begin your training.</div>
+      <div class="week-home-sub">All 5 weeks are live. Select a week to begin your training.</div>
     </div>
     <div class="week-home-grid">
       ${weekCatalog.map(week => `
@@ -2072,6 +2329,24 @@ function renderLesson(idx) {
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">if</span> <span class="var">score</span> >= <span class="num">90</span>:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"Top score found!"</span>, <span class="var">score</span>)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">break</span>`
+    },
+    5: {
+      title: "Week 5 Practice - Functions Mastery",
+      items: [
+        "<strong>Task 1:</strong> Create a <code>greet(name)</code> function and call it for 3 names.",
+        "<strong>Task 2:</strong> Create an <code>add(a, b)</code> function using <code>return</code>, then print the result for 3 inputs.",
+        "<strong>Task 3:</strong> Build a <code>get_grade(score)</code> function and loop through a list of 6 scores.",
+        "<strong>Task 4:</strong> Build a <code>check_temperature(temp)</code> function and print status for multiple readings."
+      ],
+      code: `<span class="cmt"># Starter: function + loop</span><br>
+<span class="kw">def</span> <span class="fn">get_grade</span>(<span class="var">score</span>):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">if</span> <span class="var">score</span> >= <span class="num">90</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> <span class="str">"A"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">else</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> <span class="str">"B or below"</span><br><br>
+<span class="var">scores</span> = [<span class="num">88</span>, <span class="num">45</span>, <span class="num">72</span>]<br>
+<span class="kw">for</span> <span class="var">s</span> <span class="kw">in</span> <span class="var">scores</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="var">s</span>, <span class="fn">get_grade</span>(<span class="var">s</span>))`
     }
   };
   const pm = practiceModelsByWeek[activeWeek] || practiceModelsByWeek[4];
