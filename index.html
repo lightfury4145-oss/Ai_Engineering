@@ -593,6 +593,32 @@
     .main { padding: 18px 16px; }
     .welcome-screen img { width: 220px; }
   }
+  .credit-box {
+    position: fixed;
+    right: 14px;
+    bottom: 14px;
+    z-index: 950;
+    max-width: 240px;
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(103, 232, 249, 0.35);
+    background: rgba(4, 20, 34, 0.78);
+    backdrop-filter: blur(8px);
+    color: rgba(224, 242, 254, 0.95);
+    font-size: 0.72rem;
+    line-height: 1.35;
+    text-align: left;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  }
+  @media (max-width: 640px) {
+    .credit-box {
+      right: 10px;
+      bottom: 10px;
+      max-width: 180px;
+      font-size: 0.66rem;
+      padding: 7px 9px;
+    }
+  }
 </style>
 </head>
 <body>
@@ -2423,5 +2449,9 @@ window.addEventListener('load', () => {
   }, 3000);
 });
 </script>
+<div class="credit-box">
+  Website Designed &amp; Developed by :<br>
+        Barath A S (T0147TE)
+</div>
 </body>
 </html>
