@@ -1007,7 +1007,9 @@ const weeklyData = [
   { week: "Week 2", lessonsDone: 0, lessonsTarget: 5, quizScore: 0, studyMins: 0 },
   { week: "Week 3", lessonsDone: 0, lessonsTarget: 5, quizScore: 0, studyMins: 0 },
   { week: "Week 4", lessonsDone: 0, lessonsTarget: 5, quizScore: 0, studyMins: 0 },
-  { week: "Week 5", lessonsDone: 0, lessonsTarget: 5, quizScore: 0, studyMins: 0 }
+  { week: "Week 5", lessonsDone: 0, lessonsTarget: 5, quizScore: 0, studyMins: 0 },
+  { week: "Week 6", lessonsDone: 0, lessonsTarget: 5, quizScore: 0, studyMins: 0 },
+  { week: "Week 7", lessonsDone: 0, lessonsTarget: 6, quizScore: 0, studyMins: 0 }
 ];
 
 const weekCatalog = [
@@ -1015,7 +1017,9 @@ const weekCatalog = [
   { id: 2, title: "Week 2", topic: "Coding & Python", subtitle: "How to talk to computers" },
   { id: 3, title: "Week 3", topic: "Python Basics", subtitle: "Variables, Data Types & Conditions" },
   { id: 4, title: "Week 4", topic: "Loops and Conditions", subtitle: "Zero to Hero" },
-  { id: 5, title: "Week 5", topic: "Functions in Python", subtitle: "Write once, reuse forever" }
+  { id: 5, title: "Week 5", topic: "Functions in Python", subtitle: "Write once, reuse forever" },
+  { id: 6, title: "Week 6", topic: "Lists & Dictionaries", subtitle: "Real data structures in Python" },
+  { id: 7, title: "Week 7", topic: "Introduction to Pandas", subtitle: "Python's most powerful data library" }
 ];
 
 let activeWeek = 0;
@@ -2171,12 +2175,604 @@ const week5Lessons = [
   }
 ];
 
+
+const week6Lessons = [
+  {
+    id: 0,
+    icon: "📦",
+    title: "What is a List?",
+    subtitle: "Stop creating one variable per car — hold everything in one place",
+    content: `
+      <div class="card">
+        <h3>🚗 The Problem With Single Variables</h3>
+        <p>Imagine you manage a fleet of 500 cars. Using what you knew before — you'd write:</p>
+        <div class="code-block">
+          <span class="var">car1</span> = <span class="str">"Alto"</span><br>
+          <span class="var">car2</span> = <span class="str">"Swift"</span><br>
+          <span class="var">car3</span> = <span class="str">"Nexon"</span><br>
+          <span class="cmt"># 500 cars = 500 variables — impossible!</span>
+        </div>
+        <div class="analogy">
+          <strong>The Solution — A List:</strong><br>
+          One variable. Many values. Expandable to any size.
+        </div>
+      </div>
+      <div class="card">
+        <h3>📋 What is a List?</h3>
+        <p>A List is a <strong>single variable that holds multiple values</strong> in one place.</p>
+        <div class="code-block">
+          <span class="var">fleet</span> = [<span class="str">"Alto"</span>, <span class="str">"Swift"</span>, <span class="str">"Nexon"</span>, <span class="str">"Fortuner"</span>, <span class="str">"Compass"</span>]<br><br>
+          <span class="fn">print</span>(<span class="var">fleet</span>[<span class="num">0</span>])  <span class="cmt"># Alto — first car</span><br>
+          <span class="fn">print</span>(<span class="var">fleet</span>[<span class="num">1</span>])  <span class="cmt"># Swift — second car</span><br>
+          <span class="fn">print</span>(<span class="var">fleet</span>[-<span class="num">1</span>]) <span class="cmt"># Compass — last car always</span>
+        </div>
+        <div class="output-box">
+          <div class="output-label">▶ Output</div>
+          Alto<br>Swift<br>Compass
+        </div>
+        <div class="analogy">
+          <strong>🅿️ Car Park Analogy:</strong><br>
+          A variable = ONE parking spot.<br>
+          A List = an ENTIRE car park — one name, many numbered spots.<br><br>
+          <strong>⚠️ Counting starts at 0 — ALWAYS!</strong><br>
+          fleet[0] = Alto, fleet[1] = Swift, fleet[2] = Nexon
+        </div>
+      </div>
+      <div class="card">
+        <h3>🔧 List Operations</h3>
+        <div class="code-block">
+          <span class="var">fleet</span> = [<span class="str">"Alto"</span>, <span class="str">"Swift"</span>, <span class="str">"Nexon"</span>]<br><br>
+          <span class="var">fleet</span>.<span class="fn">append</span>(<span class="str">"Fortuner"</span>)  <span class="cmt"># add to end</span><br>
+          <span class="var">fleet</span>.<span class="fn">remove</span>(<span class="str">"Swift"</span>)    <span class="cmt"># remove by name</span><br>
+          <span class="var">fleet</span>[<span class="num">0</span>] = <span class="str">"Tiago"</span>        <span class="cmt"># update first item</span><br>
+          <span class="fn">print</span>(<span class="fn">len</span>(<span class="var">fleet</span>))          <span class="cmt"># count items</span><br>
+          <span class="fn">print</span>(<span class="str">"Nexon"</span> <span class="kw">in</span> <span class="var">fleet</span>)    <span class="cmt"># True/False check</span>
+        </div>
+      </div>
+    `,
+    quiz: {
+      q: "What does fleet[0] give you?",
+      options: ["The last car", "The second car", "The first car", "A count of cars"],
+      answer: 2,
+      explanation: "✅ Correct! In Python, counting starts at 0. fleet[0] gives the FIRST item, fleet[1] gives the second, and fleet[-1] always gives the last."
+    }
+  },
+  {
+    id: 1,
+    icon: "🔁",
+    title: "Looping Through a List",
+    subtitle: "Where loops, functions and lists all connect",
+    content: `
+      <div class="card">
+        <h3>🔁 Basic For Loop on a List</h3>
+        <div class="code-block">
+          <span class="var">fleet</span> = [<span class="str">"Alto"</span>, <span class="str">"Swift"</span>, <span class="str">"Nexon"</span>, <span class="str">"Fortuner"</span>]<br><br>
+          <span class="kw">for</span> <span class="var">car</span> <span class="kw">in</span> <span class="var">fleet</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"Checking:"</span>, <span class="var">car</span>)
+        </div>
+        <div class="output-box">
+          <div class="output-label">▶ Output</div>
+          Checking: Alto<br>Checking: Swift<br>Checking: Nexon<br>Checking: Fortuner
+        </div>
+      </div>
+      <div class="card">
+        <h3>🔗 Loop + Function — The Power Combo</h3>
+        <p>Everything from Weeks 3 to 6 working together:</p>
+        <div class="code-block">
+          <span class="kw">def</span> <span class="fn">check_emission</span>(<span class="var">car</span>, <span class="var">emission</span>):<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">if</span> <span class="var">emission</span> <= <span class="num">50</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> <span class="str">"✅ Pass"</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">elif</span> <span class="var">emission</span> <= <span class="num">70</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> <span class="str">"⚠️ Borderline"</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">else</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> <span class="str">"❌ Fail"</span><br><br>
+          <span class="var">fleet</span> = [(<span class="str">"Alto"</span>,<span class="num">42</span>), (<span class="str">"Swift"</span>,<span class="num">65</span>), (<span class="str">"Nexon"</span>,<span class="num">48</span>)]<br><br>
+          <span class="kw">for</span> <span class="var">car</span>, <span class="var">emission</span> <span class="kw">in</span> <span class="var">fleet</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="var">result</span> = <span class="fn">check_emission</span>(<span class="var">car</span>, <span class="var">emission</span>)<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">f"{car} → {result}"</span>)
+        </div>
+        <div class="output-box">
+          <div class="output-label">▶ Output</div>
+          Alto → ✅ Pass<br>Swift → ⚠️ Borderline<br>Nexon → ✅ Pass
+        </div>
+        <div class="analogy">
+          <strong>Add 100 cars? Same 3 lines of loop code.<br>
+          Change the limit? Edit the function once.</strong>
+        </div>
+      </div>
+    `,
+    quiz: {
+      q: "What is ('Alto', 42) called inside the list?",
+      options: ["Dictionary", "Variable", "Tuple — a fixed pair of values", "String"],
+      answer: 2,
+      explanation: "✅ Correct! ('Alto', 42) is a Tuple — round brackets, holds multiple values, cannot be changed. It keeps the car name and emission locked together as a pair."
+    }
+  },
+  {
+    id: 2,
+    icon: "🗂️",
+    title: "What is a Dictionary?",
+    subtitle: "Label your data — access by name, not by number",
+    content: `
+      <div class="card">
+        <h3>❌ The Problem With Lists for Structured Data</h3>
+        <div class="code-block">
+          <span class="var">car</span> = [<span class="str">"Alto"</span>, <span class="str">"Red"</span>, <span class="num">42</span>, <span class="str">"Petrol"</span>]<br>
+          <span class="fn">print</span>(<span class="var">car</span>[<span class="num">2</span>])  <span class="cmt"># 42 — but what IS 42?</span>
+        </div>
+        <p style="margin-top:8px">Position numbers are confusing. You have to <strong>remember</strong> what each index means.</p>
+      </div>
+      <div class="card">
+        <h3>✅ Dictionary — Access by Name</h3>
+        <div class="code-block">
+          <span class="var">car</span> = {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"model"</span>    : <span class="str">"Alto"</span>,<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"emission"</span> : <span class="num">42</span>,<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"fuel"</span>     : <span class="str">"Petrol"</span>,<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"color"</span>    : <span class="str">"Red"</span><br>
+          }<br><br>
+          <span class="fn">print</span>(<span class="var">car</span>[<span class="str">"emission"</span>])  <span class="cmt"># 42 — crystal clear!</span><br>
+          <span class="fn">print</span>(<span class="var">car</span>[<span class="str">"model"</span>])     <span class="cmt"># Alto</span>
+        </div>
+        <div class="output-box">
+          <div class="output-label">▶ Output</div>
+          42<br>Alto
+        </div>
+        <div class="analogy">
+          <strong>🅿️ Car Park Analogy:</strong><br>
+          List = numbered spots (0, 1, 2, 3)<br>
+          Dictionary = named spots ("model", "emission", "fuel")<br><br>
+          KEY = the label. VALUE = the actual data.<br>
+          <code style="color:#facc15">"emission" : 42</code> → KEY : VALUE
+        </div>
+      </div>
+      <div class="card">
+        <h3>🔧 Dictionary Operations</h3>
+        <div class="code-block">
+          <span class="var">car</span>[<span class="str">"color"</span>] = <span class="str">"Blue"</span>   <span class="cmt"># add new field</span><br>
+          <span class="var">car</span>[<span class="str">"emission"</span>] = <span class="num">38</span>   <span class="cmt"># update value</span><br>
+          <span class="kw">del</span> <span class="var">car</span>[<span class="str">"fuel"</span>]         <span class="cmt"># remove field</span><br>
+          <span class="fn">print</span>(<span class="str">"model"</span> <span class="kw">in</span> <span class="var">car</span>)    <span class="cmt"># True</span><br><br>
+          <span class="kw">for</span> <span class="var">key</span>, <span class="var">val</span> <span class="kw">in</span> <span class="var">car</span>.<span class="fn">items</span>():<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="var">key</span>, <span class="str">"→"</span>, <span class="var">val</span>)
+        </div>
+      </div>
+    `,
+    quiz: {
+      q: "Is 'model' in car = {'model':'Alto'} a variable or a key?",
+      options: ["A variable", "A key — a label inside the dictionary", "A function", "A list"],
+      answer: 1,
+      explanation: "✅ Correct! 'model' here is a KEY — a label inside the dictionary written in quotes. It is NOT a standalone variable. You can only access it through the dictionary: car['model']."
+    }
+  },
+  {
+    id: 3,
+    icon: "📊",
+    title: "List vs Dictionary + List of Dicts",
+    subtitle: "When to use which — and the most important data structure",
+    content: `
+      <div class="card">
+        <h3>🆚 List vs Dictionary</h3>
+        <table style="width:100%;border-collapse:collapse;font-size:0.88rem;margin-top:8px">
+          <tr style="border-bottom:1px solid #334155">
+            <th style="text-align:left;padding:8px;color:#38bdf8">Feature</th>
+            <th style="text-align:left;padding:8px;color:#38bdf8">List [ ]</th>
+            <th style="text-align:left;padding:8px;color:#38bdf8">Dictionary { }</th>
+          </tr>
+          <tr style="border-bottom:1px solid #1e293b"><td style="padding:8px;color:#f59e0b">Symbol</td><td style="padding:8px">Square brackets [ ]</td><td style="padding:8px">Curly brackets { }</td></tr>
+          <tr style="border-bottom:1px solid #1e293b"><td style="padding:8px;color:#f59e0b">Access by</td><td style="padding:8px">Position number fleet[0]</td><td style="padding:8px">Key name car["model"]</td></tr>
+          <tr style="border-bottom:1px solid #1e293b"><td style="padding:8px;color:#f59e0b">Best for</td><td style="padding:8px">Simple ordered collection</td><td style="padding:8px">Structured labelled record</td></tr>
+          <tr><td style="padding:8px;color:#f59e0b">Car analogy</td><td style="padding:8px">Numbered parking spots</td><td style="padding:8px">Named parking spots</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <h3>🗂️ List of Dictionaries — The Most Important Structure</h3>
+        <p>This is a <strong>spreadsheet in Python</strong>. Each dictionary = one row. Each key = one column.</p>
+        <div class="code-block">
+          <span class="var">fleet</span> = [<br>
+          &nbsp;&nbsp;{<span class="str">"model"</span>:<span class="str">"Alto"</span>,     <span class="str">"emission"</span>:<span class="num">42</span>, <span class="str">"fuel"</span>:<span class="str">"Petrol"</span>},<br>
+          &nbsp;&nbsp;{<span class="str">"model"</span>:<span class="str">"Swift"</span>,    <span class="str">"emission"</span>:<span class="num">65</span>, <span class="str">"fuel"</span>:<span class="str">"Petrol"</span>},<br>
+          &nbsp;&nbsp;{<span class="str">"model"</span>:<span class="str">"Nexon"</span>,    <span class="str">"emission"</span>:<span class="num">48</span>, <span class="str">"fuel"</span>:<span class="str">"Diesel"</span>},<br>
+          &nbsp;&nbsp;{<span class="str">"model"</span>:<span class="str">"Fortuner"</span>, <span class="str">"emission"</span>:<span class="num">78</span>, <span class="str">"fuel"</span>:<span class="str">"Diesel"</span>},<br>
+          ]<br><br>
+          <span class="kw">for</span> <span class="var">car</span> <span class="kw">in</span> <span class="var">fleet</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="var">status</span> = <span class="str">"✅ Pass"</span> <span class="kw">if</span> <span class="var">car</span>[<span class="str">"emission"</span>] <= <span class="num">50</span> <span class="kw">else</span> <span class="str">"❌ Fail"</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">f"{car['model']} ({car['fuel']}) → {status}"</span>)
+        </div>
+        <div class="output-box">
+          <div class="output-label">▶ Output</div>
+          Alto (Petrol) → ✅ Pass<br>Swift (Petrol) → ❌ Fail<br>Nexon (Diesel) → ✅ Pass<br>Fortuner (Diesel) → ❌ Fail
+        </div>
+        <div class="analogy">
+          <strong>This is exactly what Week 7 reads from a CSV file.</strong><br>
+          pandas loads a CSV into exactly this structure automatically.
+        </div>
+      </div>
+    `,
+    quiz: {
+      q: "What is a List of Dictionaries equivalent to?",
+      options: ["A single variable", "A spreadsheet — each dict is a row, each key is a column", "A loop", "A function"],
+      answer: 1,
+      explanation: "✅ Correct! A List of Dictionaries is like a spreadsheet in Python. Each dictionary is one row of data. Each key is one column header. This is the structure pandas reads from CSV files."
+    }
+  },
+  {
+    id: 4,
+    icon: "🏁",
+    title: "Common Mistakes + Week 6 Summary",
+    subtitle: "Avoid errors and lock in the concepts",
+    content: `
+      <div class="card">
+        <h3>⚠️ 4 Common Mistakes</h3>
+        <ul>
+          <li><strong>Wrong brackets:</strong> <code style="background:#0f172a;padding:2px 5px;border-radius:3px;color:#f87171">('Alto','Swift')</code> is a Tuple — not a List. Always use <code style="background:#0f172a;padding:2px 5px;border-radius:3px;color:#86efac">['Alto','Swift']</code></li>
+          <li><strong>Counting from 1:</strong> <code style="background:#0f172a;padding:2px 5px;border-radius:3px">fleet[1]</code> gives the SECOND car — not the first. Counting starts at 0.</li>
+          <li><strong>Key that doesn't exist:</strong> <code style="background:#0f172a;padding:2px 5px;border-radius:3px;color:#f87171">car['color']</code> crashes if 'color' is not in the dictionary. Check first with <code style="background:#0f172a;padding:2px 5px;border-radius:3px;color:#86efac">'color' in car</code></li>
+          <li><strong>Using number on dict:</strong> <code style="background:#0f172a;padding:2px 5px;border-radius:3px;color:#f87171">car[0]</code> crashes — dictionaries use key names, not position numbers.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🎯 Week 6 Key Takeaways</h3>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="background:#0f172a;border-left:3px solid #22d3ee;padding:10px 14px;border-radius:6px">
+            <strong style="color:#22d3ee">List [ ]</strong> — multiple values in order, access by position number starting at 0
+          </div>
+          <div style="background:#0f172a;border-left:3px solid #f59e0b;padding:10px 14px;border-radius:6px">
+            <strong style="color:#f59e0b">Dictionary { }</strong> — key-value pairs, access by name — labels make data clear
+          </div>
+          <div style="background:#0f172a;border-left:3px solid #22c55e;padding:10px 14px;border-radius:6px">
+            <strong style="color:#22c55e">List of Dicts</strong> — spreadsheet in Python — what ALL real datasets look like
+          </div>
+          <div style="background:#0f172a;border-left:3px solid #a78bfa;padding:10px 14px;border-radius:6px">
+            <strong style="color:#a78bfa">Next Week</strong> — pandas reads a CSV file into exactly this structure automatically
+          </div>
+        </div>
+      </div>
+    `,
+    quiz: {
+      q: "Which comes next after mastering Lists and Dictionaries?",
+      options: ["Write more variables", "pandas — load real CSV data automatically", "Learn HTML", "Study deep learning"],
+      answer: 1,
+      explanation: "✅ Correct! Week 7 introduces pandas which loads CSV files into a List of Dictionaries structure automatically. Everything you learned this week is the direct foundation."
+    }
+  }
+];
+
+const week7Lessons = [
+  {
+    id: 0,
+    icon: "🐼",
+    title: "What is Pandas?",
+    subtitle: "Python's most powerful data library — explained simply",
+    content: `
+      <div class="card">
+        <h3>❌ Without Pandas — The Hard Way</h3>
+        <p>You have 1000 rows of car data. You want all cars that failed emission. Without pandas:</p>
+        <ul>
+          <li>Open the file manually</li>
+          <li>Loop through every single row</li>
+          <li>Check each row's emission value</li>
+          <li>Collect the ones above 50</li>
+        </ul>
+        <p style="margin-top:8px">That is <strong>15–20 lines of code</strong> for just ONE simple task.</p>
+      </div>
+      <div class="card">
+        <h3>✅ With Pandas — One Line</h3>
+        <div class="code-block">
+          <span class="var">fleet</span>[<span class="var">fleet</span>[<span class="str">'emission'</span>] > <span class="num">50</span>]
+        </div>
+        <p style="margin-top:8px">That's it. pandas does all the looping, checking, and collecting for you. Instantly. On any number of rows.</p>
+        <div class="analogy">
+          <strong>🚗 Car Service Analogy:</strong><br>
+          Without pandas = managing 500 cars on separate sticky notes.<br>
+          With pandas = one master spreadsheet inside Python — search, filter, analyse in seconds.
+        </div>
+      </div>
+      <div class="card">
+        <h3>📦 What is pandas?</h3>
+        <p>pandas is a free Python library that lets you work with data in <strong>table format — rows and columns</strong> — exactly like Excel, but inside Python.</p>
+        <ul>
+          <li>Born 2008 — created by Wes McKinney</li>
+          <li>Over 150 million downloads per month</li>
+          <li>Used by Google, Netflix, NASA, every AI company</li>
+          <li><strong>Must know</strong> — appears on every data science job description</li>
+        </ul>
+        <div class="code-block">
+          <span class="kw">import</span> pandas <span class="kw">as</span> pd<br>
+          <span class="cmt"># import = bring the toolbox in</span><br>
+          <span class="cmt"># as pd = give it a short nickname</span>
+        </div>
+      </div>
+    `,
+    quiz: {
+      q: "What does 'import pandas as pd' do?",
+      options: ["Creates a new variable", "Brings the pandas toolbox into your program and names it pd", "Loads a CSV file", "Installs Python"],
+      answer: 1,
+      explanation: "✅ Correct! import brings the pandas toolbox into your program. 'as pd' gives it a short nickname so you type pd.something instead of pandas.something every time."
+    }
+  },
+  {
+    id: 1,
+    icon: "📊",
+    title: "Series & DataFrame",
+    subtitle: "The two building blocks of pandas",
+    content: `
+      <div class="card">
+        <h3>📋 Series — One Column of Data</h3>
+        <p>A Series is a <strong>single column</strong> with a label on each row.</p>
+        <div class="code-block">
+          <span class="cmt"># Series — like one column from Excel</span><br>
+          Index | Emission<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;0  |  42<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;1  |  65<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;2  |  48<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;3  |  78
+        </div>
+        <p style="margin-top:8px">Every column in a DataFrame is a Series underneath.</p>
+      </div>
+      <div class="card">
+        <h3>🗂️ DataFrame — The Full Table</h3>
+        <p>A DataFrame is the <strong>complete spreadsheet</strong> — multiple columns side by side.</p>
+        <div class="code-block">
+          &nbsp;&nbsp;&nbsp;model  emission   fuel  year<br>
+          0   Alto        42  Petrol  2022<br>
+          1  Swift        65  Petrol  2021<br>
+          2  Nexon        48  Diesel  2023<br>
+          3  Fortune      78  Diesel  2020<br>
+          4  Compass      49  Petrol  2022
+        </div>
+        <div class="analogy">
+          <strong>Series</strong> = one column pulled from the spreadsheet<br>
+          <strong>DataFrame</strong> = the entire spreadsheet<br>
+          Each column in a DataFrame is its own Series.
+        </div>
+      </div>
+      <div class="card">
+        <h3>📥 Loading a CSV — One Line</h3>
+        <div class="code-block">
+          <span class="kw">import</span> pandas <span class="kw">as</span> pd<br><br>
+          <span class="var">fleet</span> = pd.<span class="fn">read_csv</span>(<span class="str">'fleet_data.csv'</span>)<br>
+          <span class="cmt"># fleet is now a DataFrame</span><br>
+          <span class="cmt"># rows = cars    columns = model, emission, fuel</span>
+        </div>
+        <p style="margin-top:8px">Last week you typed data manually. This week pandas loads thousands of rows in one line.</p>
+      </div>
+    `,
+    quiz: {
+      q: "What is the difference between a Series and a DataFrame?",
+      options: [
+        "They are the same thing",
+        "Series = one column of data. DataFrame = the full table with many columns",
+        "DataFrame = one column. Series = full table",
+        "Series is for numbers, DataFrame is for text"
+      ],
+      answer: 1,
+      explanation: "✅ Correct! A Series is one column of data with labels. A DataFrame is the full table — multiple columns side by side. Every column in a DataFrame is actually a Series."
+    }
+  },
+  {
+    id: 2,
+    icon: "🔍",
+    title: "Exploring a DataFrame",
+    subtitle: "First 4 commands you run after loading any dataset",
+    content: `
+      <div class="card">
+        <h3>🔍 The 4 Essential Exploration Commands</h3>
+        <div class="code-block">
+          <span class="cmt"># 1. See first 5 rows</span><br>
+          <span class="fn">print</span>(<span class="var">fleet</span>.<span class="fn">head</span>())<br><br>
+          <span class="cmt"># 2. See last 5 rows</span><br>
+          <span class="fn">print</span>(<span class="var">fleet</span>.<span class="fn">tail</span>())<br><br>
+          <span class="cmt"># 3. How many rows × columns?</span><br>
+          <span class="fn">print</span>(<span class="var">fleet</span>.shape)   <span class="cmt"># (5, 5)</span><br><br>
+          <span class="cmt"># 4. All column names</span><br>
+          <span class="fn">print</span>(<span class="var">fleet</span>.columns)
+        </div>
+        <div class="output-box">
+          <div class="output-label">▶ Output</div>
+          (5, 5)<br>Index(['model', 'emission', 'fuel', 'color', 'year'])
+        </div>
+        <div class="analogy">
+          <strong>Run these 4 every time you load a new dataset.</strong><br>
+          They tell you everything about the data in under 60 seconds.
+        </div>
+      </div>
+      <div class="card">
+        <h3>📈 The describe() Command</h3>
+        <p>Instant statistics on any numeric column:</p>
+        <div class="code-block">
+          <span class="fn">print</span>(<span class="var">fleet</span>[<span class="str">'emission'</span>].<span class="fn">describe</span>())
+        </div>
+        <div class="output-box">
+          <div class="output-label">▶ Output</div>
+          count  &nbsp; 5.0<br>mean  &nbsp; 56.4<br>min  &nbsp;&nbsp; 42.0<br>max  &nbsp;&nbsp; 78.0
+        </div>
+        <p style="margin-top:8px">One command. You know the average emission, best car, worst car — without reading a single row.</p>
+      </div>
+    `,
+    quiz: {
+      q: "What does fleet.shape return?",
+      options: ["The column names", "The first 5 rows", "(rows, columns) — size of the DataFrame", "Statistics like min and max"],
+      answer: 2,
+      explanation: "✅ Correct! fleet.shape returns a tuple like (1000, 5) meaning 1000 rows and 5 columns. It tells you the size of your dataset instantly. Note: .shape has no brackets — it is a property."
+    }
+  },
+  {
+    id: 3,
+    icon: "🎯",
+    title: "Filtering Data",
+    subtitle: "Find exactly the cars you need — the most important pandas skill",
+    content: `
+      <div class="card">
+        <h3>🧠 How Filtering Works — The True/False Trick</h3>
+        <div class="code-block">
+          <span class="var">fleet</span>[<span class="var">fleet</span>[<span class="str">'emission'</span>] > <span class="num">50</span>]
+        </div>
+        <p style="margin-top:8px">Step 1 — <code style="background:#0f172a;padding:2px 5px;border-radius:3px">fleet['emission'] > 50</code> checks every row → True or False<br>
+        Step 2 — pandas keeps only rows where True<br>
+        Step 3 — you get a filtered DataFrame back</p>
+        <div class="analogy">
+          <strong>Same condition logic from Week 3 — but applied to 1000 rows at once!</strong>
+        </div>
+      </div>
+      <div class="card">
+        <h3>🔎 Types of Filters</h3>
+        <div class="code-block">
+          <span class="cmt"># Single filter</span><br>
+          <span class="var">failed</span> = <span class="var">fleet</span>[<span class="var">fleet</span>[<span class="str">'emission'</span>] > <span class="num">50</span>]<br><br>
+          <span class="cmt"># Text filter</span><br>
+          <span class="var">petrol</span> = <span class="var">fleet</span>[<span class="var">fleet</span>[<span class="str">'fuel'</span>] == <span class="str">'Petrol'</span>]<br><br>
+          <span class="cmt"># AND filter — both must be true</span><br>
+          <span class="var">mask</span> = (<span class="var">fleet</span>[<span class="str">'fuel'</span>] == <span class="str">'Diesel'</span>) &amp; (<span class="var">fleet</span>[<span class="str">'emission'</span>] > <span class="num">50</span>)<br>
+          <span class="var">result</span> = <span class="var">fleet</span>[<span class="var">mask</span>]<br><br>
+          <span class="fn">print</span>(<span class="var">failed</span>[[<span class="str">'model'</span>, <span class="str">'emission'</span>]])<br>
+          <span class="fn">print</span>(<span class="str">f'Total failed: {len(failed)}'</span>)
+        </div>
+        <div class="output-box">
+          <div class="output-label">▶ Output</div>
+          &nbsp;&nbsp;&nbsp;model  emission<br>
+          1  Swift        65<br>
+          3  Fortuner     78<br>
+          Total failed: 2
+        </div>
+        <p style="margin-top:8px">⚠️ <strong>AND filter rule:</strong> Each condition MUST be in its own brackets ( ). Missing brackets = immediate error.</p>
+      </div>
+    `,
+    quiz: {
+      q: "What does fleet[fleet['emission'] > 50] do?",
+      options: [
+        "Returns only the emission column",
+        "Counts how many rows have emission above 50",
+        "Returns a new DataFrame with only rows where emission is above 50",
+        "Changes the emission values"
+      ],
+      answer: 2,
+      explanation: "✅ Correct! It creates a True/False for every row, then keeps only the True rows. You get back a filtered DataFrame containing only cars with emission above 50."
+    }
+  },
+  {
+    id: 4,
+    icon: "➕",
+    title: "Adding Columns & apply()",
+    subtitle: "Process every row automatically — no loop needed",
+    content: `
+      <div class="card">
+        <h3>➕ Adding a New Column with apply()</h3>
+        <p><code style="background:#0f172a;padding:2px 5px;border-radius:3px;color:#facc15">apply()</code> runs a function on every single value in a column automatically.</p>
+        <div class="code-block">
+          <span class="kw">def</span> <span class="fn">get_status</span>(<span class="var">emission</span>):<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">if</span> <span class="var">emission</span> <= <span class="num">50</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> <span class="str">"✅ Pass"</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">elif</span> <span class="var">emission</span> <= <span class="num">70</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> <span class="str">"⚠️ Borderline"</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">else</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> <span class="str">"❌ Fail"</span><br><br>
+          <span class="var">fleet</span>[<span class="str">'status'</span>] = <span class="var">fleet</span>[<span class="str">'emission'</span>].<span class="fn">apply</span>(<span class="fn">get_status</span>)<br>
+          <span class="fn">print</span>(<span class="var">fleet</span>[[<span class="str">'model'</span>, <span class="str">'emission'</span>, <span class="str">'status'</span>]])
+        </div>
+        <div class="output-box">
+          <div class="output-label">▶ Output</div>
+          &nbsp;&nbsp;&nbsp;&nbsp;model  emission        status<br>
+          0   Alto        42      ✅ Pass<br>
+          1  Swift        65  ⚠️ Borderline<br>
+          2  Nexon        48      ✅ Pass<br>
+          3  Fortuner     78      ❌ Fail
+        </div>
+        <div class="analogy">
+          <strong>apply() = your Week 5 function applied to every row automatically.</strong><br>
+          No for loop needed. pandas handles all the repetition.
+        </div>
+      </div>
+      <div class="card">
+        <h3>🔗 The Full Pipeline — Weeks 2–7 Together</h3>
+        <div class="code-block">
+          <span class="kw">import</span> pandas <span class="kw">as</span> pd<br>
+          <span class="cmt"># Week 7 — import</span><br><br>
+          <span class="var">fleet</span> = pd.<span class="fn">read_csv</span>(<span class="str">'fleet_data.csv'</span>)<br>
+          <span class="cmt"># Week 7 — load file</span><br><br>
+          <span class="var">fleet</span>[<span class="str">'status'</span>] = <span class="var">fleet</span>[<span class="str">'emission'</span>].<span class="fn">apply</span>(<span class="fn">get_status</span>)<br>
+          <span class="cmt"># Week 5 — function</span><br><br>
+          <span class="var">failed</span> = <span class="var">fleet</span>[<span class="var">fleet</span>[<span class="str">'status'</span>] == <span class="str">"❌ Fail"</span>]<br>
+          <span class="cmt"># Week 4 — condition</span><br><br>
+          <span class="fn">print</span>(<span class="var">failed</span>[[<span class="str">'model'</span>, <span class="str">'emission'</span>, <span class="str">'status'</span>]])
+        </div>
+      </div>
+    `,
+    quiz: {
+      q: "What does fleet['emission'].apply(get_status) do?",
+      options: [
+        "Filters the fleet by emission",
+        "Runs get_status on every single value in the emission column automatically",
+        "Creates a new DataFrame",
+        "Prints the emission column"
+      ],
+      answer: 1,
+      explanation: "✅ Correct! apply() runs the function on every single value in the column. No for loop needed — pandas handles all the repetition automatically. The result becomes a new column."
+    }
+  },
+  {
+    id: 5,
+    icon: "🏁",
+    title: "Where Pandas is Used + Summary",
+    subtitle: "Real industries and everything you learned this week",
+    content: `
+      <div class="card">
+        <h3>🌍 Where Pandas is Used</h3>
+        <ul>
+          <li><strong>🤖 AI & Machine Learning</strong> — every model needs clean training data. pandas prepares it.</li>
+          <li><strong>💰 Finance & Banking</strong> — stock prices, loan records, risk scores — all DataFrames.</li>
+          <li><strong>🏭 Engineering & IoT</strong> — sensor readings from machines exported as CSV, processed by pandas.</li>
+          <li><strong>📊 Business Analysis</strong> — sales reports, customer behaviour, marketing data.</li>
+          <li><strong>🏥 Healthcare</strong> — patient outcomes, clinical trial results.</li>
+        </ul>
+        <div class="analogy">
+          <strong>Why pandas?</strong><br>
+          Fast. Simple. Handles messy data. Industry standard. Connects with all AI tools. One line loads 1 million rows — same code as 100 rows.
+        </div>
+      </div>
+      <div class="card">
+        <h3>🎯 Week 7 Key Takeaways</h3>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="background:#0f172a;border-left:3px solid #22d3ee;padding:10px 14px;border-radius:6px">
+            <strong style="color:#22d3ee">pandas</strong> — free Python library for working with data as rows and columns
+          </div>
+          <div style="background:#0f172a;border-left:3px solid #f59e0b;padding:10px 14px;border-radius:6px">
+            <strong style="color:#f59e0b">DataFrame</strong> — the full table. Series — one column. read_csv() loads in one line.
+          </div>
+          <div style="background:#0f172a;border-left:3px solid #22c55e;padding:10px 14px;border-radius:6px">
+            <strong style="color:#22c55e">Filtering</strong> — same condition logic from Week 4, applied to all rows at once
+          </div>
+          <div style="background:#0f172a;border-left:3px solid #a78bfa;padding:10px 14px;border-radius:6px">
+            <strong style="color:#a78bfa">apply()</strong> — your Week 5 function runs on every row automatically
+          </div>
+          <div style="background:#0f172a;border-left:3px solid #f87171;padding:10px 14px;border-radius:6px">
+            <strong style="color:#f87171">Next Week</strong> — pandas Deep Dive: sort, group, handle missing data, save to CSV
+          </div>
+        </div>
+      </div>
+    `,
+    quiz: {
+      q: "Quick revision: Write a filter to find all Diesel cars with emission above 60",
+      options: [
+        "fleet['fuel'] == 'Diesel' and fleet['emission'] > 60",
+        "fleet[(fleet['fuel'] == 'Diesel') & (fleet['emission'] > 60)]",
+        "fleet[fleet['fuel', 'emission'] == ('Diesel', 60)]",
+        "filter(fleet, fuel='Diesel', emission=60)"
+      ],
+      answer: 1,
+      explanation: "✅ Correct! Each condition must be in its own brackets. Use & for AND. fleet[(fleet['fuel'] == 'Diesel') & (fleet['emission'] > 60)] — this is the correct syntax."
+    }
+  }
+];
+
 function getLessonsForWeek(weekNumber) {
   if (weekNumber === 1) return week1Lessons;
   if (weekNumber === 2) return week2Lessons;
   if (weekNumber === 3) return week3Lessons;
   if (weekNumber === 4) return week4Lessons;
   if (weekNumber === 5) return week5Lessons;
+  if (weekNumber === 6) return week6Lessons;
+  if (weekNumber === 7) return week7Lessons;
   return buildPlaceholderLessons(weekNumber);
 }
 
@@ -2185,7 +2781,7 @@ function renderWeekHome() {
   home.innerHTML = `
     <div class="week-home-head">
       <div class="week-home-title">Select Your Training Week</div>
-      <div class="week-home-sub">All 5 weeks are live. Select a week to begin your training.</div>
+      <div class="week-home-sub">All 7 weeks are live. Select a week to begin your training.</div>
     </div>
     <div class="week-home-grid">
       ${weekCatalog.map(week => `
@@ -2340,6 +2936,37 @@ function renderLesson(idx) {
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"CAUTION"</span>)<br>
 <span class="kw">else</span>:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"Normal"</span>)`
+    },
+    6: {
+      title: "Week 6 Practice — Lists & Dictionaries",
+      items: [
+        "<strong>Task 1:</strong> Create a list of 5 car models. Loop through and print each one. Then print only the first and last using index numbers.",
+        "<strong>Task 2:</strong> Create a dictionary for one car with model, color, emission, fuel. Print each value. Update emission and print again.",
+        "<strong>Task 3:</strong> Create a list of 4 dictionaries (each with model + emission). Loop through and print Pass/Fail based on emission &lt;= 50.",
+        "<strong>Task 4:</strong> Start with 3 cars in a list. Append 2 more. Remove one. Print the final list and its length."
+      ],
+      code: `<span class="cmt"># Starter — List of Dictionaries</span><br>
+<span class="var">fleet</span> = [<br>
+&nbsp;&nbsp;{<span class="str">"model"</span>: <span class="str">"Alto"</span>, <span class="str">"emission"</span>: <span class="num">42</span>},<br>
+&nbsp;&nbsp;{<span class="str">"model"</span>: <span class="str">"Swift"</span>, <span class="str">"emission"</span>: <span class="num">65</span>},<br>
+]<br>
+<span class="kw">for</span> <span class="var">car</span> <span class="kw">in</span> <span class="var">fleet</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="var">car</span>[<span class="str">"model"</span>], <span class="var">car</span>[<span class="str">"emission"</span>])`
+    },
+    7: {
+      title: "Week 7 Practice — pandas",
+      items: [
+        "<strong>Task 1:</strong> Load fleet_data.csv. Print head(), shape, and columns.",
+        "<strong>Task 2:</strong> Filter all cars where emission > 50. Print model and emission columns only.",
+        "<strong>Task 3:</strong> Filter all Petrol cars. Count them using len().",
+        "<strong>Task 4:</strong> Add a status column using apply() with a get_status function."
+      ],
+      code: `<span class="kw">import</span> pandas <span class="kw">as</span> pd<br>
+<span class="var">fleet</span> = pd.<span class="fn">read_csv</span>(<span class="str">'fleet_data.csv'</span>)<br>
+<span class="fn">print</span>(<span class="var">fleet</span>.<span class="fn">head</span>())<br>
+<span class="fn">print</span>(<span class="var">fleet</span>.shape)<br>
+<span class="var">failed</span> = <span class="var">fleet</span>[<span class="var">fleet</span>[<span class="str">'emission'</span>] > <span class="num">50</span>]<br>
+<span class="fn">print</span>(<span class="var">failed</span>[[<span class="str">'model'</span>,<span class="str">'emission'</span>]])`
     },
     4: {
       title: "Practice Models To Try",
