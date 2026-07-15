@@ -651,7 +651,7 @@
   <span class="progress-pct" id="progressPct">0%</span>
 </div>
 
-<div class="weekly-wrap">
+<div class="weekly-wrap" id="weeklyWrap">
   <div class="weekly-head">
     <div class="weekly-title">Weekly Learning Data</div>
     <div class="weekly-sub">Track lesson completion, quiz score, and study time</div>
@@ -1009,7 +1009,11 @@ const weeklyData = [
   { week: "Week 4", lessonsDone: 0, lessonsTarget: 5, quizScore: 0, studyMins: 0 },
   { week: "Week 5", lessonsDone: 0, lessonsTarget: 5, quizScore: 0, studyMins: 0 },
   { week: "Week 6", lessonsDone: 0, lessonsTarget: 5, quizScore: 0, studyMins: 0 },
-  { week: "Week 7", lessonsDone: 0, lessonsTarget: 6, quizScore: 0, studyMins: 0 }
+  { week: "Week 7", lessonsDone: 0, lessonsTarget: 6, quizScore: 0, studyMins: 0 },
+  { week: "Week 8", lessonsDone: 0, lessonsTarget: 5, quizScore: 0, studyMins: 0 },
+  { week: "Week 9", lessonsDone: 0, lessonsTarget: 5, quizScore: 0, studyMins: 0 },
+  { week: "Week 10", lessonsDone: 0, lessonsTarget: 5, quizScore: 0, studyMins: 0 },
+  { week: "Week 11", lessonsDone: 0, lessonsTarget: 5, quizScore: 0, studyMins: 0 }
 ];
 
 const weekCatalog = [
@@ -1019,7 +1023,11 @@ const weekCatalog = [
   { id: 4, title: "Week 4", topic: "Loops and Conditions", subtitle: "Zero to Hero" },
   { id: 5, title: "Week 5", topic: "Functions in Python", subtitle: "Write once, reuse forever" },
   { id: 6, title: "Week 6", topic: "Lists & Dictionaries", subtitle: "Real data structures in Python" },
-  { id: 7, title: "Week 7", topic: "Introduction to Pandas", subtitle: "Python's most powerful data library" }
+  { id: 7, title: "Week 7", topic: "Introduction to Pandas", subtitle: "Python's most powerful data library" },
+  { id: 8, title: "Week 8", topic: "Pandas Deep Dive", subtitle: "Advanced data manipulation" },
+  { id: 9, title: "Week 9", topic: "Machine Learning Introduction", subtitle: "Foundations of ML algorithms" },
+  { id: 10, title: "Week 10", topic: "Classification vs Regression", subtitle: "Understanding predictive modeling types" },
+  { id: 11, title: "Week 11", topic: "Linear Regression", subtitle: "Understanding linear models" }
 ];
 
 let activeWeek = 0;
@@ -2765,15 +2773,118 @@ const week7Lessons = [
   }
 ];
 
+const week11Lessons = [{
+      id: 0,
+      icon: "📈",
+      title: "Introduction to Linear Regression",
+      subtitle: "Understanding the basics of predictive modeling",
+      content: `
+        <div class="card">
+          <h3>📊 What is Linear Regression?</h3>
+          <p>Linear regression models the relationship between a dependent variable and one or more independent variables by fitting a linear equation.</p>
+          <div class="analogy">
+            <strong>Think of it like this:</strong> predicting a car’s fuel efficiency based on its weight — heavier cars tend to consume more fuel, and that relationship can be approximated with a straight line.
+          </div>
+        </div>
+        <div class="card">
+          <h3>📈 Simple vs Multiple Regression</h3>
+          <p>Simple linear regression uses one predictor; multiple regression uses two or more.</p>
+        </div>
+      `,
+      quiz: {
+        q: "In simple linear regression, how many predictor variables are used?",
+        options: ["Zero", "One", "Two", "Three"],
+        answer: 1,
+        explanation: "✅ Correct! Simple linear regression uses a single predictor variable to predict the outcome."
+      }
+    },{
+      id: 1,
+      icon: "📐",
+      title: "Simple Linear Regression Math",
+      subtitle: "The equation, assumptions, and fitting process",
+      content: `
+        <div class="card">
+          <h3>🧮 The Linear Equation</h3>
+          <p>The model is: ŷ = b₀ + b₁x, where b₀ is the intercept and b₁ is the slope.</p>
+        </div>
+        <div class="card">
+          <h3>⚙️ Estimating Coefficients</h3>
+          <p>We use the least‑squares method to find b₀ and b₁ that minimize the sum of squared residuals.</p>
+          <div class="code-block">
+            <span class="cmt"># Calculating slope (b1) and intercept (b0)</span><br>
+            <span class="var">b1</span> = Σ((xᵢ - x̄)(yᵢ - ȳ)) / Σ((xᵢ - x̄)²)<br>
+            <span class="var">b0</span> = ȳ - b₁ * x̄
+          </div>
+        </div>
+      `,
+      quiz: {
+        q: "Which method is commonly used to estimate the coefficients in linear regression?",
+        options: ["Maximum likelihood", "Least squares", "Gradient descent", "Bayesian inference"],
+        answer: 1,
+        explanation: "✅ Correct! Ordinary least squares (OLS) minimizes the sum of squared residuals to find the best‑fit line."
+      }
+    },{
+      id: 2,
+      icon: "🔢",
+      title: "Multiple Linear Regression",
+      subtitle: "Extending to several predictors",
+      content: `
+        <div class="card">
+          <h3>📊 Multiple Regression Equation</h3>
+          <p>ŷ = b₀ + b₁x₁ + b₂x₂ + … + bₚxₚ</p>
+        </div>
+        <div class="card">
+          <h3>⚠️ Multicollinearity</h3>
+          <p>When predictor variables are highly correlated, it can inflate variance of coefficient estimates.</p>
+          <div class="analogy">
+            <strong>Analogy:</strong> Trying to measure the effect of two overlapping shadows makes it hard to tell which object casts which shadow.
+          </div>
+        </div>
+      `,
+      quiz: {
+        q: "What issue arises when predictor variables in multiple regression are highly correlated?",
+        options: ["Heteroscedasticity", "Autocorrelation", "Multicollinearity", "Overfitting"],
+        answer: 2,
+        explanation: "✅ Correct! Multicollinearity makes it difficult to isolate the individual effect of each predictor."
+      }
+    },{
+      id: 3,
+      icon: "✅",
+      title: "Model Evaluation & Assumptions",
+      subtitle: "Checking goodness‑of‑fit and validating assumptions",
+      content: `
+        <div class="card">
+          <h3>📏 R‑squared and RMSE</h3>
+          <p>R‑squared measures the proportion of variance explained; RMSE measures average prediction error.</p>
+        </div>
+        <div class="card">
+          <h3>🔎 Key Assumptions</h3>
+          <ul>
+            <li>Linearity: relationship between X and Y is linear</li>
+            <li>Independence: observations are independent</li>
+            <li>Homoscedasticity: constant variance of errors</li>
+            <li>Normality: errors are normally distributed</li>
+          </ul>
+        </div>
+      `,
+      quiz: {
+        q: "Which plot is commonly used to check the homoscedasticity assumption?",
+        options: ["Histogram", "Q-Q plot", "Residuals vs. fitted values", "Scatter plot of X vs Y"],
+        answer: 2,
+        explanation: "✅ Correct! A residual‑vs‑fitted plot shows whether residuals spread evenly across fitted values."
+      }
+    }];
+
 function getLessonsForWeek(weekNumber) {
-  if (weekNumber === 1) return week1Lessons;
-  if (weekNumber === 2) return week2Lessons;
-  if (weekNumber === 3) return week3Lessons;
-  if (weekNumber === 4) return week4Lessons;
-  if (weekNumber === 5) return week5Lessons;
-  if (weekNumber === 6) return week6Lessons;
-  if (weekNumber === 7) return week7Lessons;
-  return buildPlaceholderLessons(weekNumber);
+    if (weekNumber === 1) return week1Lessons;
+    if (weekNumber === 2) return week2Lessons;
+    if (weekNumber === 3) return week3Lessons;
+    if (weekNumber === 4) return week4Lessons;
+    if (weekNumber === 5) return week5Lessons;
+    if (weekNumber === 6) return week6Lessons;
+    if (weekNumber === 7) return week7Lessons;
+    if (weekNumber === 11) return week11Lessons;
+    return buildPlaceholderLessons(weekNumber);
 }
 
 function renderWeekHome() {
@@ -2803,6 +2914,7 @@ function selectWeek(weekNumber) {
 
   document.getElementById('weekHome').style.display = 'none';
   document.getElementById('courseApp').style.display = 'block';
+  document.getElementById('weeklyWrap').style.display = 'none';
 
   const weekInfo = weekCatalog.find(w => w.id === weekNumber);
   document.getElementById('headerSubtitle').textContent = `${weekInfo.title}: ${weekInfo.topic} - ${weekInfo.subtitle}`;
@@ -2821,6 +2933,7 @@ function goHome() {
 
   document.getElementById('courseApp').style.display = 'none';
   document.getElementById('weekHome').style.display = 'block';
+  document.getElementById('weeklyWrap').style.display = 'block';
   document.getElementById('headerSubtitle').textContent = 'Choose your training week';
 }
 
@@ -3082,3 +3195,11 @@ window.addEventListener('load', () => {
 </div>
 </body>
 </html>
+
+
+
+
+
+
+
+
