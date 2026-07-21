@@ -630,7 +630,7 @@
 </div>
 
 <div class="header">
-  <div class="logo">🐍</div>
+  <div class="logo">🤖</div>
   <div>
     <h1>AI Engineering Course</h1>
     <p id="headerSubtitle">Choose your training week</p>
@@ -669,35 +669,35 @@
 const week4Lessons = [
   {
     id: 0,
-    icon: "👋",
+    icon: "🤖",
     title: "What is Programming?",
     subtitle: "Let's start from absolute scratch",
     content: `
       <div class="card">
-        <h3>🤔 What is a computer program?</h3>
+        <h3>🤖 What is a computer program?</h3>
         <p>Think of a computer program as a <strong>recipe</strong>. Just like a recipe tells a cook exactly what to do step by step, a program tells the computer exactly what to do, step by step.</p>
         <div class="analogy">
           <strong>Real life analogy:</strong><br>
-          Recipe: "Boil water → Add noodles → Wait 5 mins → Drain → Serve"<br>
-          Program: "Get number → Add 10 → Show the result"<br><br>
+          Recipe: "Boil water ? Add noodles ? Wait 5 mins ? Drain ? Serve"<br>
+          Program: "Get number ? Add 10 ? Show the result"<br><br>
           Both are just <em>instructions in order</em>.
         </div>
       </div>
       <div class="card">
-        <h3>🐍 Why Python?</h3>
+        <h3>🤖 Why Python?</h3>
         <p>Python is one of the <strong>easiest</strong> programming languages to read. It looks almost like plain English! That's why it's perfect for beginners.</p>
         <div class="code-block">
           <span class="cmt"># This is Python code. It reads like a sentence!</span><br>
           <span class="fn">print</span>(<span class="str">"Hello, World!"</span>)
         </div>
         <div class="output-box">
-          <div class="output-label">▶ Output</div>
+          <div class="output-label">? Output</div>
           Hello, World!
         </div>
         <p style="margin-top:10px"><code style="background:#0f172a;padding:2px 6px;border-radius:4px;color:#facc15">print()</code> is Python's way of <strong>displaying something on screen</strong>. Like saying "show this to me".</p>
       </div>
       <div class="card">
-        <h3>📦 What is a Variable?</h3>
+        <h3>🤖 What is a Variable?</h3>
         <p>A variable is like a <strong>labelled box</strong> where you store information.</p>
         <div class="analogy">
           <strong>Real life analogy:</strong><br>
@@ -711,7 +711,7 @@ const week4Lessons = [
           <span class="fn">print</span>(<span class="var">my_age</span>)   <span class="cmt"># Shows: 25</span>
         </div>
         <div class="output-box">
-          <div class="output-label">▶ Output</div>
+          <div class="output-label">? Output</div>
           Priya<br>25
         </div>
       </div>
@@ -720,27 +720,27 @@ const week4Lessons = [
       q: "What does the print() function do in Python?",
       options: ["Prints a document on paper", "Displays something on the screen", "Deletes information", "Creates a variable"],
       answer: 1,
-      explanation: "✅ Correct! print() displays (shows) something on the screen. It's your way of seeing what's happening inside your program."
+      explanation: "? Correct! print() displays (shows) something on the screen. It's your way of seeing what's happening inside your program."
     }
   },
   {
     id: 1,
-    icon: "🔀",
+    icon: "🤖",
     title: "Conditions (if / else)",
     subtitle: "Making decisions in your code",
     content: `
       <div class="card">
-        <h3>🤔 What is a Condition?</h3>
+        <h3>🤖 What is a Condition?</h3>
         <p>A condition is a <strong>yes/no question</strong> your program asks. Based on the answer, it does different things.</p>
         <div class="analogy">
           <strong>Real life analogy:</strong><br>
-          "If it is raining → carry an umbrella<br>
-          Otherwise (else) → wear sunglasses"<br><br>
-          Your program does the same — checks something, then decides what to do.
+          "If it is raining ? carry an umbrella<br>
+          Otherwise (else) ? wear sunglasses"<br><br>
+          Your program does the same � checks something, then decides what to do.
         </div>
       </div>
       <div class="card">
-        <h3>✍️ How to write an if statement</h3>
+        <h3>🤖 How to write an if statement</h3>
         <div class="code-block">
           <span class="var">temperature</span> = <span class="num">38</span><br><br>
           <span class="kw">if</span> <span class="var">temperature</span> > <span class="num">36</span>:<br>
@@ -749,14 +749,14 @@ const week4Lessons = [
           &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"You are fine."</span>)
         </div>
         <div class="output-box">
-          <div class="output-label">▶ Output</div>
+          <div class="output-label">? Output</div>
           You have a fever!
         </div>
-        <p style="margin-top:12px">⚠️ <strong>Important:</strong> Notice the <strong>4 spaces (indent)</strong> before print. Python uses spaces to know which code belongs inside the if block.</p>
+        <p style="margin-top:12px">🤖 <strong>Important:</strong> Notice the <strong>4 spaces (indent)</strong> before print. Python uses spaces to know which code belongs inside the if block.</p>
       </div>
       <div class="card">
-        <h3>➕ Adding more choices: elif</h3>
-        <p><code style="background:#0f172a;padding:2px 6px;border-radius:4px;color:#facc15">elif</code> means <strong>"else if"</strong> — it checks another condition if the first one was false.</p>
+        <h3>? Adding more choices: elif</h3>
+        <p><code style="background:#0f172a;padding:2px 6px;border-radius:4px;color:#facc15">elif</code> means <strong>"else if"</strong> � it checks another condition if the first one was false.</p>
         <div class="code-block">
           <span class="var">score</span> = <span class="num">72</span><br><br>
           <span class="kw">if</span> <span class="var">score</span> >= <span class="num">90</span>:<br>
@@ -769,24 +769,24 @@ const week4Lessons = [
           &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"Grade: F"</span>)
         </div>
         <div class="output-box">
-          <div class="output-label">▶ Output</div>
+          <div class="output-label">? Output</div>
           Grade: B
         </div>
       </div>
       <div class="card">
-        <h3>🔢 Comparison Operators (the tools for asking questions)</h3>
+        <h3>🤖 Comparison Operators (the tools for asking questions)</h3>
         <table style="width:100%;border-collapse:collapse;font-size:0.88rem;margin-top:8px">
           <tr style="border-bottom:1px solid #334155">
             <th style="text-align:left;padding:8px;color:#38bdf8">Symbol</th>
             <th style="text-align:left;padding:8px;color:#38bdf8">Meaning</th>
             <th style="text-align:left;padding:8px;color:#38bdf8">Example</th>
           </tr>
-          <tr style="border-bottom:1px solid #1e293b"><td style="padding:8px;color:#fde68a">==</td><td style="padding:8px;color:#cbd5e1">Equal to</td><td style="padding:8px;color:#86efac">5 == 5 → True</td></tr>
-          <tr style="border-bottom:1px solid #1e293b"><td style="padding:8px;color:#fde68a">!=</td><td style="padding:8px;color:#cbd5e1">Not equal to</td><td style="padding:8px;color:#86efac">5 != 3 → True</td></tr>
-          <tr style="border-bottom:1px solid #1e293b"><td style="padding:8px;color:#fde68a">&gt;</td><td style="padding:8px;color:#cbd5e1">Greater than</td><td style="padding:8px;color:#86efac">10 &gt; 5 → True</td></tr>
-          <tr style="border-bottom:1px solid #1e293b"><td style="padding:8px;color:#fde68a">&lt;</td><td style="padding:8px;color:#cbd5e1">Less than</td><td style="padding:8px;color:#86efac">3 &lt; 7 → True</td></tr>
-          <tr style="border-bottom:1px solid #1e293b"><td style="padding:8px;color:#fde68a">&gt;=</td><td style="padding:8px;color:#cbd5e1">Greater than or equal</td><td style="padding:8px;color:#86efac">5 &gt;= 5 → True</td></tr>
-          <tr><td style="padding:8px;color:#fde68a">&lt;=</td><td style="padding:8px;color:#cbd5e1">Less than or equal</td><td style="padding:8px;color:#86efac">4 &lt;= 5 → True</td></tr>
+          <tr style="border-bottom:1px solid #1e293b"><td style="padding:8px;color:#fde68a">==</td><td style="padding:8px;color:#cbd5e1">Equal to</td><td style="padding:8px;color:#86efac">5 == 5 ? True</td></tr>
+          <tr style="border-bottom:1px solid #1e293b"><td style="padding:8px;color:#fde68a">!=</td><td style="padding:8px;color:#cbd5e1">Not equal to</td><td style="padding:8px;color:#86efac">5 != 3 ? True</td></tr>
+          <tr style="border-bottom:1px solid #1e293b"><td style="padding:8px;color:#fde68a">&gt;</td><td style="padding:8px;color:#cbd5e1">Greater than</td><td style="padding:8px;color:#86efac">10 &gt; 5 ? True</td></tr>
+          <tr style="border-bottom:1px solid #1e293b"><td style="padding:8px;color:#fde68a">&lt;</td><td style="padding:8px;color:#cbd5e1">Less than</td><td style="padding:8px;color:#86efac">3 &lt; 7 ? True</td></tr>
+          <tr style="border-bottom:1px solid #1e293b"><td style="padding:8px;color:#fde68a">&gt;=</td><td style="padding:8px;color:#cbd5e1">Greater than or equal</td><td style="padding:8px;color:#86efac">5 &gt;= 5 ? True</td></tr>
+          <tr><td style="padding:8px;color:#fde68a">&lt;=</td><td style="padding:8px;color:#cbd5e1">Less than or equal</td><td style="padding:8px;color:#86efac">4 &lt;= 5 ? True</td></tr>
         </table>
       </div>
     `,
@@ -794,17 +794,17 @@ const week4Lessons = [
       q: "What will this code print?\n\nage = 15\nif age >= 18:\n    print('Adult')\nelse:\n    print('Minor')",
       options: ["Adult", "Minor", "Nothing", "Error"],
       answer: 1,
-      explanation: "✅ Correct! Since age is 15, which is NOT >= 18, the if condition is False. So Python goes to else and prints 'Minor'."
+      explanation: "? Correct! Since age is 15, which is NOT >= 18, the if condition is False. So Python goes to else and prints 'Minor'."
     }
   },
   {
     id: 2,
-    icon: "🔁",
+    icon: "🤖",
     title: "For Loops",
     subtitle: "Repeating tasks the smart way",
     content: `
       <div class="card">
-        <h3>🤔 What is a Loop?</h3>
+        <h3>🤖 What is a Loop?</h3>
         <p>A loop is a way to <strong>repeat</strong> a task multiple times without writing the same code again and again.</p>
         <div class="analogy">
           <strong>Real life analogy:</strong><br>
@@ -813,14 +813,14 @@ const week4Lessons = [
         </div>
       </div>
       <div class="card">
-        <h3>📋 Looping through a list</h3>
+        <h3>🤖 Looping through a list</h3>
         <div class="code-block">
           <span class="var">friends</span> = [<span class="str">"Arun"</span>, <span class="str">"Priya"</span>, <span class="str">"Raj"</span>]<br><br>
           <span class="kw">for</span> <span class="var">friend</span> <span class="kw">in</span> <span class="var">friends</span>:<br>
           &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"Hello, "</span> + <span class="var">friend</span>)
         </div>
         <div class="output-box">
-          <div class="output-label">▶ Output</div>
+          <div class="output-label">? Output</div>
           Hello, Arun<br>
           Hello, Priya<br>
           Hello, Raj
@@ -828,7 +828,7 @@ const week4Lessons = [
         <p style="margin-top:10px">Python automatically picks each item from the list one by one and runs the code inside the loop for each one.</p>
       </div>
       <div class="card">
-        <h3>🔢 Looping with range()</h3>
+        <h3>🤖 Looping with range()</h3>
         <p><code style="background:#0f172a;padding:2px 6px;border-radius:4px;color:#facc15">range(n)</code> generates numbers from <strong>0 to n-1</strong>. Super useful for repeating something a set number of times.</p>
         <div class="code-block">
           <span class="cmt"># Print numbers 1 to 5</span><br>
@@ -836,12 +836,12 @@ const week4Lessons = [
           &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="var">i</span>)
         </div>
         <div class="output-box">
-          <div class="output-label">▶ Output</div>
+          <div class="output-label">? Output</div>
           1<br>2<br>3<br>4<br>5
         </div>
       </div>
       <div class="card">
-        <h3>🎯 Combining Loop + Condition</h3>
+        <h3>🤖 Combining Loop + Condition</h3>
         <p>You can put an <strong>if statement inside a loop</strong>! This is very powerful.</p>
         <div class="code-block">
           <span class="cmt"># Print only even numbers from 1 to 10</span><br>
@@ -850,37 +850,37 @@ const week4Lessons = [
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="var">num</span>, <span class="str">"is even"</span>)
         </div>
         <div class="output-box">
-          <div class="output-label">▶ Output</div>
+          <div class="output-label">? Output</div>
           2 is even<br>4 is even<br>6 is even<br>8 is even<br>10 is even
         </div>
-        <p style="margin-top:10px">The <code style="background:#0f172a;padding:2px 6px;border-radius:4px;color:#facc15">%</code> symbol is the <strong>remainder operator</strong>. <em>num % 2 == 0</em> means "the number divides evenly by 2" → it's even!</p>
+        <p style="margin-top:10px">The <code style="background:#0f172a;padding:2px 6px;border-radius:4px;color:#facc15">%</code> symbol is the <strong>remainder operator</strong>. <em>num % 2 == 0</em> means "the number divides evenly by 2" ? it's even!</p>
       </div>
     `,
     quiz: {
       q: "How many times will the word 'Hello' be printed?\n\nfor i in range(4):\n    print('Hello')",
       options: ["3 times", "4 times", "5 times", "0 times"],
       answer: 1,
-      explanation: "✅ Correct! range(4) gives us 0, 1, 2, 3 — that's 4 numbers. So the loop runs 4 times and prints 'Hello' 4 times."
+      explanation: "? Correct! range(4) gives us 0, 1, 2, 3 � that's 4 numbers. So the loop runs 4 times and prints 'Hello' 4 times."
     }
   },
   {
     id: 3,
-    icon: "🔄",
+    icon: "🤖",
     title: "While Loops",
     subtitle: "Keep going until a condition is met",
     content: `
       <div class="card">
-        <h3>🤔 What is a While Loop?</h3>
+        <h3>🤖 What is a While Loop?</h3>
         <p>A <strong>while loop</strong> keeps repeating as long as a condition is <strong>True</strong>. It's like saying: <em>"Keep doing this UNTIL something changes."</em></p>
         <div class="analogy">
           <strong>Real life analogy:</strong><br>
-          "While the traffic light is red → stay stopped"<br>
-          "While the glass is not full → keep pouring water"<br><br>
+          "While the traffic light is red ? stay stopped"<br>
+          "While the glass is not full ? keep pouring water"<br><br>
           As soon as the condition becomes false, Python stops the loop.
         </div>
       </div>
       <div class="card">
-        <h3>✍️ Basic While Loop</h3>
+        <h3>🤖 Basic While Loop</h3>
         <div class="code-block">
           <span class="var">count</span> = <span class="num">1</span><br><br>
           <span class="kw">while</span> <span class="var">count</span> <= <span class="num">5</span>:<br>
@@ -888,13 +888,13 @@ const week4Lessons = [
           &nbsp;&nbsp;&nbsp;&nbsp;<span class="var">count</span> = <span class="var">count</span> + <span class="num">1</span>  <span class="cmt"># Very important! Increase count each time</span>
         </div>
         <div class="output-box">
-          <div class="output-label">▶ Output</div>
+          <div class="output-label">? Output</div>
           Count is: 1<br>Count is: 2<br>Count is: 3<br>Count is: 4<br>Count is: 5
         </div>
-        <p style="margin-top:10px">⚠️ <strong>Warning:</strong> Always make sure the condition eventually becomes False. If you forget to increase <em>count</em>, the loop will run forever (called an "infinite loop")!</p>
+        <p style="margin-top:10px">🤖 <strong>Warning:</strong> Always make sure the condition eventually becomes False. If you forget to increase <em>count</em>, the loop will run forever (called an "infinite loop")!</p>
       </div>
       <div class="card">
-        <h3>🆚 For Loop vs While Loop</h3>
+        <h3>🤖 For Loop vs While Loop</h3>
         <table style="width:100%;border-collapse:collapse;font-size:0.88rem;margin-top:8px">
           <tr style="border-bottom:1px solid #334155">
             <th style="text-align:left;padding:8px;color:#38bdf8">For Loop</th>
@@ -915,7 +915,7 @@ const week4Lessons = [
         </table>
       </div>
       <div class="card">
-        <h3>⛔ Breaking out of a loop</h3>
+        <h3>? Breaking out of a loop</h3>
         <p>Use <code style="background:#0f172a;padding:2px 6px;border-radius:4px;color:#c084fc">break</code> to <strong>immediately stop</strong> a loop, even if the condition is still True.</p>
         <div class="code-block">
           <span class="kw">for</span> <span class="var">num</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1</span>, <span class="num">10</span>):<br>
@@ -924,7 +924,7 @@ const week4Lessons = [
           &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="var">num</span>)
         </div>
         <div class="output-box">
-          <div class="output-label">▶ Output</div>
+          <div class="output-label">? Output</div>
           1<br>2<br>3
         </div>
       </div>
@@ -933,17 +933,17 @@ const week4Lessons = [
       q: "What is the risk of a while loop if you're not careful?",
       options: ["It can only run once", "It might create an infinite loop and never stop", "It can only work with numbers", "It will always cause an error"],
       answer: 1,
-      explanation: "✅ Correct! If the condition in a while loop never becomes False (because you forgot to update a variable), it will run forever. Always make sure something inside the loop changes to eventually stop it."
+      explanation: "? Correct! If the condition in a while loop never becomes False (because you forgot to update a variable), it will run forever. Always make sure something inside the loop changes to eventually stop it."
     }
   },
   {
     id: 4,
-    icon: "🏆",
+    icon: "🤖",
     title: "Quick Summary",
-    subtitle: "Everything you've learned — in one place!",
+    subtitle: "Everything you've learned � in one place!",
     content: `
       <div class="card">
-        <h3>📌 Key Concepts Recap</h3>
+        <h3>🤖 Key Concepts Recap</h3>
         <p style="margin-bottom:12px">Here's everything you've learned in this session:</p>
         <div style="display:flex;flex-direction:column;gap:10px">
           <div style="background:#0f172a;border-left:3px solid #facc15;padding:12px 16px;border-radius:6px">
@@ -969,7 +969,7 @@ const week4Lessons = [
         </div>
       </div>
       <div class="card">
-        <h3>💡 Real World Code — All Together!</h3>
+        <h3>🤖 Real World Code � All Together!</h3>
         <p style="margin-bottom:10px">A small program using everything you learned:</p>
         <div class="code-block">
           <span class="var">students</span> = [(<span class="str">"Arun"</span>, <span class="num">85</span>), (<span class="str">"Priya"</span>, <span class="num">92</span>), (<span class="str">"Raj"</span>, <span class="num">60</span>)]<br><br>
@@ -982,22 +982,22 @@ const week4Lessons = [
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="var">name</span>, <span class="str">"- Needs improvement"</span>)
         </div>
         <div class="output-box">
-          <div class="output-label">▶ Output</div>
+          <div class="output-label">? Output</div>
           Arun - Pass<br>
           Priya - Distinction!<br>
           Raj - Needs improvement
         </div>
       </div>
       <div class="card">
-        <h3>🎓 You're ready to teach your team!</h3>
-        <p>You now understand the core building blocks of Python programming. Your team will be able to write real programs using these concepts. Great job completing this training! 🎉</p>
+        <h3>🤖 You're ready to teach your team!</h3>
+        <p>You now understand the core building blocks of Python programming. Your team will be able to write real programs using these concepts. Great job completing this training! 🤖</p>
       </div>
     `,
     quiz: {
       q: "Which loop would you use if you want to go through a list of 10 employee names and greet each one?",
       options: ["while loop", "for loop", "if statement", "break"],
       answer: 1,
-      explanation: "✅ Correct! A for loop is perfect here because you know exactly what you're looping through — a list of 10 names. For each name in the list, you'd print a greeting."
+      explanation: "? Correct! A for loop is perfect here because you know exactly what you're looping through � a list of 10 names. For each name in the list, you'd print a greeting."
     }
   }
 ];
@@ -1039,7 +1039,7 @@ function buildPlaceholderLessons(weekNumber) {
   return [
     {
       id: 0,
-      icon: "??",
+      icon: "🤖",
       title: `Week ${weekNumber} Training`,
       subtitle: "This week is scaffolded and ready for your PPT content",
       content: `
@@ -1076,36 +1076,36 @@ const week1Lessons = [
     subtitle: "Understanding Artificial Intelligence from scratch",
     content: `
       <div class="card">
-        <h3>🙋 Let's Start With Simple Questions</h3>
-        <p>Before we dive in — have you ever used <strong>ChatGPT</strong> or any AI tool? Do you actually know how it works under the hood?</p>
+        <h3>🤖 Let's Start With Simple Questions</h3>
+        <p>Before we dive in � have you ever used <strong>ChatGPT</strong> or any AI tool? Do you actually know how it works under the hood?</p>
         <div class="analogy">
           <strong>Think about this:</strong><br>
           Every time ChatGPT answers your question, it isn't "thinking" like a human.<br>
-          It is processing millions of patterns it learned from data — and predicting what the best answer looks like.
+          It is processing millions of patterns it learned from data � and predicting what the best answer looks like.
         </div>
       </div>
       <div class="card">
-        <h3>🧠 What is Artificial Intelligence?</h3>
+        <h3>🤖 What is Artificial Intelligence?</h3>
         <p>Artificial Intelligence is the ability of a system to <strong>learn patterns from data</strong> and make decisions.</p>
         <ul>
           <li>Instead of manually writing every rule, AI systems find relationships automatically</li>
           <li>AI improves its performance as it sees more data</li>
-          <li>At its core, AI is <strong>not magic</strong> — it is data, math, and logic</li>
+          <li>At its core, AI is <strong>not magic</strong> � it is data, math, and logic</li>
         </ul>
         <div style="background:#0f172a;border-left:3px solid #22d3ee;padding:12px 16px;border-radius:6px;margin-top:12px">
           <strong style="color:#22d3ee">AI = Data + Pattern Recognition + Decision Making</strong>
         </div>
       </div>
       <div class="card">
-        <h3>⚡ Why Are We Learning AI?</h3>
+        <h3>? Why Are We Learning AI?</h3>
         <ul>
           <li>AI is already transforming engineering and automotive industries</li>
           <li>Engineers with AI skills will have a strong career advantage</li>
-          <li>Understanding AI helps you use it — and build it</li>
+          <li>Understanding AI helps you use it � and build it</li>
         </ul>
       </div>
       <div class="card">
-        <h3>🎯 What You Will Gain From This Course</h3>
+        <h3>🤖 What You Will Gain From This Course</h3>
         <ul>
           <li>Learn how machines learn from data</li>
           <li>Explore real-world AI applications in automotive</li>
@@ -1118,24 +1118,24 @@ const week1Lessons = [
       q: "What is Artificial Intelligence based on?",
       options: ["Magic and guessing", "Data, patterns and decision making", "Human emotions", "Random answers"],
       answer: 1,
-      explanation: "✅ Correct! AI = Data + Pattern Recognition + Decision Making. It is not magic — it learns from data and finds patterns to make decisions."
+      explanation: "? Correct! AI = Data + Pattern Recognition + Decision Making. It is not magic � it learns from data and finds patterns to make decisions."
     }
   },
   {
     id: 1,
-    icon: "🆚",
+    icon: "🤖",
     title: "Traditional vs AI Programming",
     subtitle: "How AI thinks differently from regular code",
     content: `
       <div class="card">
-        <h3>🔧 Traditional Programming</h3>
+        <h3>🤖 Traditional Programming</h3>
         <ul>
           <li>A human writes <strong>explicit rules</strong> for every single scenario</li>
           <li>Works well for simple, predictable problems</li>
           <li>Becomes very hard to manage when conditions grow complex</li>
         </ul>
         <div class="analogy">
-          <strong>Formula:</strong> Rules + Data → Output<br><br>
+          <strong>Formula:</strong> Rules + Data ? Output<br><br>
           Example: If temperature > 100, show warning.<br>
           You have to manually write every single "if" rule yourself.
         </div>
@@ -1148,18 +1148,18 @@ const week1Lessons = [
           <li>Improves over time as more data is provided</li>
         </ul>
         <div class="analogy">
-          <strong>Formula:</strong> Data → Learning → Output<br><br>
+          <strong>Formula:</strong> Data ? Learning ? Output<br><br>
           Example: Show the AI thousands of engine failure records.<br>
           It learns on its own what patterns predict failure.
         </div>
       </div>
       <div class="card">
-        <h3>🏭 Real Example: Predicting Engine Failure</h3>
+        <h3>🤖 Real Example: Predicting Engine Failure</h3>
         <p><strong>Inputs:</strong> Temperature, RPM, Vibration sensor data</p>
-        <p><strong>Process:</strong> Collect historical data of normal and failed conditions → Train a model to learn the patterns</p>
+        <p><strong>Process:</strong> Collect historical data of normal and failed conditions ? Train a model to learn the patterns</p>
         <p><strong>Output:</strong> Probability of failure (e.g., 85%)</p>
         <div style="background:#0f172a;border-left:3px solid #f59e0b;padding:12px 16px;border-radius:6px;margin-top:12px">
-          <strong style="color:#f59e0b">AI does not give a fixed answer — it gives a probability-based decision</strong>
+          <strong style="color:#f59e0b">AI does not give a fixed answer � it gives a probability-based decision</strong>
         </div>
       </div>
     `,
@@ -1172,30 +1172,30 @@ const week1Lessons = [
         "They are exactly the same"
       ],
       answer: 1,
-      explanation: "✅ Correct! Traditional programming requires humans to manually write every rule. AI learns its own rules by finding patterns in data."
+      explanation: "? Correct! Traditional programming requires humans to manually write every rule. AI learns its own rules by finding patterns in data."
     }
   },
   {
     id: 2,
-    icon: "📈",
+    icon: "🤖",
     title: "Evolution of AI",
     subtitle: "From simple rules to generative intelligence",
     content: `
       <div class="card">
-        <h3>🗺️ The AI Journey</h3>
-        <p>AI didn't appear overnight. It evolved in stages — each stage more powerful than the last.</p>
+        <h3>🤖 The AI Journey</h3>
+        <p>AI didn't appear overnight. It evolved in stages � each stage more powerful than the last.</p>
       </div>
       <div class="card">
-        <h3>1️⃣ Rule-Based AI</h3>
+        <h3>1🤖 Rule-Based AI</h3>
         <ul>
           <li>Uses <strong>predefined logic</strong> written by humans</li>
           <li>Easy to implement but limited in flexibility</li>
           <li>Cannot handle complex or unknown situations</li>
         </ul>
-        <div class="analogy"><strong>Example:</strong> If seatbelt is not fastened → show warning light. Simple. But you had to program every possible warning manually.</div>
+        <div class="analogy"><strong>Example:</strong> If seatbelt is not fastened ? show warning light. Simple. But you had to program every possible warning manually.</div>
       </div>
       <div class="card">
-        <h3>2️⃣ Machine Learning</h3>
+        <h3>2🤖 Machine Learning</h3>
         <ul>
           <li>Learns patterns from <strong>historical data</strong> instead of rules</li>
           <li>Improves performance as more data is provided</li>
@@ -1204,7 +1204,7 @@ const week1Lessons = [
         <div class="analogy"><strong>Example:</strong> Predicting engine failure based on thousands of past sensor readings.</div>
       </div>
       <div class="card">
-        <h3>3️⃣ Deep Learning</h3>
+        <h3>3🤖 Deep Learning</h3>
         <ul>
           <li>Uses <strong>neural networks</strong> inspired by the human brain</li>
           <li>Can handle complex data: images, speech, video</li>
@@ -1213,18 +1213,18 @@ const week1Lessons = [
         <div class="analogy"><strong>Example:</strong> Detecting pedestrians using camera systems in autonomous vehicles.</div>
       </div>
       <div class="card">
-        <h3>4️⃣ Generative AI</h3>
+        <h3>4🤖 Generative AI</h3>
         <ul>
           <li>Capable of <strong>generating new content</strong>: text, images, code</li>
           <li>Trained on massive datasets to understand language patterns</li>
-          <li>Tools: ChatGPT, DALL·E, Gemini</li>
+          <li>Tools: ChatGPT, DALL�E, Gemini</li>
         </ul>
         <div class="analogy"><strong>Example:</strong> Generating engineering reports, writing code, answering questions automatically.</div>
       </div>
       <div class="card">
-        <h3>5️⃣ Agentic AI</h3>
+        <h3>5🤖 Agentic AI</h3>
         <ul>
-          <li>Goes beyond generating responses — it can <strong>perform tasks</strong></li>
+          <li>Goes beyond generating responses � it can <strong>perform tasks</strong></li>
           <li>Can plan steps, make decisions, and execute actions</li>
           <li>Integrates with external tools and systems</li>
         </ul>
@@ -1235,27 +1235,27 @@ const week1Lessons = [
       q: "Which type of AI can generate new content like text and code?",
       options: ["Rule-Based AI", "Machine Learning", "Generative AI", "Deep Learning"],
       answer: 2,
-      explanation: "✅ Correct! Generative AI is trained on large datasets and can generate new content — text, images, code. ChatGPT is the most famous example."
+      explanation: "? Correct! Generative AI is trained on large datasets and can generate new content � text, images, code. ChatGPT is the most famous example."
     }
   },
   {
     id: 3,
-    icon: "🚗",
+    icon: "🤖",
     title: "AI in Automotive",
     subtitle: "Real use cases in the engineering world",
     content: `
       <div class="card">
-        <h3>🏎️ AI is Already in Your Cars</h3>
-        <p>AI is not just in tech companies — it's embedded in <strong>modern engineering systems</strong> right now.</p>
+        <h3>🤖 AI is Already in Your Cars</h3>
+        <p>AI is not just in tech companies � it's embedded in <strong>modern engineering systems</strong> right now.</p>
         <ul>
-          <li><strong>Driver monitoring systems</strong> — detect fatigue or distraction</li>
-          <li><strong>Predictive maintenance</strong> — identify potential failures before they happen</li>
-          <li><strong>Autonomous driving</strong> — object detection and navigation</li>
-          <li><strong>Voice assistants</strong> — natural language interaction with the car</li>
+          <li><strong>Driver monitoring systems</strong> � detect fatigue or distraction</li>
+          <li><strong>Predictive maintenance</strong> � identify potential failures before they happen</li>
+          <li><strong>Autonomous driving</strong> � object detection and navigation</li>
+          <li><strong>Voice assistants</strong> � natural language interaction with the car</li>
         </ul>
       </div>
       <div class="card">
-        <h3>🧩 AI System Architecture</h3>
+        <h3>🤖 AI System Architecture</h3>
         <table style="width:100%;border-collapse:collapse;font-size:0.88rem;margin-top:8px">
           <tr style="border-bottom:1px solid #334155">
             <th style="text-align:left;padding:8px;color:#38bdf8">Stage</th>
@@ -1268,7 +1268,7 @@ const week1Lessons = [
         </table>
       </div>
       <div class="card">
-        <h3>💡 Key Insight</h3>
+        <h3>🤖 Key Insight</h3>
         <ul>
           <li>AI is not intelligence in the human sense</li>
           <li>It is a system that <strong>processes data and identifies patterns</strong></li>
@@ -1283,28 +1283,28 @@ const week1Lessons = [
       q: "Which of the following is a real-world AI application in automotive engineering?",
       options: ["Writing emails faster", "Predictive maintenance to identify failures early", "Making tea automatically", "Printing documents"],
       answer: 1,
-      explanation: "✅ Correct! Predictive maintenance uses AI to analyze sensor data and detect potential failures before they happen — saving cost and downtime."
+      explanation: "? Correct! Predictive maintenance uses AI to analyze sensor data and detect potential failures before they happen � saving cost and downtime."
     }
   },
   {
     id: 4,
-    icon: "🏁",
+    icon: "🤖",
     title: "Week 1 Summary",
-    subtitle: "Everything you learned — locked in!",
+    subtitle: "Everything you learned � locked in!",
     content: `
       <div class="card">
-        <h3>📌 Key Concepts Recap</h3>
+        <h3>🤖 Key Concepts Recap</h3>
         <div style="display:flex;flex-direction:column;gap:10px">
           <div style="background:#0f172a;border-left:3px solid #facc15;padding:12px 16px;border-radius:6px">
             <strong style="color:#facc15">What is AI?</strong><br>
-            <span style="color:#94a3b8;font-size:0.88rem">A system that learns patterns from data and makes decisions. Not magic — it's data + math + logic.</span>
+            <span style="color:#94a3b8;font-size:0.88rem">A system that learns patterns from data and makes decisions. Not magic � it's data + math + logic.</span>
           </div>
           <div style="background:#0f172a;border-left:3px solid #38bdf8;padding:12px 16px;border-radius:6px">
             <strong style="color:#38bdf8">Traditional vs AI</strong><br>
             <span style="color:#94a3b8;font-size:0.88rem">Traditional: humans write every rule. AI: the system learns the rules from data.</span>
           </div>
           <div style="background:#0f172a;border-left:3px solid #c084fc;padding:12px 16px;border-radius:6px">
-            <strong style="color:#c084fc">Evolution: Rule-Based → ML → Deep Learning → GenAI → Agentic AI</strong><br>
+            <strong style="color:#c084fc">Evolution: Rule-Based ? ML ? Deep Learning ? GenAI ? Agentic AI</strong><br>
             <span style="color:#94a3b8;font-size:0.88rem">Each stage reduces human effort and increases system capability.</span>
           </div>
           <div style="background:#0f172a;border-left:3px solid #f97316;padding:12px 16px;border-radius:6px">
@@ -1314,7 +1314,7 @@ const week1Lessons = [
         </div>
       </div>
       <div class="card">
-        <h3>🚀 What's Next — Week 2</h3>
+        <h3>🤖 What's Next � Week 2</h3>
         <ul>
           <li>Introduction to Python programming</li>
           <li>Understanding how to write logic using code</li>
@@ -1322,15 +1322,15 @@ const week1Lessons = [
         </ul>
       </div>
       <div class="card">
-        <h3>🎓 Great job completing Week 1!</h3>
-        <p>You now understand what AI is, how it evolved, and where it's used in the real world. This foundation will make everything in the coming weeks click into place. 🎉</p>
+        <h3>🤖 Great job completing Week 1!</h3>
+        <p>You now understand what AI is, how it evolved, and where it's used in the real world. This foundation will make everything in the coming weeks click into place. 🤖</p>
       </div>
     `,
     quiz: {
       q: "What comes after understanding AI concepts? (Week 2 topic)",
       options: ["Building neural networks", "Introduction to Python programming", "Deploying AI models", "Writing DFMEA reports"],
       answer: 1,
-      explanation: "✅ Correct! Week 2 introduces Python — the programming language we'll use to build AI systems. It's the foundation for everything that follows."
+      explanation: "? Correct! Week 2 introduces Python � the programming language we'll use to build AI systems. It's the foundation for everything that follows."
     }
   }
 ];
@@ -1338,23 +1338,23 @@ const week1Lessons = [
 const week2Lessons = [
   {
     id: 0,
-    icon: "💻",
+    icon: "🤖",
     title: "What is Coding?",
     subtitle: "How humans talk to machines",
     content: `
       <div class="card">
-        <h3>🤔 What is Coding?</h3>
-        <p>Every system works based on <strong>instructions</strong>. Without instructions → the system does nothing.</p>
+        <h3>🤖 What is Coding?</h3>
+        <p>Every system works based on <strong>instructions</strong>. Without instructions ? the system does nothing.</p>
         <div class="analogy">
           <strong>Real life analogy:</strong><br>
           Think of coding like giving directions to someone who doesn't think on their own.<br>
-          "Turn left → go 200m → turn right → stop." That's instructions. That's coding.<br><br>
+          "Turn left ? go 200m ? turn right ? stop." That's instructions. That's coding.<br><br>
           <strong>Coding = giving instructions to a computer.</strong><br>
           It is how we communicate with machines.
         </div>
       </div>
       <div class="card">
-        <h3>🧠 What is Programming?</h3>
+        <h3>🤖 What is Programming?</h3>
         <p><strong>Programming = solving problems step by step.</strong> It is planning before you even start coding.</p>
         <ul>
           <li>Includes thinking, logic, and structure</li>
@@ -1369,10 +1369,10 @@ const week2Lessons = [
         </table>
       </div>
       <div class="card">
-        <h3>⚙️ How Do Computers Work?</h3>
+        <h3>🤖 How Do Computers Work?</h3>
         <ul>
           <li>Computers do <strong>NOT</strong> understand English, Tamil, or Hindi</li>
-          <li>They understand only <strong>binary</strong> — 0s and 1s (electrical signals)</li>
+          <li>They understand only <strong>binary</strong> � 0s and 1s (electrical signals)</li>
           <li>Everything you type gets converted to 0s and 1s internally</li>
         </ul>
         <div class="analogy">
@@ -1386,26 +1386,26 @@ const week2Lessons = [
       q: "What language do computers actually understand at the lowest level?",
       options: ["English", "Python", "Binary (0s and 1s)", "Tamil"],
       answer: 2,
-      explanation: "✅ Correct! Computers only understand binary — 0s and 1s. Everything we type in Python or any other language gets converted to binary signals internally."
+      explanation: "? Correct! Computers only understand binary � 0s and 1s. Everything we type in Python or any other language gets converted to binary signals internally."
     }
   },
   {
     id: 1,
-    icon: "🐍",
+    icon: "🤖",
     title: "Why Python?",
     subtitle: "The best language to start with",
     content: `
       <div class="card">
-        <h3>🌍 There Are Many Languages — Why Python?</h3>
+        <h3>🤖 There Are Many Languages � Why Python?</h3>
         <ul>
-          <li><strong>Easy to learn and understand</strong> — reads almost like plain English</li>
+          <li><strong>Easy to learn and understand</strong> � reads almost like plain English</li>
           <li>Requires <strong>less code</strong> compared to other languages</li>
           <li>Widely used in <strong>AI and Machine Learning</strong></li>
           <li>Huge community and support available worldwide</li>
         </ul>
       </div>
       <div class="card">
-        <h3>🆚 Python vs Other Languages</h3>
+        <h3>🤖 Python vs Other Languages</h3>
         <table style="width:100%;border-collapse:collapse;font-size:0.88rem;margin-top:8px">
           <tr style="border-bottom:1px solid #334155">
             <th style="text-align:left;padding:8px;color:#38bdf8">Language</th>
@@ -1417,19 +1417,19 @@ const week2Lessons = [
         </table>
       </div>
       <div class="card">
-        <h3>✍️ Your First Python Program</h3>
+        <h3>🤖 Your First Python Program</h3>
         <p>This is the first program every programmer writes. It's called <strong>"Hello, World!"</strong></p>
         <div class="code-block">
           <span class="fn">print</span>(<span class="str">"Hello, World!"</span>)
         </div>
         <div class="output-box">
-          <div class="output-label">▶ Output</div>
+          <div class="output-label">? Output</div>
           Hello, World!
         </div>
         <p style="margin-top:10px"><code style="background:#0f172a;padding:2px 6px;border-radius:4px;color:#facc15">print()</code> is Python's way of <strong>displaying something on screen</strong>.</p>
       </div>
       <div class="card">
-        <h3>🗺️ What We'll Learn in This Course</h3>
+        <h3>🤖 What We'll Learn in This Course</h3>
         <ul>
           <li>Writing simple programs</li>
           <li>Understanding variables (storing data)</li>
@@ -1448,17 +1448,17 @@ const week2Lessons = [
         "It requires the most code to write"
       ],
       answer: 2,
-      explanation: "✅ Correct! Python is simple, reads like English, requires less code, and is the most popular language for AI and Machine Learning."
+      explanation: "? Correct! Python is simple, reads like English, requires less code, and is the most popular language for AI and Machine Learning."
     }
   },
   {
     id: 2,
-    icon: "📦",
+    icon: "🤖",
     title: "Variables & Data Types",
     subtitle: "Storing and working with data",
     content: `
       <div class="card">
-        <h3>📦 What is a Variable?</h3>
+        <h3>🤖 What is a Variable?</h3>
         <p>A variable is a <strong>named container</strong> where you store data. Values can be reused and updated throughout your program.</p>
         <div class="analogy">
           <strong>Real life analogy:</strong><br>
@@ -1472,12 +1472,12 @@ const week2Lessons = [
           <span class="fn">print</span>(<span class="var">name</span>)   <span class="cmt"># Shows: Barath</span>
         </div>
         <div class="output-box">
-          <div class="output-label">▶ Output</div>
+          <div class="output-label">? Output</div>
           100<br>Barath
         </div>
       </div>
       <div class="card">
-        <h3>🗂️ Data Types — What Kind of Data?</h3>
+        <h3>🤖 Data Types � What Kind of Data?</h3>
         <p>Data types define the <strong>kind of value</strong> stored in a variable. Choosing the correct type is important for logic.</p>
         <table style="width:100%;border-collapse:collapse;font-size:0.88rem;margin-top:8px">
           <tr style="border-bottom:1px solid #334155">
@@ -1492,15 +1492,15 @@ const week2Lessons = [
         </table>
       </div>
       <div class="card">
-        <h3>🔢 Operators — Doing Math and Comparisons</h3>
+        <h3>🤖 Operators � Doing Math and Comparisons</h3>
         <p>Operators let you perform calculations and compare values.</p>
         <div class="code-block">
-          <span class="fn">print</span>(<span class="num">10</span> + <span class="num">5</span>)   <span class="cmt"># 15 — arithmetic</span><br>
-          <span class="fn">print</span>(<span class="num">10</span> > <span class="num">5</span>)   <span class="cmt"># True — comparison</span><br>
-          <span class="fn">print</span>(<span class="num">5</span> > <span class="num">10</span>)   <span class="cmt"># False — comparison</span>
+          <span class="fn">print</span>(<span class="num">10</span> + <span class="num">5</span>)   <span class="cmt"># 15 � arithmetic</span><br>
+          <span class="fn">print</span>(<span class="num">10</span> > <span class="num">5</span>)   <span class="cmt"># True � comparison</span><br>
+          <span class="fn">print</span>(<span class="num">5</span> > <span class="num">10</span>)   <span class="cmt"># False � comparison</span>
         </div>
         <div class="output-box">
-          <div class="output-label">▶ Output</div>
+          <div class="output-label">? Output</div>
           15<br>True<br>False
         </div>
         <p style="margin-top:10px">Comparison operators always return <strong>True</strong> or <strong>False</strong>. These are the building blocks of all conditions!</p>
@@ -1510,21 +1510,21 @@ const week2Lessons = [
       q: "What data type would you use to store someone's name like \"Barath\"?",
       options: ["Integer", "Boolean", "String", "Float"],
       answer: 2,
-      explanation: "✅ Correct! A String is used to store text (words, names, sentences). It must be written inside quotes — like name = \"Barath\"."
+      explanation: "? Correct! A String is used to store text (words, names, sentences). It must be written inside quotes � like name = \"Barath\"."
     }
   },
   {
     id: 3,
-    icon: "🔀",
+    icon: "🤖",
     title: "Conditions & Loops (Preview)",
     subtitle: "Making decisions and repeating tasks",
     content: `
       <div class="card">
-        <h3>🚦 Conditions — if / else</h3>
+        <h3>🤖 Conditions � if / else</h3>
         <p>Conditions let a program <strong>make decisions</strong>. The system checks whether something is True or False, then acts accordingly.</p>
         <ul>
-          <li><strong>if</strong> — executes code when the condition is True</li>
-          <li><strong>else</strong> — executes code when the condition is False</li>
+          <li><strong>if</strong> � executes code when the condition is True</li>
+          <li><strong>else</strong> � executes code when the condition is False</li>
         </ul>
         <div class="code-block">
           <span class="var">temp</span> = <span class="num">42</span><br><br>
@@ -1534,12 +1534,12 @@ const week2Lessons = [
           &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"Temperature is normal"</span>)
         </div>
         <div class="output-box">
-          <div class="output-label">▶ Output</div>
+          <div class="output-label">? Output</div>
           Overheating warning!
         </div>
       </div>
       <div class="card">
-        <h3>🔁 Loops — Repeating Tasks</h3>
+        <h3>🤖 Loops � Repeating Tasks</h3>
         <p>Loops let you <strong>repeat a task</strong> multiple times without writing the same code again and again.</p>
         <ul>
           <li>Reduce the need to copy-paste code</li>
@@ -1551,14 +1551,14 @@ const week2Lessons = [
           &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"Running check..."</span>)
         </div>
         <div class="output-box">
-          <div class="output-label">▶ Output</div>
+          <div class="output-label">? Output</div>
           Running check...<br>Running check...<br>Running check...
         </div>
       </div>
       <div class="card">
-        <h3>📌 The Core Idea</h3>
+        <h3>🤖 The Core Idea</h3>
         <div style="background:#0f172a;border-left:3px solid #22d3ee;padding:12px 16px;border-radius:6px">
-          <strong style="color:#22d3ee">Every system works on: Input → Process → Output</strong><br>
+          <strong style="color:#22d3ee">Every system works on: Input ? Process ? Output</strong><br>
           <span style="color:#94a3b8;font-size:0.88rem">Logic is the foundation of all systems. Conditions and loops are how we build that logic in Python.</span>
         </div>
       </div>
@@ -1568,21 +1568,21 @@ const week2Lessons = [
       options: [
         "It repeats code many times",
         "It stores data in a variable",
-        "It makes a decision — runs different code based on True or False",
+        "It makes a decision � runs different code based on True or False",
         "It displays text on screen"
       ],
       answer: 2,
-      explanation: "✅ Correct! An if / else condition checks whether something is True or False, and runs different code for each case — like a decision tree."
+      explanation: "? Correct! An if / else condition checks whether something is True or False, and runs different code for each case � like a decision tree."
     }
   },
   {
     id: 4,
-    icon: "🏁",
+    icon: "🤖",
     title: "Week 2 Summary",
-    subtitle: "Core ideas locked in — ready for Week 3!",
+    subtitle: "Core ideas locked in � ready for Week 3!",
     content: `
       <div class="card">
-        <h3>📌 Key Concepts Recap</h3>
+        <h3>🤖 Key Concepts Recap</h3>
         <div style="display:flex;flex-direction:column;gap:10px">
           <div style="background:#0f172a;border-left:3px solid #facc15;padding:12px 16px;border-radius:6px">
             <strong style="color:#facc15">Coding vs Programming</strong><br>
@@ -1590,7 +1590,7 @@ const week2Lessons = [
           </div>
           <div style="background:#0f172a;border-left:3px solid #38bdf8;padding:12px 16px;border-radius:6px">
             <strong style="color:#38bdf8">Binary & Python</strong><br>
-            <span style="color:#94a3b8;font-size:0.88rem">Computers understand 0s and 1s. Python is a translator — simple, readable, and perfect for AI.</span>
+            <span style="color:#94a3b8;font-size:0.88rem">Computers understand 0s and 1s. Python is a translator � simple, readable, and perfect for AI.</span>
           </div>
           <div style="background:#0f172a;border-left:3px solid #c084fc;padding:12px 16px;border-radius:6px">
             <strong style="color:#c084fc">Variables & Data Types</strong><br>
@@ -1598,12 +1598,12 @@ const week2Lessons = [
           </div>
           <div style="background:#0f172a;border-left:3px solid #22c55e;padding:12px 16px;border-radius:6px">
             <strong style="color:#22c55e">Logic Foundation</strong><br>
-            <span style="color:#94a3b8;font-size:0.88rem">Every system: Input → Process → Output. Conditions and loops are how we program that logic.</span>
+            <span style="color:#94a3b8;font-size:0.88rem">Every system: Input ? Process ? Output. Conditions and loops are how we program that logic.</span>
           </div>
         </div>
       </div>
       <div class="card">
-        <h3>💡 Real World Code — All Together!</h3>
+        <h3>🤖 Real World Code � All Together!</h3>
         <div class="code-block">
           <span class="var">name</span> = <span class="str">"Barath"</span><br>
           <span class="var">age</span> = <span class="num">24</span><br>
@@ -1614,13 +1614,13 @@ const week2Lessons = [
           &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"Welcome, Engineer!"</span>)
         </div>
         <div class="output-box">
-          <div class="output-label">▶ Output</div>
+          <div class="output-label">? Output</div>
           Name: Barath<br>Age: 24<br>Welcome, Engineer!
         </div>
       </div>
       <div class="card">
-        <h3>🎓 You're ready for Week 3!</h3>
-        <p>Next week we go deeper into Python — Variables, Data Types, Operators, Conditions, and Loops in full detail. You're building real programming skills now! 🎉</p>
+        <h3>🤖 You're ready for Week 3!</h3>
+        <p>Next week we go deeper into Python � Variables, Data Types, Operators, Conditions, and Loops in full detail. You're building real programming skills now! 🤖</p>
       </div>
     `,
     quiz: {
@@ -1632,7 +1632,7 @@ const week2Lessons = [
         "It connects to the internet"
       ],
       answer: 1,
-      explanation: "✅ Correct! A variable is a named container that stores a value. You give it a label, put data inside, and use that label whenever you need the data."
+      explanation: "? Correct! A variable is a named container that stores a value. You give it a label, put data inside, and use that label whenever you need the data."
     }
   }
 ];
@@ -1640,21 +1640,21 @@ const week2Lessons = [
 const week3Lessons = [
   {
     id: 0,
-    icon: "🔄",
+    icon: "🤖",
     title: "Recap & Session Goal",
     subtitle: "Building on what you know",
     content: `
       <div class="card">
-        <h3>⚡ Quick Recap</h3>
+        <h3>? Quick Recap</h3>
         <ul>
           <li>Coding = giving instructions to a computer</li>
           <li>Programming = planning and solving step by step</li>
-          <li>Every system: <strong>Input → Process → Output</strong></li>
-          <li>Example: Press switch → light ON</li>
+          <li>Every system: <strong>Input ? Process ? Output</strong></li>
+          <li>Example: Press switch ? light ON</li>
         </ul>
       </div>
       <div class="card">
-        <h3>🎯 This Session's Goal</h3>
+        <h3>🤖 This Session's Goal</h3>
         <ul>
           <li>Write your first real Python code</li>
           <li>Understand how to store and work with data</li>
@@ -1663,17 +1663,17 @@ const week3Lessons = [
         </ul>
         <div class="analogy">
           <strong>By the end of today, you will build:</strong><br>
-          A temperature warning system — a small program that reads a temperature value and tells you if something is overheating.
+          A temperature warning system � a small program that reads a temperature value and tells you if something is overheating.
         </div>
       </div>
       <div class="card">
-        <h3>🗓️ Today's Agenda</h3>
+        <h3>🤖 Today's Agenda</h3>
         <ul>
-          <li>Variables — storing data</li>
+          <li>Variables � storing data</li>
           <li>Data Types: String, Integer, Boolean</li>
-          <li>Operators — basic comparisons</li>
-          <li>Conditions — if / else decision making</li>
-          <li>Loops — repeating tasks (intro)</li>
+          <li>Operators � basic comparisons</li>
+          <li>Conditions � if / else decision making</li>
+          <li>Loops � repeating tasks (intro)</li>
         </ul>
       </div>
     `,
@@ -1686,17 +1686,17 @@ const week3Lessons = [
         "Set up a server"
       ],
       answer: 1,
-      explanation: "✅ Correct! Today's goal is to write first code, understand data storage with variables, and build logic using conditions — all leading to creating a temperature warning system."
+      explanation: "? Correct! Today's goal is to write first code, understand data storage with variables, and build logic using conditions � all leading to creating a temperature warning system."
     }
   },
   {
     id: 1,
-    icon: "📦",
+    icon: "🤖",
     title: "Variables Deep Dive",
     subtitle: "Named containers for your data",
     content: `
       <div class="card">
-        <h3>📦 Variables — Storing Data</h3>
+        <h3>🤖 Variables � Storing Data</h3>
         <p>Variables are used to <strong>store data</strong> in a program. A variable acts like a named container for a value.</p>
         <ul>
           <li>Values can be reused and updated using variables</li>
@@ -1705,19 +1705,19 @@ const week3Lessons = [
         </ul>
       </div>
       <div class="card">
-        <h3>✍️ How Variables Work</h3>
+        <h3>🤖 How Variables Work</h3>
         <div class="code-block">
           <span class="var">temp</span> = <span class="num">100</span>  <span class="cmt"># "temp" is the label, 100 is the value</span><br>
           <span class="cmt"># The = sign means: "assign the value 100 to temp"</span><br><br>
           <span class="fn">print</span>(<span class="var">temp</span>)  <span class="cmt"># Shows: 100</span>
         </div>
         <div class="output-box">
-          <div class="output-label">▶ Output</div>
+          <div class="output-label">? Output</div>
           100
         </div>
       </div>
       <div class="card">
-        <h3>🔄 Variables Can Be Updated</h3>
+        <h3>🤖 Variables Can Be Updated</h3>
         <div class="code-block">
           <span class="var">temp</span> = <span class="num">100</span><br>
           <span class="fn">print</span>(<span class="var">temp</span>)  <span class="cmt"># 100</span><br><br>
@@ -1725,7 +1725,7 @@ const week3Lessons = [
           <span class="fn">print</span>(<span class="var">temp</span>)  <span class="cmt"># 200</span>
         </div>
         <div class="output-box">
-          <div class="output-label">▶ Output</div>
+          <div class="output-label">? Output</div>
           100<br>200
         </div>
         <p style="margin-top:10px">Variables can hold different values at different points in your program. The most recent assignment wins.</p>
@@ -1735,17 +1735,17 @@ const week3Lessons = [
       q: "What does this code print?\n\ntemp = 50\ntemp = 75\nprint(temp)",
       options: ["50", "75", "50 and 75", "Error"],
       answer: 1,
-      explanation: "✅ Correct! The variable temp is first assigned 50, then reassigned 75. The final value is 75, so print(temp) shows 75."
+      explanation: "? Correct! The variable temp is first assigned 50, then reassigned 75. The final value is 75, so print(temp) shows 75."
     }
   },
   {
     id: 2,
-    icon: "🗂️",
+    icon: "🤖",
     title: "Data Types in Detail",
-    subtitle: "String, Integer, Boolean — and when to use each",
+    subtitle: "String, Integer, Boolean � and when to use each",
     content: `
       <div class="card">
-        <h3>🔤 String — Text Data</h3>
+        <h3>🤖 String � Text Data</h3>
         <ul>
           <li>Used to store <strong>text or characters</strong></li>
           <li>Must be written inside quotes (" " or ' ')</li>
@@ -1759,12 +1759,12 @@ const week3Lessons = [
           <span class="fn">print</span>(<span class="var">name</span>, <span class="str">"from"</span>, <span class="var">city</span>)
         </div>
         <div class="output-box">
-          <div class="output-label">▶ Output</div>
+          <div class="output-label">? Output</div>
           Barath from Chennai
         </div>
       </div>
       <div class="card">
-        <h3>🔢 Integer — Whole Numbers</h3>
+        <h3>🤖 Integer � Whole Numbers</h3>
         <ul>
           <li>Used to store <strong>whole numbers</strong> (no decimals)</li>
           <li>Supports arithmetic: addition, subtraction, multiplication</li>
@@ -1776,12 +1776,12 @@ const week3Lessons = [
           <span class="fn">print</span>(<span class="var">age</span> + <span class="num">1</span>)  <span class="cmt"># 25</span>
         </div>
         <div class="output-box">
-          <div class="output-label">▶ Output</div>
+          <div class="output-label">? Output</div>
           25
         </div>
       </div>
       <div class="card">
-        <h3>✅ Boolean — True or False</h3>
+        <h3>? Boolean � True or False</h3>
         <ul>
           <li>Represents <strong>only two values: True or False</strong></li>
           <li>Mainly used for decision making</li>
@@ -1794,7 +1794,7 @@ const week3Lessons = [
           <span class="var">is_running</span> = <span class="kw">True</span>
         </div>
         <div class="output-box">
-          <div class="output-label">▶ Output</div>
+          <div class="output-label">? Output</div>
           True<br>False
         </div>
       </div>
@@ -1803,21 +1803,21 @@ const week3Lessons = [
       q: "Which data type would you use to store a car model name like \"Jeep Compass\"?",
       options: ["Integer", "Boolean", "Float", "String"],
       answer: 3,
-      explanation: "✅ Correct! A String stores text. Car model names are text, so you use String — written in quotes like car = \"Jeep Compass\"."
+      explanation: "? Correct! A String stores text. Car model names are text, so you use String � written in quotes like car = \"Jeep Compass\"."
     }
   },
   {
     id: 3,
-    icon: "⚙️",
+    icon: "🤖",
     title: "Operators & Conditions",
     subtitle: "Performing calculations and making decisions",
     content: `
       <div class="card">
-        <h3>⚙️ Operators</h3>
+        <h3>🤖 Operators</h3>
         <p>Operators are used to <strong>perform operations on data</strong>.</p>
         <ul>
-          <li><strong>Arithmetic operators</strong> — perform calculations (+, -, *, /)</li>
-          <li><strong>Comparison operators</strong> — compare values (>, &lt;, ==)</li>
+          <li><strong>Arithmetic operators</strong> � perform calculations (+, -, *, /)</li>
+          <li><strong>Comparison operators</strong> � compare values (>, &lt;, ==)</li>
           <li>Comparison results are always True or False</li>
         </ul>
         <div class="code-block">
@@ -1827,41 +1827,41 @@ const week3Lessons = [
           <span class="fn">print</span>(<span class="num">10</span> > <span class="num">20</span>)   <span class="cmt"># False</span>
         </div>
         <div class="output-box">
-          <div class="output-label">▶ Output</div>
+          <div class="output-label">? Output</div>
           15<br>7<br>True<br>False
         </div>
       </div>
       <div class="card">
-        <h3>🚦 Conditions — if / else</h3>
+        <h3>🤖 Conditions � if / else</h3>
         <p>Conditions use operators to make <strong>decisions</strong>. The system checks if something is True or False, then acts accordingly.</p>
         <div class="code-block">
           <span class="var">temp</span> = <span class="num">95</span><br><br>
           <span class="kw">if</span> <span class="var">temp</span> > <span class="num">90</span>:<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"⚠️ Overheating!"</span>)<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"🤖 Overheating!"</span>)<br>
           <span class="kw">else</span>:<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"✅ Temperature normal"</span>)
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"? Temperature normal"</span>)
         </div>
         <div class="output-box">
-          <div class="output-label">▶ Output</div>
-          ⚠️ Overheating!
+          <div class="output-label">? Output</div>
+          🤖 Overheating!
         </div>
       </div>
       <div class="card">
-        <h3>🏗️ Mini Project: Temperature Warning System</h3>
+        <h3>🤖 Mini Project: Temperature Warning System</h3>
         <p>Let's put it all together! This is a real-world inspired program:</p>
         <div class="code-block">
           <span class="var">engine_temp</span> = <span class="num">105</span><br>
           <span class="var">max_safe_temp</span> = <span class="num">100</span><br><br>
           <span class="kw">if</span> <span class="var">engine_temp</span> > <span class="var">max_safe_temp</span>:<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"🔴 WARNING: Engine overheating!"</span>)<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"🤖 WARNING: Engine overheating!"</span>)<br>
           <span class="kw">elif</span> <span class="var">engine_temp</span> == <span class="var">max_safe_temp</span>:<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"🟡 CAUTION: At limit"</span>)<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"🤖 CAUTION: At limit"</span>)<br>
           <span class="kw">else</span>:<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"🟢 All good!"</span>)
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"🤖 All good!"</span>)
         </div>
         <div class="output-box">
-          <div class="output-label">▶ Output</div>
-          🔴 WARNING: Engine overheating!
+          <div class="output-label">? Output</div>
+          🤖 WARNING: Engine overheating!
         </div>
       </div>
     `,
@@ -1869,17 +1869,17 @@ const week3Lessons = [
       q: "What will this print?\n\nspeed = 80\nif speed > 100:\n    print('Overspeeding')\nelse:\n    print('Safe speed')",
       options: ["Overspeeding", "Safe speed", "Nothing", "Error"],
       answer: 1,
-      explanation: "✅ Correct! speed is 80, which is NOT greater than 100. So the if condition is False, and Python runs the else block — printing 'Safe speed'."
+      explanation: "? Correct! speed is 80, which is NOT greater than 100. So the if condition is False, and Python runs the else block � printing 'Safe speed'."
     }
   },
   {
     id: 4,
-    icon: "🔁",
+    icon: "🤖",
     title: "Loops Introduction",
     subtitle: "Automating repetitive tasks",
     content: `
       <div class="card">
-        <h3>🔁 Loops — Repeating Tasks</h3>
+        <h3>🤖 Loops � Repeating Tasks</h3>
         <ul>
           <li>Loops are used to <strong>repeat a task multiple times</strong></li>
           <li>They reduce the need to write the same code repeatedly</li>
@@ -1889,27 +1889,27 @@ const week3Lessons = [
         <div class="analogy">
           <strong>Real life analogy:</strong><br>
           Imagine checking the oil level of 10 different vehicles one by one.<br>
-          Instead of writing 10 separate checks, you write ONE check inside a loop — and it runs 10 times automatically.
+          Instead of writing 10 separate checks, you write ONE check inside a loop � and it runs 10 times automatically.
         </div>
       </div>
       <div class="card">
-        <h3>📋 For Loop — Basic Example</h3>
+        <h3>🤖 For Loop � Basic Example</h3>
         <div class="code-block">
           <span class="var">vehicles</span> = [<span class="str">"Car"</span>, <span class="str">"Truck"</span>, <span class="str">"Bus"</span>]<br><br>
           <span class="kw">for</span> <span class="var">v</span> <span class="kw">in</span> <span class="var">vehicles</span>:<br>
           &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"Checking:"</span>, <span class="var">v</span>)
         </div>
         <div class="output-box">
-          <div class="output-label">▶ Output</div>
+          <div class="output-label">? Output</div>
           Checking: Car<br>Checking: Truck<br>Checking: Bus
         </div>
       </div>
       <div class="card">
-        <h3>🚀 What's Next — Week 4</h3>
+        <h3>🤖 What's Next � Week 4</h3>
         <ul>
           <li>Deep dive into for loops and while loops</li>
           <li>Combining loops + conditions for real data processing</li>
-          <li>break and continue — loop control tools</li>
+          <li>break and continue � loop control tools</li>
           <li>Hands-on team practice exercises</li>
         </ul>
         <p style="margin-top:10px">After every session, a <strong>small assessment</strong> will be given. Practice tasks will also be assigned to reinforce learning.</p>
@@ -1924,7 +1924,7 @@ const week3Lessons = [
         "To compare two values"
       ],
       answer: 1,
-      explanation: "✅ Correct! A loop repeats a task multiple times — automatically. Instead of writing the same code 10 times, you write it once inside a loop and let Python run it as many times as needed."
+      explanation: "? Correct! A loop repeats a task multiple times � automatically. Instead of writing the same code 10 times, you write it once inside a loop and let Python run it as many times as needed."
     }
   }
 ];
@@ -2187,47 +2187,47 @@ const week5Lessons = [
 const week6Lessons = [
   {
     id: 0,
-    icon: "📦",
+    icon: "🤖",
     title: "What is a List?",
-    subtitle: "Stop creating one variable per car — hold everything in one place",
+    subtitle: "Stop creating one variable per car � hold everything in one place",
     content: `
       <div class="card">
-        <h3>🚗 The Problem With Single Variables</h3>
-        <p>Imagine you manage a fleet of 500 cars. Using what you knew before — you'd write:</p>
+        <h3>🤖 The Problem With Single Variables</h3>
+        <p>Imagine you manage a fleet of 500 cars. Using what you knew before � you'd write:</p>
         <div class="code-block">
           <span class="var">car1</span> = <span class="str">"Alto"</span><br>
           <span class="var">car2</span> = <span class="str">"Swift"</span><br>
           <span class="var">car3</span> = <span class="str">"Nexon"</span><br>
-          <span class="cmt"># 500 cars = 500 variables — impossible!</span>
+          <span class="cmt"># 500 cars = 500 variables � impossible!</span>
         </div>
         <div class="analogy">
-          <strong>The Solution — A List:</strong><br>
+          <strong>The Solution � A List:</strong><br>
           One variable. Many values. Expandable to any size.
         </div>
       </div>
       <div class="card">
-        <h3>📋 What is a List?</h3>
+        <h3>🤖 What is a List?</h3>
         <p>A List is a <strong>single variable that holds multiple values</strong> in one place.</p>
         <div class="code-block">
           <span class="var">fleet</span> = [<span class="str">"Alto"</span>, <span class="str">"Swift"</span>, <span class="str">"Nexon"</span>, <span class="str">"Fortuner"</span>, <span class="str">"Compass"</span>]<br><br>
-          <span class="fn">print</span>(<span class="var">fleet</span>[<span class="num">0</span>])  <span class="cmt"># Alto — first car</span><br>
-          <span class="fn">print</span>(<span class="var">fleet</span>[<span class="num">1</span>])  <span class="cmt"># Swift — second car</span><br>
-          <span class="fn">print</span>(<span class="var">fleet</span>[-<span class="num">1</span>]) <span class="cmt"># Compass — last car always</span>
+          <span class="fn">print</span>(<span class="var">fleet</span>[<span class="num">0</span>])  <span class="cmt"># Alto � first car</span><br>
+          <span class="fn">print</span>(<span class="var">fleet</span>[<span class="num">1</span>])  <span class="cmt"># Swift � second car</span><br>
+          <span class="fn">print</span>(<span class="var">fleet</span>[-<span class="num">1</span>]) <span class="cmt"># Compass � last car always</span>
         </div>
         <div class="output-box">
-          <div class="output-label">▶ Output</div>
+          <div class="output-label">? Output</div>
           Alto<br>Swift<br>Compass
         </div>
         <div class="analogy">
-          <strong>🅿️ Car Park Analogy:</strong><br>
+          <strong>🤖 Car Park Analogy:</strong><br>
           A variable = ONE parking spot.<br>
-          A List = an ENTIRE car park — one name, many numbered spots.<br><br>
-          <strong>⚠️ Counting starts at 0 — ALWAYS!</strong><br>
+          A List = an ENTIRE car park � one name, many numbered spots.<br><br>
+          <strong>🤖 Counting starts at 0 � ALWAYS!</strong><br>
           fleet[0] = Alto, fleet[1] = Swift, fleet[2] = Nexon
         </div>
       </div>
       <div class="card">
-        <h3>🔧 List Operations</h3>
+        <h3>🤖 List Operations</h3>
         <div class="code-block">
           <span class="var">fleet</span> = [<span class="str">"Alto"</span>, <span class="str">"Swift"</span>, <span class="str">"Nexon"</span>]<br><br>
           <span class="var">fleet</span>.<span class="fn">append</span>(<span class="str">"Fortuner"</span>)  <span class="cmt"># add to end</span><br>
@@ -2242,46 +2242,46 @@ const week6Lessons = [
       q: "What does fleet[0] give you?",
       options: ["The last car", "The second car", "The first car", "A count of cars"],
       answer: 2,
-      explanation: "✅ Correct! In Python, counting starts at 0. fleet[0] gives the FIRST item, fleet[1] gives the second, and fleet[-1] always gives the last."
+      explanation: "? Correct! In Python, counting starts at 0. fleet[0] gives the FIRST item, fleet[1] gives the second, and fleet[-1] always gives the last."
     }
   },
   {
     id: 1,
-    icon: "🔁",
+    icon: "🤖",
     title: "Looping Through a List",
     subtitle: "Where loops, functions and lists all connect",
     content: `
       <div class="card">
-        <h3>🔁 Basic For Loop on a List</h3>
+        <h3>🤖 Basic For Loop on a List</h3>
         <div class="code-block">
           <span class="var">fleet</span> = [<span class="str">"Alto"</span>, <span class="str">"Swift"</span>, <span class="str">"Nexon"</span>, <span class="str">"Fortuner"</span>]<br><br>
           <span class="kw">for</span> <span class="var">car</span> <span class="kw">in</span> <span class="var">fleet</span>:<br>
           &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"Checking:"</span>, <span class="var">car</span>)
         </div>
         <div class="output-box">
-          <div class="output-label">▶ Output</div>
+          <div class="output-label">? Output</div>
           Checking: Alto<br>Checking: Swift<br>Checking: Nexon<br>Checking: Fortuner
         </div>
       </div>
       <div class="card">
-        <h3>🔗 Loop + Function — The Power Combo</h3>
+        <h3>🤖 Loop + Function � The Power Combo</h3>
         <p>Everything from Weeks 3 to 6 working together:</p>
         <div class="code-block">
           <span class="kw">def</span> <span class="fn">check_emission</span>(<span class="var">car</span>, <span class="var">emission</span>):<br>
           &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">if</span> <span class="var">emission</span> <= <span class="num">50</span>:<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> <span class="str">"✅ Pass"</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> <span class="str">"? Pass"</span><br>
           &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">elif</span> <span class="var">emission</span> <= <span class="num">70</span>:<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> <span class="str">"⚠️ Borderline"</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> <span class="str">"🤖 Borderline"</span><br>
           &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">else</span>:<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> <span class="str">"❌ Fail"</span><br><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> <span class="str">"? Fail"</span><br><br>
           <span class="var">fleet</span> = [(<span class="str">"Alto"</span>,<span class="num">42</span>), (<span class="str">"Swift"</span>,<span class="num">65</span>), (<span class="str">"Nexon"</span>,<span class="num">48</span>)]<br><br>
           <span class="kw">for</span> <span class="var">car</span>, <span class="var">emission</span> <span class="kw">in</span> <span class="var">fleet</span>:<br>
           &nbsp;&nbsp;&nbsp;&nbsp;<span class="var">result</span> = <span class="fn">check_emission</span>(<span class="var">car</span>, <span class="var">emission</span>)<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">f"{car} → {result}"</span>)
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">f"{car} ? {result}"</span>)
         </div>
         <div class="output-box">
-          <div class="output-label">▶ Output</div>
-          Alto → ✅ Pass<br>Swift → ⚠️ Borderline<br>Nexon → ✅ Pass
+          <div class="output-label">? Output</div>
+          Alto ? ? Pass<br>Swift ? 🤖 Borderline<br>Nexon ? ? Pass
         </div>
         <div class="analogy">
           <strong>Add 100 cars? Same 3 lines of loop code.<br>
@@ -2291,27 +2291,27 @@ const week6Lessons = [
     `,
     quiz: {
       q: "What is ('Alto', 42) called inside the list?",
-      options: ["Dictionary", "Variable", "Tuple — a fixed pair of values", "String"],
+      options: ["Dictionary", "Variable", "Tuple � a fixed pair of values", "String"],
       answer: 2,
-      explanation: "✅ Correct! ('Alto', 42) is a Tuple — round brackets, holds multiple values, cannot be changed. It keeps the car name and emission locked together as a pair."
+      explanation: "? Correct! ('Alto', 42) is a Tuple � round brackets, holds multiple values, cannot be changed. It keeps the car name and emission locked together as a pair."
     }
   },
   {
     id: 2,
-    icon: "🗂️",
+    icon: "🤖",
     title: "What is a Dictionary?",
-    subtitle: "Label your data — access by name, not by number",
+    subtitle: "Label your data � access by name, not by number",
     content: `
       <div class="card">
-        <h3>❌ The Problem With Lists for Structured Data</h3>
+        <h3>? The Problem With Lists for Structured Data</h3>
         <div class="code-block">
           <span class="var">car</span> = [<span class="str">"Alto"</span>, <span class="str">"Red"</span>, <span class="num">42</span>, <span class="str">"Petrol"</span>]<br>
-          <span class="fn">print</span>(<span class="var">car</span>[<span class="num">2</span>])  <span class="cmt"># 42 — but what IS 42?</span>
+          <span class="fn">print</span>(<span class="var">car</span>[<span class="num">2</span>])  <span class="cmt"># 42 � but what IS 42?</span>
         </div>
         <p style="margin-top:8px">Position numbers are confusing. You have to <strong>remember</strong> what each index means.</p>
       </div>
       <div class="card">
-        <h3>✅ Dictionary — Access by Name</h3>
+        <h3>? Dictionary � Access by Name</h3>
         <div class="code-block">
           <span class="var">car</span> = {<br>
           &nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"model"</span>    : <span class="str">"Alto"</span>,<br>
@@ -2319,48 +2319,48 @@ const week6Lessons = [
           &nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"fuel"</span>     : <span class="str">"Petrol"</span>,<br>
           &nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"color"</span>    : <span class="str">"Red"</span><br>
           }<br><br>
-          <span class="fn">print</span>(<span class="var">car</span>[<span class="str">"emission"</span>])  <span class="cmt"># 42 — crystal clear!</span><br>
+          <span class="fn">print</span>(<span class="var">car</span>[<span class="str">"emission"</span>])  <span class="cmt"># 42 � crystal clear!</span><br>
           <span class="fn">print</span>(<span class="var">car</span>[<span class="str">"model"</span>])     <span class="cmt"># Alto</span>
         </div>
         <div class="output-box">
-          <div class="output-label">▶ Output</div>
+          <div class="output-label">? Output</div>
           42<br>Alto
         </div>
         <div class="analogy">
-          <strong>🅿️ Car Park Analogy:</strong><br>
+          <strong>🤖 Car Park Analogy:</strong><br>
           List = numbered spots (0, 1, 2, 3)<br>
           Dictionary = named spots ("model", "emission", "fuel")<br><br>
           KEY = the label. VALUE = the actual data.<br>
-          <code style="color:#facc15">"emission" : 42</code> → KEY : VALUE
+          <code style="color:#facc15">"emission" : 42</code> ? KEY : VALUE
         </div>
       </div>
       <div class="card">
-        <h3>🔧 Dictionary Operations</h3>
+        <h3>🤖 Dictionary Operations</h3>
         <div class="code-block">
           <span class="var">car</span>[<span class="str">"color"</span>] = <span class="str">"Blue"</span>   <span class="cmt"># add new field</span><br>
           <span class="var">car</span>[<span class="str">"emission"</span>] = <span class="num">38</span>   <span class="cmt"># update value</span><br>
           <span class="kw">del</span> <span class="var">car</span>[<span class="str">"fuel"</span>]         <span class="cmt"># remove field</span><br>
           <span class="fn">print</span>(<span class="str">"model"</span> <span class="kw">in</span> <span class="var">car</span>)    <span class="cmt"># True</span><br><br>
           <span class="kw">for</span> <span class="var">key</span>, <span class="var">val</span> <span class="kw">in</span> <span class="var">car</span>.<span class="fn">items</span>():<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="var">key</span>, <span class="str">"→"</span>, <span class="var">val</span>)
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="var">key</span>, <span class="str">"?"</span>, <span class="var">val</span>)
         </div>
       </div>
     `,
     quiz: {
       q: "Is 'model' in car = {'model':'Alto'} a variable or a key?",
-      options: ["A variable", "A key — a label inside the dictionary", "A function", "A list"],
+      options: ["A variable", "A key � a label inside the dictionary", "A function", "A list"],
       answer: 1,
-      explanation: "✅ Correct! 'model' here is a KEY — a label inside the dictionary written in quotes. It is NOT a standalone variable. You can only access it through the dictionary: car['model']."
+      explanation: "? Correct! 'model' here is a KEY � a label inside the dictionary written in quotes. It is NOT a standalone variable. You can only access it through the dictionary: car['model']."
     }
   },
   {
     id: 3,
-    icon: "📊",
+    icon: "🤖",
     title: "List vs Dictionary + List of Dicts",
-    subtitle: "When to use which — and the most important data structure",
+    subtitle: "When to use which � and the most important data structure",
     content: `
       <div class="card">
-        <h3>🆚 List vs Dictionary</h3>
+        <h3>🤖 List vs Dictionary</h3>
         <table style="width:100%;border-collapse:collapse;font-size:0.88rem;margin-top:8px">
           <tr style="border-bottom:1px solid #334155">
             <th style="text-align:left;padding:8px;color:#38bdf8">Feature</th>
@@ -2374,7 +2374,7 @@ const week6Lessons = [
         </table>
       </div>
       <div class="card">
-        <h3>🗂️ List of Dictionaries — The Most Important Structure</h3>
+        <h3>🤖 List of Dictionaries � The Most Important Structure</h3>
         <p>This is a <strong>spreadsheet in Python</strong>. Each dictionary = one row. Each key = one column.</p>
         <div class="code-block">
           <span class="var">fleet</span> = [<br>
@@ -2384,12 +2384,12 @@ const week6Lessons = [
           &nbsp;&nbsp;{<span class="str">"model"</span>:<span class="str">"Fortuner"</span>, <span class="str">"emission"</span>:<span class="num">78</span>, <span class="str">"fuel"</span>:<span class="str">"Diesel"</span>},<br>
           ]<br><br>
           <span class="kw">for</span> <span class="var">car</span> <span class="kw">in</span> <span class="var">fleet</span>:<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;<span class="var">status</span> = <span class="str">"✅ Pass"</span> <span class="kw">if</span> <span class="var">car</span>[<span class="str">"emission"</span>] <= <span class="num">50</span> <span class="kw">else</span> <span class="str">"❌ Fail"</span><br>
-          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">f"{car['model']} ({car['fuel']}) → {status}"</span>)
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="var">status</span> = <span class="str">"? Pass"</span> <span class="kw">if</span> <span class="var">car</span>[<span class="str">"emission"</span>] <= <span class="num">50</span> <span class="kw">else</span> <span class="str">"? Fail"</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">f"{car['model']} ({car['fuel']}) ? {status}"</span>)
         </div>
         <div class="output-box">
-          <div class="output-label">▶ Output</div>
-          Alto (Petrol) → ✅ Pass<br>Swift (Petrol) → ❌ Fail<br>Nexon (Diesel) → ✅ Pass<br>Fortuner (Diesel) → ❌ Fail
+          <div class="output-label">? Output</div>
+          Alto (Petrol) ? ? Pass<br>Swift (Petrol) ? ? Fail<br>Nexon (Diesel) ? ? Pass<br>Fortuner (Diesel) ? ? Fail
         </div>
         <div class="analogy">
           <strong>This is exactly what Week 7 reads from a CSV file.</strong><br>
@@ -2399,49 +2399,49 @@ const week6Lessons = [
     `,
     quiz: {
       q: "What is a List of Dictionaries equivalent to?",
-      options: ["A single variable", "A spreadsheet — each dict is a row, each key is a column", "A loop", "A function"],
+      options: ["A single variable", "A spreadsheet � each dict is a row, each key is a column", "A loop", "A function"],
       answer: 1,
-      explanation: "✅ Correct! A List of Dictionaries is like a spreadsheet in Python. Each dictionary is one row of data. Each key is one column header. This is the structure pandas reads from CSV files."
+      explanation: "? Correct! A List of Dictionaries is like a spreadsheet in Python. Each dictionary is one row of data. Each key is one column header. This is the structure pandas reads from CSV files."
     }
   },
   {
     id: 4,
-    icon: "🏁",
+    icon: "🤖",
     title: "Common Mistakes + Week 6 Summary",
     subtitle: "Avoid errors and lock in the concepts",
     content: `
       <div class="card">
-        <h3>⚠️ 4 Common Mistakes</h3>
+        <h3>🤖 4 Common Mistakes</h3>
         <ul>
-          <li><strong>Wrong brackets:</strong> <code style="background:#0f172a;padding:2px 5px;border-radius:3px;color:#f87171">('Alto','Swift')</code> is a Tuple — not a List. Always use <code style="background:#0f172a;padding:2px 5px;border-radius:3px;color:#86efac">['Alto','Swift']</code></li>
-          <li><strong>Counting from 1:</strong> <code style="background:#0f172a;padding:2px 5px;border-radius:3px">fleet[1]</code> gives the SECOND car — not the first. Counting starts at 0.</li>
+          <li><strong>Wrong brackets:</strong> <code style="background:#0f172a;padding:2px 5px;border-radius:3px;color:#f87171">('Alto','Swift')</code> is a Tuple � not a List. Always use <code style="background:#0f172a;padding:2px 5px;border-radius:3px;color:#86efac">['Alto','Swift']</code></li>
+          <li><strong>Counting from 1:</strong> <code style="background:#0f172a;padding:2px 5px;border-radius:3px">fleet[1]</code> gives the SECOND car � not the first. Counting starts at 0.</li>
           <li><strong>Key that doesn't exist:</strong> <code style="background:#0f172a;padding:2px 5px;border-radius:3px;color:#f87171">car['color']</code> crashes if 'color' is not in the dictionary. Check first with <code style="background:#0f172a;padding:2px 5px;border-radius:3px;color:#86efac">'color' in car</code></li>
-          <li><strong>Using number on dict:</strong> <code style="background:#0f172a;padding:2px 5px;border-radius:3px;color:#f87171">car[0]</code> crashes — dictionaries use key names, not position numbers.</li>
+          <li><strong>Using number on dict:</strong> <code style="background:#0f172a;padding:2px 5px;border-radius:3px;color:#f87171">car[0]</code> crashes � dictionaries use key names, not position numbers.</li>
         </ul>
       </div>
       <div class="card">
-        <h3>🎯 Week 6 Key Takeaways</h3>
+        <h3>🤖 Week 6 Key Takeaways</h3>
         <div style="display:flex;flex-direction:column;gap:10px">
           <div style="background:#0f172a;border-left:3px solid #22d3ee;padding:10px 14px;border-radius:6px">
-            <strong style="color:#22d3ee">List [ ]</strong> — multiple values in order, access by position number starting at 0
+            <strong style="color:#22d3ee">List [ ]</strong> � multiple values in order, access by position number starting at 0
           </div>
           <div style="background:#0f172a;border-left:3px solid #f59e0b;padding:10px 14px;border-radius:6px">
-            <strong style="color:#f59e0b">Dictionary { }</strong> — key-value pairs, access by name — labels make data clear
+            <strong style="color:#f59e0b">Dictionary { }</strong> � key-value pairs, access by name � labels make data clear
           </div>
           <div style="background:#0f172a;border-left:3px solid #22c55e;padding:10px 14px;border-radius:6px">
-            <strong style="color:#22c55e">List of Dicts</strong> — spreadsheet in Python — what ALL real datasets look like
+            <strong style="color:#22c55e">List of Dicts</strong> � spreadsheet in Python � what ALL real datasets look like
           </div>
           <div style="background:#0f172a;border-left:3px solid #a78bfa;padding:10px 14px;border-radius:6px">
-            <strong style="color:#a78bfa">Next Week</strong> — pandas reads a CSV file into exactly this structure automatically
+            <strong style="color:#a78bfa">Next Week</strong> � pandas reads a CSV file into exactly this structure automatically
           </div>
         </div>
       </div>
     `,
     quiz: {
       q: "Which comes next after mastering Lists and Dictionaries?",
-      options: ["Write more variables", "pandas — load real CSV data automatically", "Learn HTML", "Study deep learning"],
+      options: ["Write more variables", "pandas � load real CSV data automatically", "Learn HTML", "Study deep learning"],
       answer: 1,
-      explanation: "✅ Correct! Week 7 introduces pandas which loads CSV files into a List of Dictionaries structure automatically. Everything you learned this week is the direct foundation."
+      explanation: "? Correct! Week 7 introduces pandas which loads CSV files into a List of Dictionaries structure automatically. Everything you learned this week is the direct foundation."
     }
   }
 ];
@@ -2449,12 +2449,12 @@ const week6Lessons = [
 const week7Lessons = [
   {
     id: 0,
-    icon: "🐼",
+    icon: "🤖",
     title: "What is Pandas?",
-    subtitle: "Python's most powerful data library — explained simply",
+    subtitle: "Python's most powerful data library � explained simply",
     content: `
       <div class="card">
-        <h3>❌ Without Pandas — The Hard Way</h3>
+        <h3>? Without Pandas � The Hard Way</h3>
         <p>You have 1000 rows of car data. You want all cars that failed emission. Without pandas:</p>
         <ul>
           <li>Open the file manually</li>
@@ -2462,28 +2462,28 @@ const week7Lessons = [
           <li>Check each row's emission value</li>
           <li>Collect the ones above 50</li>
         </ul>
-        <p style="margin-top:8px">That is <strong>15–20 lines of code</strong> for just ONE simple task.</p>
+        <p style="margin-top:8px">That is <strong>15�20 lines of code</strong> for just ONE simple task.</p>
       </div>
       <div class="card">
-        <h3>✅ With Pandas — One Line</h3>
+        <h3>? With Pandas � One Line</h3>
         <div class="code-block">
           <span class="var">fleet</span>[<span class="var">fleet</span>[<span class="str">'emission'</span>] > <span class="num">50</span>]
         </div>
         <p style="margin-top:8px">That's it. pandas does all the looping, checking, and collecting for you. Instantly. On any number of rows.</p>
         <div class="analogy">
-          <strong>🚗 Car Service Analogy:</strong><br>
+          <strong>🤖 Car Service Analogy:</strong><br>
           Without pandas = managing 500 cars on separate sticky notes.<br>
-          With pandas = one master spreadsheet inside Python — search, filter, analyse in seconds.
+          With pandas = one master spreadsheet inside Python � search, filter, analyse in seconds.
         </div>
       </div>
       <div class="card">
-        <h3>📦 What is pandas?</h3>
-        <p>pandas is a free Python library that lets you work with data in <strong>table format — rows and columns</strong> — exactly like Excel, but inside Python.</p>
+        <h3>🤖 What is pandas?</h3>
+        <p>pandas is a free Python library that lets you work with data in <strong>table format � rows and columns</strong> � exactly like Excel, but inside Python.</p>
         <ul>
-          <li>Born 2008 — created by Wes McKinney</li>
+          <li>Born 2008 � created by Wes McKinney</li>
           <li>Over 150 million downloads per month</li>
           <li>Used by Google, Netflix, NASA, every AI company</li>
-          <li><strong>Must know</strong> — appears on every data science job description</li>
+          <li><strong>Must know</strong> � appears on every data science job description</li>
         </ul>
         <div class="code-block">
           <span class="kw">import</span> pandas <span class="kw">as</span> pd<br>
@@ -2496,20 +2496,20 @@ const week7Lessons = [
       q: "What does 'import pandas as pd' do?",
       options: ["Creates a new variable", "Brings the pandas toolbox into your program and names it pd", "Loads a CSV file", "Installs Python"],
       answer: 1,
-      explanation: "✅ Correct! import brings the pandas toolbox into your program. 'as pd' gives it a short nickname so you type pd.something instead of pandas.something every time."
+      explanation: "? Correct! import brings the pandas toolbox into your program. 'as pd' gives it a short nickname so you type pd.something instead of pandas.something every time."
     }
   },
   {
     id: 1,
-    icon: "📊",
+    icon: "🤖",
     title: "Series & DataFrame",
     subtitle: "The two building blocks of pandas",
     content: `
       <div class="card">
-        <h3>📋 Series — One Column of Data</h3>
+        <h3>🤖 Series � One Column of Data</h3>
         <p>A Series is a <strong>single column</strong> with a label on each row.</p>
         <div class="code-block">
-          <span class="cmt"># Series — like one column from Excel</span><br>
+          <span class="cmt"># Series � like one column from Excel</span><br>
           Index | Emission<br>
           &nbsp;&nbsp;&nbsp;&nbsp;0  |  42<br>
           &nbsp;&nbsp;&nbsp;&nbsp;1  |  65<br>
@@ -2519,8 +2519,8 @@ const week7Lessons = [
         <p style="margin-top:8px">Every column in a DataFrame is a Series underneath.</p>
       </div>
       <div class="card">
-        <h3>🗂️ DataFrame — The Full Table</h3>
-        <p>A DataFrame is the <strong>complete spreadsheet</strong> — multiple columns side by side.</p>
+        <h3>🤖 DataFrame � The Full Table</h3>
+        <p>A DataFrame is the <strong>complete spreadsheet</strong> � multiple columns side by side.</p>
         <div class="code-block">
           &nbsp;&nbsp;&nbsp;model  emission   fuel  year<br>
           0   Alto        42  Petrol  2022<br>
@@ -2536,7 +2536,7 @@ const week7Lessons = [
         </div>
       </div>
       <div class="card">
-        <h3>📥 Loading a CSV — One Line</h3>
+        <h3>🤖 Loading a CSV � One Line</h3>
         <div class="code-block">
           <span class="kw">import</span> pandas <span class="kw">as</span> pd<br><br>
           <span class="var">fleet</span> = pd.<span class="fn">read_csv</span>(<span class="str">'fleet_data.csv'</span>)<br>
@@ -2555,29 +2555,29 @@ const week7Lessons = [
         "Series is for numbers, DataFrame is for text"
       ],
       answer: 1,
-      explanation: "✅ Correct! A Series is one column of data with labels. A DataFrame is the full table — multiple columns side by side. Every column in a DataFrame is actually a Series."
+      explanation: "? Correct! A Series is one column of data with labels. A DataFrame is the full table � multiple columns side by side. Every column in a DataFrame is actually a Series."
     }
   },
   {
     id: 2,
-    icon: "🔍",
+    icon: "🤖",
     title: "Exploring a DataFrame",
     subtitle: "First 4 commands you run after loading any dataset",
     content: `
       <div class="card">
-        <h3>🔍 The 4 Essential Exploration Commands</h3>
+        <h3>🤖 The 4 Essential Exploration Commands</h3>
         <div class="code-block">
           <span class="cmt"># 1. See first 5 rows</span><br>
           <span class="fn">print</span>(<span class="var">fleet</span>.<span class="fn">head</span>())<br><br>
           <span class="cmt"># 2. See last 5 rows</span><br>
           <span class="fn">print</span>(<span class="var">fleet</span>.<span class="fn">tail</span>())<br><br>
-          <span class="cmt"># 3. How many rows × columns?</span><br>
+          <span class="cmt"># 3. How many rows � columns?</span><br>
           <span class="fn">print</span>(<span class="var">fleet</span>.shape)   <span class="cmt"># (5, 5)</span><br><br>
           <span class="cmt"># 4. All column names</span><br>
           <span class="fn">print</span>(<span class="var">fleet</span>.columns)
         </div>
         <div class="output-box">
-          <div class="output-label">▶ Output</div>
+          <div class="output-label">? Output</div>
           (5, 5)<br>Index(['model', 'emission', 'fuel', 'color', 'year'])
         </div>
         <div class="analogy">
@@ -2586,64 +2586,64 @@ const week7Lessons = [
         </div>
       </div>
       <div class="card">
-        <h3>📈 The describe() Command</h3>
+        <h3>🤖 The describe() Command</h3>
         <p>Instant statistics on any numeric column:</p>
         <div class="code-block">
           <span class="fn">print</span>(<span class="var">fleet</span>[<span class="str">'emission'</span>].<span class="fn">describe</span>())
         </div>
         <div class="output-box">
-          <div class="output-label">▶ Output</div>
+          <div class="output-label">? Output</div>
           count  &nbsp; 5.0<br>mean  &nbsp; 56.4<br>min  &nbsp;&nbsp; 42.0<br>max  &nbsp;&nbsp; 78.0
         </div>
-        <p style="margin-top:8px">One command. You know the average emission, best car, worst car — without reading a single row.</p>
+        <p style="margin-top:8px">One command. You know the average emission, best car, worst car � without reading a single row.</p>
       </div>
     `,
     quiz: {
       q: "What does fleet.shape return?",
-      options: ["The column names", "The first 5 rows", "(rows, columns) — size of the DataFrame", "Statistics like min and max"],
+      options: ["The column names", "The first 5 rows", "(rows, columns) � size of the DataFrame", "Statistics like min and max"],
       answer: 2,
-      explanation: "✅ Correct! fleet.shape returns a tuple like (1000, 5) meaning 1000 rows and 5 columns. It tells you the size of your dataset instantly. Note: .shape has no brackets — it is a property."
+      explanation: "? Correct! fleet.shape returns a tuple like (1000, 5) meaning 1000 rows and 5 columns. It tells you the size of your dataset instantly. Note: .shape has no brackets � it is a property."
     }
   },
   {
     id: 3,
-    icon: "🎯",
+    icon: "🤖",
     title: "Filtering Data",
-    subtitle: "Find exactly the cars you need — the most important pandas skill",
+    subtitle: "Find exactly the cars you need � the most important pandas skill",
     content: `
       <div class="card">
-        <h3>🧠 How Filtering Works — The True/False Trick</h3>
+        <h3>🤖 How Filtering Works � The True/False Trick</h3>
         <div class="code-block">
           <span class="var">fleet</span>[<span class="var">fleet</span>[<span class="str">'emission'</span>] > <span class="num">50</span>]
         </div>
-        <p style="margin-top:8px">Step 1 — <code style="background:#0f172a;padding:2px 5px;border-radius:3px">fleet['emission'] > 50</code> checks every row → True or False<br>
-        Step 2 — pandas keeps only rows where True<br>
-        Step 3 — you get a filtered DataFrame back</p>
+        <p style="margin-top:8px">Step 1 � <code style="background:#0f172a;padding:2px 5px;border-radius:3px">fleet['emission'] > 50</code> checks every row ? True or False<br>
+        Step 2 � pandas keeps only rows where True<br>
+        Step 3 � you get a filtered DataFrame back</p>
         <div class="analogy">
-          <strong>Same condition logic from Week 3 — but applied to 1000 rows at once!</strong>
+          <strong>Same condition logic from Week 3 � but applied to 1000 rows at once!</strong>
         </div>
       </div>
       <div class="card">
-        <h3>🔎 Types of Filters</h3>
+        <h3>🤖 Types of Filters</h3>
         <div class="code-block">
           <span class="cmt"># Single filter</span><br>
           <span class="var">failed</span> = <span class="var">fleet</span>[<span class="var">fleet</span>[<span class="str">'emission'</span>] > <span class="num">50</span>]<br><br>
           <span class="cmt"># Text filter</span><br>
           <span class="var">petrol</span> = <span class="var">fleet</span>[<span class="var">fleet</span>[<span class="str">'fuel'</span>] == <span class="str">'Petrol'</span>]<br><br>
-          <span class="cmt"># AND filter — both must be true</span><br>
+          <span class="cmt"># AND filter � both must be true</span><br>
           <span class="var">mask</span> = (<span class="var">fleet</span>[<span class="str">'fuel'</span>] == <span class="str">'Diesel'</span>) &amp; (<span class="var">fleet</span>[<span class="str">'emission'</span>] > <span class="num">50</span>)<br>
           <span class="var">result</span> = <span class="var">fleet</span>[<span class="var">mask</span>]<br><br>
           <span class="fn">print</span>(<span class="var">failed</span>[[<span class="str">'model'</span>, <span class="str">'emission'</span>]])<br>
           <span class="fn">print</span>(<span class="str">f'Total failed: {len(failed)}'</span>)
         </div>
         <div class="output-box">
-          <div class="output-label">▶ Output</div>
+          <div class="output-label">? Output</div>
           &nbsp;&nbsp;&nbsp;model  emission<br>
           1  Swift        65<br>
           3  Fortuner     78<br>
           Total failed: 2
         </div>
-        <p style="margin-top:8px">⚠️ <strong>AND filter rule:</strong> Each condition MUST be in its own brackets ( ). Missing brackets = immediate error.</p>
+        <p style="margin-top:8px">🤖 <strong>AND filter rule:</strong> Each condition MUST be in its own brackets ( ). Missing brackets = immediate error.</p>
       </div>
     `,
     quiz: {
@@ -2655,36 +2655,36 @@ const week7Lessons = [
         "Changes the emission values"
       ],
       answer: 2,
-      explanation: "✅ Correct! It creates a True/False for every row, then keeps only the True rows. You get back a filtered DataFrame containing only cars with emission above 50."
+      explanation: "? Correct! It creates a True/False for every row, then keeps only the True rows. You get back a filtered DataFrame containing only cars with emission above 50."
     }
   },
   {
     id: 4,
-    icon: "➕",
+    icon: "?",
     title: "Adding Columns & apply()",
-    subtitle: "Process every row automatically — no loop needed",
+    subtitle: "Process every row automatically � no loop needed",
     content: `
       <div class="card">
-        <h3>➕ Adding a New Column with apply()</h3>
+        <h3>? Adding a New Column with apply()</h3>
         <p><code style="background:#0f172a;padding:2px 5px;border-radius:3px;color:#facc15">apply()</code> runs a function on every single value in a column automatically.</p>
         <div class="code-block">
           <span class="kw">def</span> <span class="fn">get_status</span>(<span class="var">emission</span>):<br>
           &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">if</span> <span class="var">emission</span> <= <span class="num">50</span>:<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> <span class="str">"✅ Pass"</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> <span class="str">"? Pass"</span><br>
           &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">elif</span> <span class="var">emission</span> <= <span class="num">70</span>:<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> <span class="str">"⚠️ Borderline"</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> <span class="str">"🤖 Borderline"</span><br>
           &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">else</span>:<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> <span class="str">"❌ Fail"</span><br><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> <span class="str">"? Fail"</span><br><br>
           <span class="var">fleet</span>[<span class="str">'status'</span>] = <span class="var">fleet</span>[<span class="str">'emission'</span>].<span class="fn">apply</span>(<span class="fn">get_status</span>)<br>
           <span class="fn">print</span>(<span class="var">fleet</span>[[<span class="str">'model'</span>, <span class="str">'emission'</span>, <span class="str">'status'</span>]])
         </div>
         <div class="output-box">
-          <div class="output-label">▶ Output</div>
+          <div class="output-label">? Output</div>
           &nbsp;&nbsp;&nbsp;&nbsp;model  emission        status<br>
-          0   Alto        42      ✅ Pass<br>
-          1  Swift        65  ⚠️ Borderline<br>
-          2  Nexon        48      ✅ Pass<br>
-          3  Fortuner     78      ❌ Fail
+          0   Alto        42      ? Pass<br>
+          1  Swift        65  🤖 Borderline<br>
+          2  Nexon        48      ? Pass<br>
+          3  Fortuner     78      ? Fail
         </div>
         <div class="analogy">
           <strong>apply() = your Week 5 function applied to every row automatically.</strong><br>
@@ -2692,16 +2692,16 @@ const week7Lessons = [
         </div>
       </div>
       <div class="card">
-        <h3>🔗 The Full Pipeline — Weeks 2–7 Together</h3>
+        <h3>🤖 The Full Pipeline � Weeks 2�7 Together</h3>
         <div class="code-block">
           <span class="kw">import</span> pandas <span class="kw">as</span> pd<br>
-          <span class="cmt"># Week 7 — import</span><br><br>
+          <span class="cmt"># Week 7 � import</span><br><br>
           <span class="var">fleet</span> = pd.<span class="fn">read_csv</span>(<span class="str">'fleet_data.csv'</span>)<br>
-          <span class="cmt"># Week 7 — load file</span><br><br>
+          <span class="cmt"># Week 7 � load file</span><br><br>
           <span class="var">fleet</span>[<span class="str">'status'</span>] = <span class="var">fleet</span>[<span class="str">'emission'</span>].<span class="fn">apply</span>(<span class="fn">get_status</span>)<br>
-          <span class="cmt"># Week 5 — function</span><br><br>
-          <span class="var">failed</span> = <span class="var">fleet</span>[<span class="var">fleet</span>[<span class="str">'status'</span>] == <span class="str">"❌ Fail"</span>]<br>
-          <span class="cmt"># Week 4 — condition</span><br><br>
+          <span class="cmt"># Week 5 � function</span><br><br>
+          <span class="var">failed</span> = <span class="var">fleet</span>[<span class="var">fleet</span>[<span class="str">'status'</span>] == <span class="str">"? Fail"</span>]<br>
+          <span class="cmt"># Week 4 � condition</span><br><br>
           <span class="fn">print</span>(<span class="var">failed</span>[[<span class="str">'model'</span>, <span class="str">'emission'</span>, <span class="str">'status'</span>]])
         </div>
       </div>
@@ -2715,46 +2715,46 @@ const week7Lessons = [
         "Prints the emission column"
       ],
       answer: 1,
-      explanation: "✅ Correct! apply() runs the function on every single value in the column. No for loop needed — pandas handles all the repetition automatically. The result becomes a new column."
+      explanation: "? Correct! apply() runs the function on every single value in the column. No for loop needed � pandas handles all the repetition automatically. The result becomes a new column."
     }
   },
   {
     id: 5,
-    icon: "🏁",
+    icon: "🤖",
     title: "Where Pandas is Used + Summary",
     subtitle: "Real industries and everything you learned this week",
     content: `
       <div class="card">
-        <h3>🌍 Where Pandas is Used</h3>
+        <h3>🤖 Where Pandas is Used</h3>
         <ul>
-          <li><strong>🤖 AI & Machine Learning</strong> — every model needs clean training data. pandas prepares it.</li>
-          <li><strong>💰 Finance & Banking</strong> — stock prices, loan records, risk scores — all DataFrames.</li>
-          <li><strong>🏭 Engineering & IoT</strong> — sensor readings from machines exported as CSV, processed by pandas.</li>
-          <li><strong>📊 Business Analysis</strong> — sales reports, customer behaviour, marketing data.</li>
-          <li><strong>🏥 Healthcare</strong> — patient outcomes, clinical trial results.</li>
+          <li><strong>🤖 AI & Machine Learning</strong> � every model needs clean training data. pandas prepares it.</li>
+          <li><strong>🤖 Finance & Banking</strong> � stock prices, loan records, risk scores � all DataFrames.</li>
+          <li><strong>🤖 Engineering & IoT</strong> � sensor readings from machines exported as CSV, processed by pandas.</li>
+          <li><strong>🤖 Business Analysis</strong> � sales reports, customer behaviour, marketing data.</li>
+          <li><strong>🤖 Healthcare</strong> � patient outcomes, clinical trial results.</li>
         </ul>
         <div class="analogy">
           <strong>Why pandas?</strong><br>
-          Fast. Simple. Handles messy data. Industry standard. Connects with all AI tools. One line loads 1 million rows — same code as 100 rows.
+          Fast. Simple. Handles messy data. Industry standard. Connects with all AI tools. One line loads 1 million rows � same code as 100 rows.
         </div>
       </div>
       <div class="card">
-        <h3>🎯 Week 7 Key Takeaways</h3>
+        <h3>🤖 Week 7 Key Takeaways</h3>
         <div style="display:flex;flex-direction:column;gap:10px">
           <div style="background:#0f172a;border-left:3px solid #22d3ee;padding:10px 14px;border-radius:6px">
-            <strong style="color:#22d3ee">pandas</strong> — free Python library for working with data as rows and columns
+            <strong style="color:#22d3ee">pandas</strong> � free Python library for working with data as rows and columns
           </div>
           <div style="background:#0f172a;border-left:3px solid #f59e0b;padding:10px 14px;border-radius:6px">
-            <strong style="color:#f59e0b">DataFrame</strong> — the full table. Series — one column. read_csv() loads in one line.
+            <strong style="color:#f59e0b">DataFrame</strong> � the full table. Series � one column. read_csv() loads in one line.
           </div>
           <div style="background:#0f172a;border-left:3px solid #22c55e;padding:10px 14px;border-radius:6px">
-            <strong style="color:#22c55e">Filtering</strong> — same condition logic from Week 4, applied to all rows at once
+            <strong style="color:#22c55e">Filtering</strong> � same condition logic from Week 4, applied to all rows at once
           </div>
           <div style="background:#0f172a;border-left:3px solid #a78bfa;padding:10px 14px;border-radius:6px">
-            <strong style="color:#a78bfa">apply()</strong> — your Week 5 function runs on every row automatically
+            <strong style="color:#a78bfa">apply()</strong> � your Week 5 function runs on every row automatically
           </div>
           <div style="background:#0f172a;border-left:3px solid #f87171;padding:10px 14px;border-radius:6px">
-            <strong style="color:#f87171">Next Week</strong> — pandas Deep Dive: sort, group, handle missing data, save to CSV
+            <strong style="color:#f87171">Next Week</strong> � pandas Deep Dive: sort, group, handle missing data, save to CSV
           </div>
         </div>
       </div>
@@ -2768,26 +2768,26 @@ const week7Lessons = [
         "filter(fleet, fuel='Diesel', emission=60)"
       ],
       answer: 1,
-      explanation: "✅ Correct! Each condition must be in its own brackets. Use & for AND. fleet[(fleet['fuel'] == 'Diesel') & (fleet['emission'] > 60)] — this is the correct syntax."
+      explanation: "? Correct! Each condition must be in its own brackets. Use & for AND. fleet[(fleet['fuel'] == 'Diesel') & (fleet['emission'] > 60)] � this is the correct syntax."
     }
   }
 ];
 
 const week11Lessons = [{
       id: 0,
-      icon: "📈",
+      icon: "🤖",
       title: "Introduction to Linear Regression",
       subtitle: "Understanding the basics of predictive modeling",
       content: `
         <div class="card">
-          <h3>📊 What is Linear Regression?</h3>
+          <h3>🤖 What is Linear Regression?</h3>
           <p>Linear regression models the relationship between a dependent variable and one or more independent variables by fitting a linear equation.</p>
           <div class="analogy">
-            <strong>Think of it like this:</strong> predicting a car’s fuel efficiency based on its weight — heavier cars tend to consume more fuel, and that relationship can be approximated with a straight line.
+            <strong>Think of it like this:</strong> predicting a car�s fuel efficiency based on its weight � heavier cars tend to consume more fuel, and that relationship can be approximated with a straight line.
           </div>
         </div>
         <div class="card">
-          <h3>📈 Simple vs Multiple Regression</h3>
+          <h3>🤖 Simple vs Multiple Regression</h3>
           <p>Simple linear regression uses one predictor; multiple regression uses two or more.</p>
         </div>
       `,
@@ -2795,25 +2795,26 @@ const week11Lessons = [{
         q: "In simple linear regression, how many predictor variables are used?",
         options: ["Zero", "One", "Two", "Three"],
         answer: 1,
-        explanation: "✅ Correct! Simple linear regression uses a single predictor variable to predict the outcome."
+        explanation: "? Correct! Simple linear regression uses a single predictor variable to predict the outcome."
       }
-    },{
+    },
+    {
       id: 1,
-      icon: "📐",
+      icon: "🤖",
       title: "Simple Linear Regression Math",
       subtitle: "The equation, assumptions, and fitting process",
       content: `
         <div class="card">
-          <h3>🧮 The Linear Equation</h3>
-          <p>The model is: ŷ = b₀ + b₁x, where b₀ is the intercept and b₁ is the slope.</p>
+          <h3>🤖 The Linear Equation</h3>
+          <p>The model is: y = b0 + b1x, where b0 is the intercept and b1 is the slope.</p>
         </div>
         <div class="card">
-          <h3>⚙️ Estimating Coefficients</h3>
-          <p>We use the least‑squares method to find b₀ and b₁ that minimize the sum of squared residuals.</p>
+          <h3>🤖 Estimating Coefficients</h3>
+          <p>We use the least-squares method to find b0 and b1 that minimize the sum of squared residuals.</p>
           <div class="code-block">
             <span class="cmt"># Calculating slope (b1) and intercept (b0)</span><br>
-            <span class="var">b1</span> = Σ((xᵢ - x̄)(yᵢ - ȳ)) / Σ((xᵢ - x̄)²)<br>
-            <span class="var">b0</span> = ȳ - b₁ * x̄
+            <span class="var">b1</span> = S((x? - x�)(y? - ?)) / S((x? - x�)�)<br>
+            <span class="var">b0</span> = ? - b1 * x�
           </div>
         </div>
       `,
@@ -2821,20 +2822,21 @@ const week11Lessons = [{
         q: "Which method is commonly used to estimate the coefficients in linear regression?",
         options: ["Maximum likelihood", "Least squares", "Gradient descent", "Bayesian inference"],
         answer: 1,
-        explanation: "✅ Correct! Ordinary least squares (OLS) minimizes the sum of squared residuals to find the best‑fit line."
+        explanation: "? Correct! Ordinary least squares (OLS) minimizes the sum of squared residuals to find the best-fit line."
       }
-    },{
+    },
+    {
       id: 2,
-      icon: "🔢",
+      icon: "🤖",
       title: "Multiple Linear Regression",
       subtitle: "Extending to several predictors",
       content: `
         <div class="card">
-          <h3>📊 Multiple Regression Equation</h3>
-          <p>ŷ = b₀ + b₁x₁ + b₂x₂ + … + bₚxₚ</p>
+          <h3>🤖 Multiple Regression Equation</h3>
+          <p>y = b0 + b1x1 + b2x2 + � + b?x?</p>
         </div>
         <div class="card">
-          <h3>⚠️ Multicollinearity</h3>
+          <h3>🤖 Multicollinearity</h3>
           <p>When predictor variables are highly correlated, it can inflate variance of coefficient estimates.</p>
           <div class="analogy">
             <strong>Analogy:</strong> Trying to measure the effect of two overlapping shadows makes it hard to tell which object casts which shadow.
@@ -2845,20 +2847,21 @@ const week11Lessons = [{
         q: "What issue arises when predictor variables in multiple regression are highly correlated?",
         options: ["Heteroscedasticity", "Autocorrelation", "Multicollinearity", "Overfitting"],
         answer: 2,
-        explanation: "✅ Correct! Multicollinearity makes it difficult to isolate the individual effect of each predictor."
+        explanation: "? Correct! Multicollinearity makes it difficult to isolate the individual effect of each predictor."
       }
-    },{
+    },
+    {
       id: 3,
-      icon: "✅",
+      icon: "?",
       title: "Model Evaluation & Assumptions",
-      subtitle: "Checking goodness‑of‑fit and validating assumptions",
+      subtitle: "Checking goodness-of-fit and validating assumptions",
       content: `
         <div class="card">
-          <h3>📏 R‑squared and RMSE</h3>
-          <p>R‑squared measures the proportion of variance explained; RMSE measures average prediction error.</p>
+          <h3>🤖 R-squared and RMSE</h3>
+          <p>R-squared measures the proportion of variance explained; RMSE measures average prediction error.</p>
         </div>
         <div class="card">
-          <h3>🔎 Key Assumptions</h3>
+          <h3>🤖 Key Assumptions</h3>
           <ul>
             <li>Linearity: relationship between X and Y is linear</li>
             <li>Independence: observations are independent</li>
@@ -2871,9 +2874,327 @@ const week11Lessons = [{
         q: "Which plot is commonly used to check the homoscedasticity assumption?",
         options: ["Histogram", "Q-Q plot", "Residuals vs. fitted values", "Scatter plot of X vs Y"],
         answer: 2,
-        explanation: "✅ Correct! A residual‑vs‑fitted plot shows whether residuals spread evenly across fitted values."
+        explanation: "? Correct! A residual-vs-fitted plot shows whether residuals spread evenly across fitted values."
       }
-    }];
+    }
+  ];
+
+const week8Lessons = [{
+      id: 0,
+      icon: "🤖",
+      title: "Getting Started with Pandas",
+      subtitle: "Installing pandas and first steps",
+      content: `
+        <div class="card">
+          <h3>🤖 What is pandas?</h3>
+          <p>pandas is a Python library for data manipulation and analysis, built on top of NumPy.</p>
+        </div>
+        <div class="card">
+          <h3>🤖 Installation and Import</h3>
+          <div class="code-block">
+            <span class="kw">pip</span> install pandas<br>
+            <span class="kw">import</span> pandas <span class="kw">as</span> pd
+          </div>
+        </div>
+      `,
+      quiz: {
+        q: "Which command installs pandas using pip?",
+        options: ["pip install pandas", "conda install pandas", "easy_install pandas", "npm install pandas"],
+        answer: 0,
+        explanation: "? Correct! pip install pandas downloads and installs the pandas library from PyPI."
+      }
+    },
+    {
+      id: 1,
+      icon: "🤖",
+      title: "Series and DataFrame Basics",
+      subtitle: "Core data structures in pandas",
+      content: `
+        <div class="card">
+          <h3>🤖 Series � One-Dimensional Data</h3>
+          <p>A Series is like a column in a spreadsheet; it holds values and an index.</p>
+          <div class="code-block">
+            <span class="var">s</span> = pd.Series([10, 20, 30], index=['a', 'b', 'c'])
+          </div>
+        </div>
+        <div class="card">
+          <h3>🤖 DataFrame � Two-Dimensional Table</h3>
+          <p>A DataFrame is a collection of Series sharing the same index � think of it as a spreadsheet.</p>
+          <div class="code-block">
+            <span class="var">df</span class="cmt"># Example DataFrame</span><br>
+            data = {<span class="str">'Name'</span>: [<span class="str">'Alice'</span>, <span class="str">'Bob'</span>], <span class="str">'Age'</span>: [25, 30]}<br>
+            <span class="var">df</span> = pd.DataFrame(data)
+          </div>
+        </div>
+      `,
+      quiz: {
+        q: "Which pandas object represents a table with rows and columns?",
+        options: ["Series", "Array", "DataFrame", "List"],
+        answer: 2,
+        explanation: "? Correct! A DataFrame is a two-dimensional labeled data structure with rows and columns."
+      }
+    },
+    {
+      id: 2,
+      icon: "🤖",
+      title: "Data Cleaning with pandas",
+      subtitle: "Handling missing values and filtering",
+      content: `
+        <div class="card">
+          <h3>🤖 Missing Data</h3>
+          <p>Use <code>isnull()</code>, <code>notnull()</code>, <code>fillna()</code>, and <code>dropna()</code> to manage missing values.</p>
+        </div>
+        <div class="card">
+          <h3>🤖 Filtering Rows</h3>
+          <p>Select rows that meet conditions using boolean indexing.</p>
+          <div class="code-block">
+            <span class="var">df[df['Age'] > 25]</span>
+          </div>
+        </div>
+      `,
+      quiz: {
+        q: "Which method removes rows containing any NaN values?",
+        options: ["dropna()", "fillna()", "isnull()", "any()"],
+        answer: 0,
+        explanation: "? Correct! dropna() removes rows or columns that contain missing values."
+      }
+    },
+    {
+      id: 3,
+      icon: "🤖",
+      title: "Simple Data Visualization",
+      subtitle: "Plotting with pandas built-in plotting",
+      content: `
+        <div class="card">
+          <h3>🤖 Plotting a Series</h3>
+          <p>pandas integrates with matplotlib; you can call <code>.plot()</code> on a Series or DataFrame.</p>
+          <div class="code-block">
+            <span class="var">df['Age'].plot(kind='hist')</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>🤖 Line Plot Example</h3>
+          <p>Visualize trends over time or ordered categories.</p>
+        </div>
+      `,
+      quiz: {
+        q: "Which library does pandas use for its plotting backend by default?",
+        options: ["Seaborn", "Plotly", "Matplotlib", "Bokeh"],
+        answer: 2,
+        explanation: "? Correct! pandas uses matplotlib as its default plotting backend."
+      }
+    }
+  ];
+const week9Lessons = [{
+      id: 0,
+      icon: "🤖",
+      title: "What is Machine Learning?",
+      subtitle: "Types of learning and workflow",
+      content: `
+        <div class="card">
+          <h3>🤖 Definition</h3>
+          <p>Machine learning enables computers to learn patterns from data without being explicitly programmed.</p>
+        </div>
+        <div class="card">
+          <h3>🤖 Three Main Types</h3>
+          <ul>
+            <li>Supervised Learning � labeled data</li>
+            <li>Unsupervised Learning � unlabeled data</li>
+            <li>Reinforcement Learning � learning from rewards</li>
+          </ul>
+        </div>
+      `,
+      quiz: {
+        q: "Which type of learning uses labeled training data?",
+        options: ["Unsupervised", "Supervised", "Reinforcement", "Semi-supervised"],
+        answer: 1,
+        explanation: "? Correct! Supervised learning algorithms learn from input-output pairs."
+      }
+    },
+    {
+      id: 1,
+      icon: "🤖",
+      title: "Supervised Learning Algorithms",
+      subtitle: "Regression and classification basics",
+      content: `
+        <div class="card">
+          <h3>🤖 Regression</h3>
+          <\ <div class="cmt"># Linear regression example</span><br>
+            <span class="cmt"># from sklearn.linear_model import LinearRegression</span><br>
+            <span class="var">model</span> = LinearRegression()<br>
+            <span class="var">model.fit</span>(X_train, y_train)
+          </div>
+        </div>
+        <div class="card">
+          <h3>🤖 Classification</h3>
+          <p>Predict discrete labels (e.g., spam / not spam).</p>
+          <div class="code-block">
+            <span class="cmt"># Logistic regression example</span><br>
+            <span class="var">clf</span> = LogisticRegression()<br>
+            <span class="var">clf.fit</span>(X_train, y_train)
+          </div>
+        </div>
+      `,
+      quiz: {
+        q: "Which algorithm is commonly used for binary classification?",
+        options: ["K-Means", "Decision Tree", "Logistic Regression", "Principal Component Analysis"],
+        answer: 2,
+        explanation: "? Correct! Logistic regression estimates probabilities for two-class outcomes."
+      }
+    },
+    {
+      id: 2,
+      icon: "🤖",
+      title: "Model Evaluation Metrics",
+      subtitle: "Accuracy, precision, recall, F1, RMSE",
+      content: `
+        <div class="card">
+          <h3>🤖 Classification Metrics</h3>
+          <p>Precision = TP / (TP + FP); Recall = TP / (TP + FN); F1 = harmonic mean of precision and recall.</p>
+        </div>
+        <div class="card">
+          <h3>🤖 Regression Metrics</h3>
+          <p>RMSE = sqrt(mean((y_true - y_pred)^2)); MAE = mean(|y_true - y_pred|).</p>
+        </div>
+      `,
+      quiz: {
+        q: "Which metric balances precision and recall?",
+        options: ["Accuracy", "F1-score", "Specificity", "ROC AUC"],
+        answer: 1,
+        explanation: "? Correct! The F1-score is the harmonic mean of precision and recall."
+      }
+    },
+    {
+      id: 3,
+      icon: "🤖",
+      title: "Unsupervised Learning: Clustering",
+      subtitle: "K-means and hierarchical clustering",
+      content: `
+        <div class="card">
+          <h3>🤖 K-Means Clustering</h3>
+          <p>Partitions data into K clusters by minimizing within-cluster variance.</p>
+          <div class="code-block">
+            <span class="cmt"># from sklearn.cluster import KMeans</span><br>
+            <span class="var">kmeans</span> = KMeans(n_clusters=3)<br>
+            <span class="var">kmeans.fit</span>(X)
+          </div>
+        </div>
+        <div class="card">
+          <h3>🤖 Hierarchical Clustering</h3>
+          <p>Builds a tree of clusters; you can cut the tree at any level.</p>
+        </div>
+      `,
+      quiz: {
+        q: "In K-means, what does the 'K' represent?",
+        options: ["Number of iterations", "Number of clusters", "Number of features", "Number of samples"],
+        answer: 1,
+        explanation: "? Correct! K is the number of centroids (clusters) the algorithm will form."
+      }
+    }
+  ];
+const week10Lessons = [{
+      id: 0,
+      icon: "🤖",
+      title: "Classification vs Regression: Core Difference",
+      subtitle: "Predicting categories vs predicting numbers",
+      content: `
+        <div class="card">
+          <h3>🤖 Classification</h3>
+          <p>Output is a discrete label or class (e.g., cat/dog, spam/not-spam).</p>
+        </div>
+        <div class="card">
+          <h3>🤖 Regression</h3>
+          <p>Output is a continuous numeric value (e.g., house price, temperature).</p>
+        </div>
+      `,
+      quiz: {
+        q: "Which of the following is a regression task?",
+        options: ["Detecting whether an email is spam", "Predicting tomorrow�s temperature", "Identifying objects in an image", "Clustering customers by purchase history"],
+        explanation: "? Correct! Predicting a temperature value is a regression problem"
+      }
+    },
+    {
+      id: 1,
+      icon: "🤖",
+      title: "Evaluation Metrics for Classification",
+      subtitle: "Confusion matrix, ROC, AUC",
+      content: `
+        <div class="card">
+          <h3>🤖 Confusion Matrix</h3>
+          <p>Tabulates True Positives, False Positives, True Negatives, False Negatives.</p>
+        </div>
+        <div class="card">
+          <h3>🤖 ROC Curve & AUC</h3>
+          <p>ROC plots TPR vs FPR at various thresholds; AUC measures overall separability.</p>
+        </div>
+      `,
+      quiz: {
+        q: "What does AUC stand for in ROC analysis?",
+        options: ["Average Unique Classification", "Area Under the Curve", "Accuracy Under Confidence", "Average Utility Coefficient"],
+        answer: 1,
+        explanation: "? Correct! AUC = Area Under the ROC Curve, summarizing classifier performance across thresholds."
+      }
+    },
+    {
+      id: 2,
+      icon: "🤖",
+      title: "Evaluation Metrics for Regression",
+      subtitle: "MAE, MSE, RMSE, R-squared",
+      content: `
+        <div class="card">
+          <h3>🤖 Mean Absolute Error (MAE)</h3>
+          <p>Average of absolute differences between predicted and actual values.</p>
+        </div>
+        <div class="card">
+          <h3>🤖 Mean Squared Error (MSE)</h3>
+          <p>Average of squared differences; penalizes larger errors more heavily.</p>
+        </div>
+        <div class="card">
+          <h3>🤖 R-squared (Coefficient of Determination)</h3>
+          <p>Proportion of variance in the dependent variable explained by the model.</p>
+          <div class="code-block">
+            <span class="var">R2</span> = 1 - (SS_res / SS_tot)
+          </div>
+        </div>
+      `,
+      quiz: {
+        q: "Which regression metric is expressed in the same units as the target variable?",
+        options: ["R-squared", "MSE", "MAE", "Max Error"],
+        answer: 2,
+        explanation: "? Correct! MAE is measured in the same units as the target (e.g., dollars, degrees)."
+      }
+    },
+    {
+      id: 3,
+      icon: "🤖",
+      title: "Choosing Between Classification and Regression",
+      subtitle: "Problem framing and target variable type",
+      content: `
+        <div class="card">
+          <h3>? Ask Yourself</h3>
+          <ul>
+            <li>Is the output a category or a number?</li>
+            <li>Do I need probabilities or a precise value?</li>
+            <li>What is the business question?</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>🤖 Example: Predicting House Price</h3>
+          <p>Price is continuous ? regression.</p>
+        </div>
+        <div class="card">
+          <h3>🤖 Example: Predicting Whether a Loan Will Default</h3>
+          <p>Default (yes/no) ? classification.</p>
+        </div>
+      `,
+      quiz: {
+        q: "If your target variable is the number of items sold tomorrow, which task should you choose?",
+        options: ["Classification", "Regression", "Clustering", "Dimensionality reduction"],
+        answer: 1,
+        explanation: "? Correct! The number of items sold is a continuous quantity ? regression."
+      }
+    }
+  ];
 
 function getLessonsForWeek(weekNumber) {
     if (weekNumber === 1) return week1Lessons;
@@ -2883,6 +3204,9 @@ function getLessonsForWeek(weekNumber) {
     if (weekNumber === 5) return week5Lessons;
     if (weekNumber === 6) return week6Lessons;
     if (weekNumber === 7) return week7Lessons;
+    if (weekNumber === 8) return week8Lessons;
+    if (weekNumber === 9) return week9Lessons;
+    if (weekNumber === 10) return week10Lessons;
     if (weekNumber === 11) return week11Lessons;
     return buildPlaceholderLessons(weekNumber);
 }
@@ -2997,7 +3321,7 @@ function renderLesson(idx) {
   const isLast = idx === activeLessons.length - 1;
   const quizHtml = `
     <div class="quiz-card">
-      <h3>?? Quick Check</h3>
+      <h3>🤖 Quick Check</h3>
       <div class="quiz-q"><pre style="font-family:inherit;white-space:pre-wrap">${l.quiz.q}</pre></div>
       <div class="options">
         ${l.quiz.options.map((opt, oi) =>
@@ -3010,7 +3334,7 @@ function renderLesson(idx) {
 
   const practiceModelsByWeek = {
     1: {
-      title: "Week 1 Practice — Think Like an AI System",
+      title: "Week 1 Practice � Think Like an AI System",
       items: [
         "<strong>Exercise 1:</strong> Name 3 AI systems you've seen this week. For each one, identify: What is the INPUT? What is the OUTPUT?",
         "<strong>Exercise 2:</strong> Think of a problem in your team's work. How would Rule-Based AI solve it? How would Machine Learning solve it differently?",
@@ -3020,10 +3344,10 @@ function renderLesson(idx) {
       code: null
     },
     2: {
-      title: "Week 2 Practice — First Python Programs",
+      title: "Week 2 Practice � First Python Programs",
       items: [
         "<strong>Task 1:</strong> Open Python and print your name, city, and team using print().",
-        "<strong>Task 2:</strong> Create 3 variables — your name (String), age (Integer), and is_engineer (Boolean). Print all three.",
+        "<strong>Task 2:</strong> Create 3 variables � your name (String), age (Integer), and is_engineer (Boolean). Print all three.",
         "<strong>Task 3:</strong> Write a program that stores two numbers and prints their sum, difference, and product.",
         "<strong>Task 4:</strong> Use a comparison operator to check if your age is greater than 18. Print the result."
       ],
@@ -3034,11 +3358,11 @@ function renderLesson(idx) {
 <span class="fn">print</span>(<span class="var">name</span>, <span class="var">age</span>, <span class="var">is_engineer</span>)`
     },
     3: {
-      title: "Week 3 Practice — Variables, Types & Conditions",
+      title: "Week 3 Practice � Variables, Types & Conditions",
       items: [
-        "<strong>Task 1:</strong> Build a temperature warning system. If temp > 100 → Warning. If temp == 100 → Caution. Else → Normal.",
+        "<strong>Task 1:</strong> Build a temperature warning system. If temp > 100 ? Warning. If temp == 100 ? Caution. Else ? Normal.",
         "<strong>Task 2:</strong> Store 3 employee names as variables. Use a condition to check if each name is 'Admin' and print a special message.",
-        "<strong>Task 3:</strong> Create a speed checker — if speed > 120 → Overspeeding, elif > 80 → Caution, else → Safe.",
+        "<strong>Task 3:</strong> Create a speed checker � if speed > 120 ? Overspeeding, elif > 80 ? Caution, else ? Safe.",
         "<strong>Task 4:</strong> Write a program using all 4 data types (String, Integer, Float, Boolean) and print each one with a label."
       ],
       code: `<span class="cmt"># Starter: Temperature warning system</span><br>
@@ -3051,14 +3375,14 @@ function renderLesson(idx) {
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="str">"Normal"</span>)`
     },
     6: {
-      title: "Week 6 Practice — Lists & Dictionaries",
+      title: "Week 6 Practice � Lists & Dictionaries",
       items: [
         "<strong>Task 1:</strong> Create a list of 5 car models. Loop through and print each one. Then print only the first and last using index numbers.",
         "<strong>Task 2:</strong> Create a dictionary for one car with model, color, emission, fuel. Print each value. Update emission and print again.",
         "<strong>Task 3:</strong> Create a list of 4 dictionaries (each with model + emission). Loop through and print Pass/Fail based on emission &lt;= 50.",
         "<strong>Task 4:</strong> Start with 3 cars in a list. Append 2 more. Remove one. Print the final list and its length."
       ],
-      code: `<span class="cmt"># Starter — List of Dictionaries</span><br>
+      code: `<span class="cmt"># Starter � List of Dictionaries</span><br>
 <span class="var">fleet</span> = [<br>
 &nbsp;&nbsp;{<span class="str">"model"</span>: <span class="str">"Alto"</span>, <span class="str">"emission"</span>: <span class="num">42</span>},<br>
 &nbsp;&nbsp;{<span class="str">"model"</span>: <span class="str">"Swift"</span>, <span class="str">"emission"</span>: <span class="num">65</span>},<br>
@@ -3067,7 +3391,7 @@ function renderLesson(idx) {
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="var">car</span>[<span class="str">"model"</span>], <span class="var">car</span>[<span class="str">"emission"</span>])`
     },
     7: {
-      title: "Week 7 Practice — pandas",
+      title: "Week 7 Practice � pandas",
       items: [
         "<strong>Task 1:</strong> Load fleet_data.csv. Print head(), shape, and columns.",
         "<strong>Task 2:</strong> Filter all cars where emission > 50. Print model and emission columns only.",
@@ -3195,6 +3519,7 @@ window.addEventListener('load', () => {
 </div>
 </body>
 </html>
+
 
 
 
